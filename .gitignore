@@ -1,0 +1,4 @@
+.nuvem
+.env
+.env_*
+node_modules/
