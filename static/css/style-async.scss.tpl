@@ -1999,3 +1999,35 @@ footer {
 .display-when-content-ready{
   display: block!important;
 }
+
+
+/* ========================================
+   TRACK FOR — MODA URBANA OUTLET
+   Header — Personalização v1
+======================================== */
+
+.head-main {
+  transition: background-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.head-main .header-utility {
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  .head-main .header-utility:hover {
+    opacity: 0.75;
+  }
+}
+
+.head-main .desktop-nav-col {
+  min-width: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .head-main,
+  .head-main .header-utility {
+    transition: none;
+  }
+}
