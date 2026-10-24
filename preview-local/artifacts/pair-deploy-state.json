@@ -1,0 +1,21 @@
+{
+  "backup": "preview-local/artifacts/pre-publicacao-pair-1792863839983",
+  "files": [
+    "snipplets/home/home-editorial-pair.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "absent": [
+    "snipplets/home/home-editorial-pair.tpl"
+  ],
+  "store": "https://www.modaurbanaoutlet.com.br",
+  "uploaded": [
+    "snipplets/home/home-editorial-pair.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "verified": true,
+  "time": "2026-10-24T17:44:50.433Z"
+}

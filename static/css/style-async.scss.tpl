@@ -2128,4 +2128,5 @@ footer {
   }
 }
 
+/* TRACK FOR: compact hero and liquid glass header revision 2. */
 {% include "static/css/style-editorial-async.tpl" %}

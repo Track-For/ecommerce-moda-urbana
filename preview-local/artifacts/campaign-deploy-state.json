@@ -1,0 +1,23 @@
+{
+  "backup": "preview-local/artifacts/pre-publicacao-campaign-1792874970235",
+  "files": [
+    "snipplets/home/home-editorial-campaign.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "config/settings.txt",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "absent": [
+    "snipplets/home/home-editorial-campaign.tpl"
+  ],
+  "store": "https://www.modaurbanaoutlet.com.br",
+  "uploaded": [
+    "snipplets/home/home-editorial-campaign.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "config/settings.txt",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "verified": true,
+  "time": "2026-10-24T20:50:59.650Z"
+}

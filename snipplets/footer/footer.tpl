@@ -13,10 +13,15 @@
 {% set has_seal_logos = store.afip or ebit or settings.custom_seal_code or ("seal_img.jpg" | has_custom_image) %}
 {% set show_help = not has_products and not has_social_network %}
 
+{% if template == 'home' %}
+    {% include "snipplets/home/home-editorial-tiles.tpl" %}
+{% endif %}
+
 {{ component('nubesdk-slot', { type: "before_footer" }) }}
 
-<footer class="js-footer js-hide-footer-while-scrolling display-when-content-ready{% if template == 'home' %} mt-4{% endif %}" data-store="footer">
+<footer class="tf-footer js-footer js-hide-footer-while-scrolling display-when-content-ready{% if template == 'home' %} mt-4{% endif %}" data-store="footer">
 	<div class="container-fluid">
+		<div class="tf-footer-brand"><a href="{{ store.url | default('/') }}">{{ store.name }}</a></div>
 		<div class="row mb-5 {% if template == 'password' %}justify-content-md-center{% endif %}">
 
 			{% if has_social_network %}

@@ -973,6 +973,30 @@ Página de inicio
 		name = module_title
 		description = Título para los módulos de imagen y texto
 	collapse
+		title = Banner editorial de largura total
+		backto = home_order_position
+	description
+		description = Aparece abaixo do bloco de campanha e produtos em Destaques. Envie uma imagem horizontal (1920 x 720 px). A primeira imagem desta galeria sera usada. Sem imagem, o segundo modulo de imagem e texto sera reaproveitado.
+	gallery
+		name = tf_editorial_campaign
+		gallery_image = Adicionar imagem da campanha
+		gallery_link = Link de destino da campanha (opcional)
+		gallery_width = 1920
+		gallery_height = 720
+		gallery_more_info = true
+	collapse
+		title = Banners editoriais antes do rodape
+		backto = home_order_position
+	description
+		description = Mostra as duas primeiras imagens lado a lado no final da pagina inicial. Use fotos verticais (900 x 1100 px), titulo e link. Sem imagens, usa o segundo e terceiro modulos existentes.
+	gallery
+		name = tf_editorial_tiles
+		gallery_image = Adicionar banner
+		gallery_link = Link de destino (opcional)
+		gallery_width = 900
+		gallery_height = 1100
+		gallery_more_info = true
+	collapse
 		title = Carrusel de marcas
 		backto = home_order_position
 	checkbox

@@ -1063,6 +1063,10 @@ DOMContentLoaded.addEventOrExecute(() => {
                         {% if featured_products_asymmetric_slider %}
                             slidesPerGroup: slidesPerViewFeaturedDesktopVal,
                         {% endif %}
+                        },
+                        1200: {
+                            slidesPerView: 5,
+                            slidesPerGroup: 1,
                         }
                     }
                 });

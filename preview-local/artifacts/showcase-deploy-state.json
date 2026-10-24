@@ -1,0 +1,18 @@
+{
+  "backup": "preview-local/artifacts/pre-publicacao-vitrine-1792862589222",
+  "files": [
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "static/js/store.js.tpl",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "store": "https://www.modaurbanaoutlet.com.br",
+  "uploaded": [
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-critical.tpl",
+    "static/js/store.js.tpl",
+    "snipplets/home/home-featured-grid.tpl"
+  ],
+  "verified": true,
+  "time": "2026-10-24T17:23:49.285Z"
+}

@@ -54,6 +54,13 @@
 {% endif %}
 
 
+{# The primary editorial showcase uses aligned cards and a full-width heading. #}
+{% if featured_products %}
+    {% set section_column_title = false %}
+    {% set section_title_centered = false %}
+    {% set section_asymmetric = false %}
+    {% set section_asymmetric_slider = false %}
+{% endif %}
 {% set section_title_class = section_column_title ? 'h1-huge mb-4' : 'h1 mb-3' %}
 {% set section_column_align_class = section_title_centered ? 'text-center' : section_column_title ? 'pt-md-5' %}
 {% set section_row_class = not section_column_title and not section_asymmetric ? 'pb-md-5' %}
@@ -63,7 +70,7 @@
 {% set section_pagination_bottom_class = not section_column_title ? 'swiper-pagination-bottom' %}
 {% set section_pagination_left_class = not section_column_title and not section_title_centered ? 'swiper-pagination-left' %}
 
-<div class="container-fluid{% if featured_products %} tf-featured{% endif %}">
+<div class="container-fluid{% if featured_products %} tf-featured tf-occasion{% endif %}">
     <div class="row mb-3 pb-2 {{ section_row_class }} {{ section_row_align_class }}">
         <div class="{{ section_first_column_class }} {{ section_column_align_class }} mb-4">
             {% if section_asymmetric and section_column_title %}
@@ -72,8 +79,19 @@
                 {% if section_title %}
                     <h2 class="{{ section_title_class }}">{{ section_title }}</h2>
                 {% endif %}
+                {% if featured_products %}
+                    {% set category_count = 0 %}
+                    <nav class="tf-occasion-categories" aria-label="{{ 'Categorías' | translate }}">
+                        {% for item in navigation %}
+                            {% if item.isCategory and category_count < 5 %}
+                                <a href="{{ item.url }}">{{ item.name }}</a>
+                                {% set category_count = category_count + 1 %}
+                            {% endif %}
+                        {% endfor %}
+                    </nav>
+                {% endif %}
                 {% if use_slider %}
-                    <div class="{% if section_asymmetric %}text-right text-md-left{% if section_columns_mobile == 2 and section_asymmetric_slider %} text-center{% endif %}{% else %}d-none d-md-block{% endif %} {{ section_pagination_bottom_class }} {{ section_pagination_left_class }}">
+                    <div class="{% if featured_products %}tf-occasion-controls{% elseif section_asymmetric %}text-right text-md-left{% if section_columns_mobile == 2 and section_asymmetric_slider %} text-center{% endif %}{% else %}d-none d-md-block{% endif %}{% if not featured_products %} {{ section_pagination_bottom_class }} {{ section_pagination_left_class }}{% endif %}">
                         <div class="js-swiper-{% if featured_products %}featured{% elseif new_products %}new{% else %}sale{% endif %}-prev swiper-button-prev d-inline-block svg-icon-text">{% include "snipplets/svg/chevron-left.tpl" with {svg_custom_class: "icon-inline icon-xs"} %}</div>
                         <div class="js-swiper-{% if featured_products %}featured{% elseif new_products %}new{% else %}sale{% endif %}-pagination swiper-pagination-fraction font-small d-inline-block"></div>
                         <div class="js-swiper-{% if featured_products %}featured{% elseif new_products %}new{% else %}sale{% endif %}-next swiper-button-next d-inline-block svg-icon-text">{% include "snipplets/svg/chevron-right.tpl" with {svg_custom_class: "icon-inline icon-xs"} %}</div>
@@ -135,3 +153,8 @@
         {% endif %}
     </div>
 </div>
+
+{% if featured_products %}
+    {% include "snipplets/home/home-editorial-pair.tpl" %}
+    {% include "snipplets/home/home-editorial-campaign.tpl" %}
+{% endif %}

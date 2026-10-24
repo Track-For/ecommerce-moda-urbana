@@ -1,5 +1,18 @@
 // Local interaction adapter. Never executes LS, cart requests, tracking or store scripts.
 const root = document.querySelector('#header-root');
+document.addEventListener('submit', event => {
+  if (event.target.closest('.tf-footer')) {
+    event.preventDefault();
+    document.querySelector('#preview-status').textContent = 'Newsletter simulada: nenhum dado foi enviado.';
+  }
+});
+document.addEventListener('click', event => {
+  const toggle = event.target.closest('.tf-footer .js-accordion-toggle-mobile');
+  if (!toggle || innerWidth >= 768) return;
+  event.preventDefault();
+  const content = toggle.parentElement.querySelector('.js-accordion-content');
+  if (content) content.style.display = getComputedStyle(content).display === 'none' ? 'block' : 'none';
+});
 let before = false;
 let opener;
 const status = message => { document.querySelector('#preview-status').textContent = message; setTimeout(() => document.querySelector('#preview-status').textContent = '', 5000); };
@@ -46,7 +59,18 @@ const reveal = new IntersectionObserver(entries=>entries.forEach(entry=>{
 document.querySelectorAll('#home-root [data-transition]').forEach(el=>reveal.observe(el));
 document.querySelectorAll('.tf-home-hero').forEach(el=>el.dataset.previewHero='true');
 document.querySelectorAll('.tf-featured').forEach(el=>el.dataset.previewFeatured='true');
+document.querySelector('.tf-footer')?.classList.remove('display-when-content-ready');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Design-only adapter: product purchase actions remain unavailable locally.
+new window.Swiper('.js-swiper-featured', {
+  speed: reducedMotion ? 0 : 300,
+  slidesPerView: 1.15,
+  spaceBetween: 16,
+  loop: true,
+  breakpoints: { 768: { slidesPerView: 3 }, 1200: { slidesPerView: 5 } },
+  navigation: { nextEl: '.js-swiper-featured-next', prevEl: '.js-swiper-featured-prev' },
+  pagination: { el: '.js-swiper-featured-pagination', type: 'fraction' },
+});
 new window.Swiper('.js-home-slider', {
   speed: reducedMotion ? 0 : 300, loop: false, autoplay:false, preloadImages:false, lazy:true,
   pagination:{el:'.js-swiper-home-pagination',type:'fraction'},

@@ -26,6 +26,7 @@ Twig.extendFilter('has_custom_image', () => false);
 Twig.extendFilter('static_url', v => `/generated/${path.basename(v)}`);
 Twig.extendFilter('settings_image_url', v => v);
 Twig.extendFilter('setting_url', v => v);
+Twig.extendFilter('is_external', v => /^https?:\/\//.test(v || ''));
 Twig.extendFilter('add_param', v => v);
 Twig.extendFilter('money', () => 'Preço indisponível na prévia');
 Twig.extendFilter('a_tag', (v, a = []) => `<a href="${esc(a[0] || '#')}" class="${esc(a[2] || '')}">${esc(v)}</a>`);
@@ -43,7 +44,7 @@ function copyTemplates(dir) {
     // The JS renderer resolves includes relative to each template, unlike the platform.
     source = source.replace(/(['"])((?:snipplets|static)\/[^'"\n]+)\1/g, (_, q, p) => q + path.relative(path.dirname(target), path.join(cache, p)).replaceAll('\\', '/') + q);
     // Platform-owned components are unavailable offline; do not imitate checkout or apps.
-    source = source.replace(/\{\{\s*component\([\s\S]*?\}\}/g, expression => expression.includes("'product-item-image'") ? '<div class="item-image"><a href="#vitrine" class="position-relative d-block"><img src="/generated/product-placeholder.svg" style="position:relative;width:100%;height:auto" alt="Foto do produto não disponível na prévia"></a></div>' : '');
+    source = source.replace(/\{\{\s*component\([\s\S]*?\}\}/g, expression => expression.includes("'product-item-image'") ? '<div class="item-image"><a href="#vitrine" class="position-relative d-block"><img src="{{ product.preview_image | default(\'/generated/product-placeholder.svg\') }}" style="position:relative;width:100%;height:auto" alt="Foto do produto não disponível na prévia"></a></div>' : '');
     if (rel === 'snipplets/header/header-logo.tpl') source = '<div id="logo" class="logo-img-container"><a class="logo-text-container" href="#inicio" aria-label="Moda Urbana Outlet — logo textual simulado"><span class="logo-text h3 mb-0">MODA URBANA<br>OUTLET</span></a></div>';
     if (rel === 'snipplets/cart-panel.tpl') source = '<p class="alert alert-info">Carrinho simulado vazio.</p><p>Compras, frete e checkout não estão conectados nesta prévia.</p>';
     fs.writeFileSync(target, source);
@@ -80,7 +81,31 @@ const homeSettings = { ...settings, slider_text_outside: false, slider: [
   { image:'hero-placeholder.svg', width:1600, height:760, title:'Moda Urbana Outlet', description:'Espaço reservado à campanha configurada no painel.', button:'Ver estrutura da vitrine', link:'#vitrine', color:'dark' },
   { image:'hero-placeholder.svg', width:1600, height:760, title:'Sua campanha neste espaço', description:'Segundo slide simulado para testar os controles do Cali.', button:'Ver estrutura da vitrine', link:'#vitrine', color:'dark' }
 ] };
-const products = [1,2].map(id => ({ id:`preview-${id}`, name:`Espaço de produto ${String(id).padStart(2,'0')} · simulado`, url:'#vitrine', display_price:true, price:null, has_stock:true, available:false, variations:[], isSubscriptionOnly:()=>false, isSubscribable:()=>false }));
+const products = JSON.parse(fs.readFileSync(path.join(local, 'product-fixture.json'), 'utf8')).map(p => ({ ...p, preview_image: p.image, display_price:false, price:null, has_stock:true, available:false, variations:[], isSubscriptionOnly:()=>false, isSubscribable:()=>false }));
+homeSettings.featured_products_format = 'slider';
+homeSettings.featured_products_title = 'Destaques';
+homeSettings.module = JSON.parse(fs.readFileSync(path.join(local, 'module-fixture.json'), 'utf8')).slides;
+
 const homeContext = { ...context, settings:homeSettings, sections:{primary:{products}}, has_featured:true };
-fs.writeFileSync(path.join(out,'home.html'), render('snipplets/home/home-slider.tpl',homeContext) + '<section id="vitrine" aria-label="Vitrine com dados simulados">' + render('snipplets/home/home-featured-products.tpl',homeContext) + '</section>');
+fs.writeFileSync(path.join(out,'home.html'), render('snipplets/home/home-slider.tpl',homeContext) + '<section id="vitrine" aria-label="Amostra p?blica de produtos; pre?os e compra indispon?veis nesta pr?via">' + render('snipplets/home/home-featured-products.tpl',homeContext) + '</section>');
 fs.writeFileSync(path.join(out,'vendor.js'),read('static/js/external-no-dependencies.js.tpl').replace(/\{#[\s\S]*?#\}/g,''));
+
+// Public store content copied locally for design review; no production credentials.
+const moduleFixture = JSON.parse(fs.readFileSync(path.join(local, 'module-fixture.json'), 'utf8'));
+for (const slide of moduleFixture.slides) {
+  fs.copyFileSync(path.join(local, 'public', slide.image), path.join(out, path.basename(slide.image)));
+}
+const moduleMarkup = render('snipplets/home/home-modules.tpl', {
+  ...context,
+  settings: { ...settings, module: moduleFixture.slides, module_title: moduleFixture.title },
+});
+const previewHomePath = path.join(out, 'home.html');
+fs.writeFileSync(previewHomePath, fs.readFileSync(previewHomePath, 'utf8').replace('<section id="vitrine"', moduleMarkup + '<section id="vitrine"'));
+const footerMarkup = render('snipplets/footer/footer.tpl', {
+  ...homeContext,
+  settings: { ...homeContext.settings, payments: false, shipping: false },
+  menus: { navigation },
+  contact: {},
+  has_products: true,
+});
+fs.appendFileSync(previewHomePath, footerMarkup);

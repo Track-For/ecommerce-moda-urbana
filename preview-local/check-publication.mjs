@@ -44,7 +44,7 @@ assert(start >= 0 && end > start);
 const fragment = source.slice(start, end);
 const vendor = read('static/js/external-no-dependencies.js.tpl').replace(/\{#[\s\S]*?#\}/g, '');
 new vm.Script(vendor);
-const css = read('static/css/style-editorial-async.tpl').replace(/\{#[\s\S]*?#\}/g, '');
+const css = sass.compileString(Twig.twig({ data: read('static/css/style-editorial-async.tpl'), rethrow: true }).render({ settings }), { logger: sass.Logger.silent }).css;
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 let cases = 0;
 try {
@@ -69,14 +69,14 @@ try {
     await page.waitForTimeout(100);
     // Click real navigation controls repeatedly, across both loop boundaries.
     for (const direction of ['next', 'prev']) for (let i = 0; i < count + 2; i++) {
-      const before = await page.evaluate(() => ({ index: testSwiper.realIndex, translate: testSwiper.translate }));
+      const before = await page.evaluate(() => ({ index: testSwiper.realIndex, translate: testSwiper.translate, locked: testSwiper.isLocked }));
       await page.locator(`.js-swiper-featured-${direction}`).click({ force: true });
-      await page.waitForTimeout(reduced ? 30 : 650);
+      await page.waitForFunction(() => !testSwiper.animating, null, { timeout: 5000 });
       const state = await page.evaluate(() => ({ index: testSwiper.realIndex, translate: testSwiper.translate, animating: testSwiper.animating, speed: testSwiper.params.speed }));
       assert.equal(state.animating, false, JSON.stringify({ width, reduced, count, asymmetric, direction, i, state }));
       assert.equal(state.speed, reduced ? 0 : 300);
       if (count > 3) assert.notEqual(state.index, before.index, 'Loop navigation must keep advancing');
-      else if (i === 0) assert.notEqual(state.translate, before.translate, 'Non-loop navigation must move');
+      else if (i === 0 && !before.locked) assert.notEqual(state.translate, before.translate, 'Non-loop navigation must move when products overflow');
     }
     assert.deepEqual(errors, []);
     await page.close();
