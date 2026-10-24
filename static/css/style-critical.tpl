@@ -2893,3 +2893,110 @@ header.head-main.compress .logo-img-small {
   .w-md-100{width:100%!important}.w-md-auto{width:auto!important}
 }
 {% endraw %}
+
+{# TRACK FOR: header geometry belongs in critical CSS to avoid layout shifts.
+   Keep Cali columns, logo sizes and JS measurement hooks intact. #}
+.tf-header {
+  --tf-header-space: 16px;
+  --tf-header-target: 44px;
+}
+.tf-header > .container-fluid {
+  padding-right: var(--tf-header-space);
+  padding-left: var(--tf-header-space);
+}
+.tf-header .js-logo-col,
+.tf-header .desktop-nav-col {
+  min-width: 0;
+}
+.tf-header .logo-text {
+  overflow-wrap: anywhere;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+.tf-header .utilities-container {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+.tf-header .utilities-item,
+.tf-header .cart-summary > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tf-header-target);
+  min-height: var(--tf-header-target);
+  vertical-align: middle;
+}
+.tf-header .utilities-text {
+  letter-spacing: .015em;
+  text-transform: none;
+}
+.tf-header .search-input {
+  min-height: 44px;
+  padding-right: 44px;
+}
+.tf-header .search-input-submit {
+  min-width: 44px;
+  min-height: 44px;
+  top: 0;
+}
+@media (max-width: 767px) {
+  .tf-header {
+    --tf-header-space: 12px;
+  }
+  .tf-header .utilities-container {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .tf-header .logo-img {
+    object-fit: contain;
+  }
+}
+@media (min-width: 768px) {
+  .tf-header {
+    --tf-header-space: 24px;
+  }
+  .tf-header .utilities-container {
+    margin-right: 4px;
+    margin-left: 4px;
+  }
+  .tf-header .nav-desktop-list > .nav-item {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+  .tf-header .nav-desktop-list > .nav-item > .nav-list-link,
+  .tf-header .nav-desktop-list > .nav-item > .nav-item-container > .nav-list-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--font-base);
+    letter-spacing: .025em;
+  }
+  .tf-header .nav-desktop-list {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .tf-header {
+    --tf-header-space: 40px;
+  }
+  .tf-header .nav-desktop-list > .nav-item {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+}
+
+{# Allow utility groups to fit without squeezing or overflowing mobile columns. #}
+@media (max-width: 767px) {
+  .tf-header .js-logo-col {
+    flex: 1 1 0%;
+    max-width: 100%;
+  }
+  .tf-header .tf-header-actions {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+  }
+}
+
+{% include "static/css/style-editorial-critical.tpl" %}

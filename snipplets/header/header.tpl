@@ -69,7 +69,7 @@
 
 {% set has_account_links = settings.account_header %}
 
-<header class="js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
+<header class="tf-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
     {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
@@ -112,7 +112,7 @@
 
             {# Search: Icon or box #}
 
-            <div class="{% if not settings.hamburger_desktop and settings.logo_position_desktop == 'left' %}js-desktop-search-cart-col desktop-search-cart-col{% endif %} {% if settings.logo_position_mobile == 'left' %}col-auto{% else %}{% if settings.utilities_type_mobile == 'text' %}{% if has_languages %}col-5{% else %}col-4{% endif %}{% else %}{% if head_languages_centered_with_big_logo %}col-4{% else %}col-3{% endif %}{% endif %}{% endif %} {% if settings.logo_position_desktop == 'left' %}col-md-auto{% else %}col-md-3{% endif %} d-flex align-items-center justify-content-end">
+            <div class="tf-header-actions {% if not settings.hamburger_desktop and settings.logo_position_desktop == 'left' %}js-desktop-search-cart-col desktop-search-cart-col{% endif %} {% if settings.logo_position_mobile == 'left' %}col-auto{% else %}{% if settings.utilities_type_mobile == 'text' %}{% if has_languages %}col-5{% else %}col-4{% endif %}{% else %}{% if head_languages_centered_with_big_logo %}col-4{% else %}col-3{% endif %}{% endif %}{% endif %} {% if settings.logo_position_desktop == 'left' %}col-md-auto{% else %}col-md-3{% endif %} d-flex align-items-center justify-content-end">
                 
                 {# Languages #}
 

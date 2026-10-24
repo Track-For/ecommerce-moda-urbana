@@ -63,7 +63,7 @@
 {% set section_pagination_bottom_class = not section_column_title ? 'swiper-pagination-bottom' %}
 {% set section_pagination_left_class = not section_column_title and not section_title_centered ? 'swiper-pagination-left' %}
 
-<div class="container-fluid">
+<div class="container-fluid{% if featured_products %} tf-featured{% endif %}">
     <div class="row mb-3 pb-2 {{ section_row_class }} {{ section_row_align_class }}">
         <div class="{{ section_first_column_class }} {{ section_column_align_class }} mb-4">
             {% if section_asymmetric and section_column_title %}

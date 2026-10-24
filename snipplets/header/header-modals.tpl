@@ -19,7 +19,7 @@
 
 {% set modal_with_desktop_only_overlay_val = false %}
 
-{% embed "snipplets/modal.tpl" with{modal_id: 'nav-hamburger',modal_class: 'nav-hamburger modal-docked-md pb-0', modal_position: modal_position_mobile_val, modal_position_desktop: modal_position_desktop_val, modal_transition: 'slide', modal_width: 'full', modal_mobile_full_screen: false, modal_hide_close: 'true',modal_body_class: 'nav-body', modal_footer_class: 'hamburger-footer mb-0', modal_fixed_footer: true, modal_footer: true, desktop_overlay_only: modal_with_desktop_only_overlay_val} %}
+{% embed "snipplets/modal.tpl" with{modal_id: 'nav-hamburger',modal_class: 'nav-hamburger tf-header-panel modal-docked-md pb-0', modal_position: modal_position_mobile_val, modal_position_desktop: modal_position_desktop_val, modal_transition: 'slide', modal_width: 'full', modal_mobile_full_screen: false, modal_hide_close: 'true',modal_body_class: 'nav-body', modal_footer_class: 'hamburger-footer mb-0', modal_fixed_footer: true, modal_footer: true, desktop_overlay_only: modal_with_desktop_only_overlay_val} %}
 	{% block modal_body %}
 		{% if settings.search_type_mobile != 'search_icon' or settings.utilities_type_mobile == 'text' %}
 			<div class="d-block d-md-none">
@@ -37,7 +37,7 @@
 
 	{# Modal Search #}
 
-	{% embed "snipplets/modal.tpl" with{modal_id: 'nav-search',modal_class: 'nav-search modal-fade', modal_transition: 'slide', modal_header_title: false, search_modal: true } %}
+	{% embed "snipplets/modal.tpl" with{modal_id: 'nav-search',modal_class: 'nav-search tf-header-panel modal-fade', modal_transition: 'slide', modal_header_title: false, search_modal: true } %}
 		{% block modal_body %}
 			<div class="row">
 				<div class="col-12 col-md-6 offset-md-3">

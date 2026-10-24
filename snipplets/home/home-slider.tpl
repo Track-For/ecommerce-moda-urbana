@@ -4,7 +4,7 @@
 {% if not mobile %}
 <div class="js-home-main-slider-container home-slider-container {% if not has_main_slider %}hidden{% endif %}" data-transition="fade-in">
 {% endif %}
-	<div class="{% if mobile %}js-home-mobile-slider{% else %}js-home-main-slider{% endif %}-visibility {% if has_main_slider and has_mobile_slider %}{% if mobile %}d-md-none{% else %}d-none d-md-block{% endif %}{% elseif not settings.toggle_slider_mobile and mobile %}hidden{% endif %}">
+	<div class="tf-home-hero {% if settings.slider_text_outside %}tf-hero-outside{% endif %} {% if mobile %}js-home-mobile-slider{% else %}js-home-main-slider{% endif %}-visibility {% if has_main_slider and has_mobile_slider %}{% if mobile %}d-md-none{% else %}d-none d-md-block{% endif %}{% elseif not settings.toggle_slider_mobile and mobile %}hidden{% endif %}">
 		<div class="section-slider">
 			<div class="js-home-slider{% if mobile %}-mobile{% endif %} nube-slider-home swiper-container swiper-container-horizontal">
 				<div class="swiper-wrapper">

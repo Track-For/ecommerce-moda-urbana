@@ -2001,33 +2001,131 @@ footer {
 }
 
 
-/* ========================================
-   TRACK FOR — MODA URBANA OUTLET
-   Header — Personalização v1
-======================================== */
-
-.head-main {
-  transition: background-color 0.3s ease,
-              box-shadow 0.3s ease;
+{# TRACK FOR ? Header and navigation.
+   Scoped separately because native modalOpen moves panels into body.
+   Colors and fonts continue to come from the merchant settings. #}
+.tf-header {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .08);
+  transition: background-color .2s ease, box-shadow .2s ease;
 }
-
-.head-main .header-utility {
-  transition: opacity 0.2s ease;
+.tf-header .utilities-item,
+.tf-header .cart-summary > a {
+  border-radius: var(--border-radius-half);
+  transition: opacity .18s ease, transform .18s ease;
 }
-
-@media (hover: hover) {
-  .head-main .header-utility:hover {
-    opacity: 0.75;
+.tf-header .nav-list-link {
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+.tf-header .nav-list-link.selected {
+  text-decoration: underline;
+}
+.tf-header .nav-dropdown:focus-within > .nav-dropdown-content {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0s;
+}
+.tf-header .desktop-dropdown-small {
+  width: 180px;
+  padding: 20px;
+  line-height: 1.6;
+}
+.tf-header .desktop-list-subitems {
+  padding-top: 28px;
+  padding-bottom: 28px;
+  column-count: 4;
+  column-gap: 32px;
+}
+.tf-header .desktop-list-subitems .nav-list-link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+.tf-header a:focus-visible,
+.tf-header button:focus-visible,
+.tf-header input:focus-visible,
+.tf-header-panel a:focus-visible,
+.tf-header-panel button:focus-visible,
+.tf-header-panel input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.tf-header-panel .search-input {
+  min-height: 48px;
+  padding-right: 48px;
+  font-size: 16px;
+}
+.tf-header-panel .search-input-submit {
+  top: 0;
+  min-width: 48px;
+  min-height: 48px;
+}
+.tf-header-panel .search-suggest {
+  max-height: calc(100dvh - 180px);
+  overscroll-behavior: contain;
+}
+.tf-header-panel.modal-nav-hamburger .nav-list-link {
+  min-height: 52px;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 14px 32px 14px 0;
+  font-size: var(--font-large);
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid rgba(127, 127, 127, .2);
+}
+.tf-header-panel.modal-nav-hamburger .nav-list-arrow {
+  margin-top: 0;
+  transform: translateY(-50%);
+  font-size: 12px;
+}
+.tf-header-panel.modal-nav-hamburger .nav-list-panel {
+  overscroll-behavior: contain;
+  padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+}
+.tf-header-panel.modal-nav-hamburger .modal-footer {
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+}
+.tf-header-panel .nav-secondary a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  line-height: 1.5;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .tf-header .desktop-list-subitems {
+    column-count: 3;
+    column-gap: 24px;
   }
 }
-
-.head-main .desktop-nav-col {
-  min-width: 0;
+@media (hover: hover) and (pointer: fine) {
+  .tf-header .utilities-item:hover,
+  .tf-header .cart-summary > a:hover {
+    opacity: .72;
+    transform: translateY(-1px);
+  }
+  .tf-header .nav-list-link:hover {
+    text-decoration: underline;
+  }
+  .tf-header-panel .nav-list-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+  }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .head-main,
-  .head-main .header-utility {
-    transition: none;
+  .tf-header,
+  .tf-header *,
+  .tf-header-panel,
+  .tf-header-panel * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .tf-header .utilities-item:hover,
+  .tf-header .cart-summary > a:hover {
+    transform: none;
   }
 }
+
+{% include "static/css/style-editorial-async.tpl" %}

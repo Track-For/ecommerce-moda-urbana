@@ -882,7 +882,8 @@ DOMContentLoaded.addEventOrExecute(() => {
 
 
         var width = window.innerWidth;
-        if (width > 767) {
+        var homeMotionReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (width > 767 && !homeMotionReduced) {
             var slider_autoplay = {delay: 6000,};
         } else {
             var slider_autoplay = false;
@@ -959,6 +960,7 @@ DOMContentLoaded.addEventOrExecute(() => {
                     loop: loopValue,
                 {% endif %}
                 autoplay: slider_autoplay,
+                speed: homeMotionReduced ? 0 : 300,
                 pagination: {
                     el: '.js-swiper-home-pagination',
                     type: 'fraction',
@@ -983,6 +985,7 @@ DOMContentLoaded.addEventOrExecute(() => {
                     loop: loopValue,
                 {% endif %}
                 autoplay: slider_autoplay,
+                speed: homeMotionReduced ? 0 : 300,
                 pagination: {
                     el: '.js-swiper-home-pagination-mobile',
                     type: 'fraction',
@@ -1024,6 +1027,8 @@ DOMContentLoaded.addEventOrExecute(() => {
                 var slidesPerViewFeaturedMobileVal = {% if featured_columns_mobile == 1 %}{% if featured_products_asymmetric_slider %}1{% else %}1.15{% endif %}{% elseif featured_columns_mobile == 2 %}{% if featured_products_asymmetric_slider %}2{% else %}2.25{% endif %}{% endif %};
 
                 window.swiperLoader('.js-swiper-featured', {
+                    // Swiper 6 completes speed: 0 synchronously, including loop navigation.
+                    speed: homeMotionReduced ? 0 : 300,
                     lazy: lazyVal,
                     watchOverflow: watchOverflowVal,
                     centerInsufficientSlides: centerInsufficientSlidesVal,
