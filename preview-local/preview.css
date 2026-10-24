@@ -1,0 +1,18 @@
+/* Only preview chrome and explicit placeholders. Theme header CSS is generated unchanged. */
+.preview-tools { display:flex; flex-wrap:wrap; gap:12px 20px; align-items:center; padding:12px 20px; background:#ececec; color:#242424; font:12px/1.5 Arial,sans-serif; }
+.preview-tools label { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:0; }
+.preview-tools select,.preview-tools button { min-height:36px; background:white; color:#242424; border:1px solid #bbb; border-radius:4px; padding:6px 10px; font:inherit; }
+.preview-tools span { margin-left:auto; }
+.preview-notice { padding-top:18px; padding-bottom:4px; font-size:13px; line-height:1.6; }
+.preview-notice p { max-width:1000px; }
+.preview-banner { min-height:420px; padding:64px 8%; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; background:#e9e7e3; color:#242424; }
+.preview-banner span,.preview-caption { font-size:11px; letter-spacing:.14em; }
+.preview-banner h1 { margin:20px 0; max-width:600px; }
+.preview-banner p { max-width:500px; line-height:1.6; }
+.preview-banner small { margin-top:24px; }
+.preview-products { padding-top:48px; padding-bottom:48px; }
+.preview-product-image { aspect-ratio:3/4; display:grid; place-content:center; text-align:center; background:#eeeeec; color:#777; font:12px/1.8 Arial,sans-serif; letter-spacing:.08em; }
+.preview-footer { padding-top:32px; padding-bottom:32px; border-top:1px solid #ddd; font-size:13px; }
+.preview-footer p { margin-top:16px; }
+#preview-status:not(:empty) { position:fixed; bottom:20px; left:20px; right:20px; z-index:99999; background:#222; color:#fff; padding:16px; border-radius:4px; }
+@media(max-width:767px){.preview-tools{padding:10px 12px;gap:8px}.preview-tools span{margin:0}.preview-banner{min-height:350px;padding:36px 20px}.preview-products{padding-top:24px}}

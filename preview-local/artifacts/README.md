@@ -1,0 +1,35 @@
+# Pacote local de alterações do Cali
+
+`cali-redesign-patch.zip` é um pacote incremental com nove arquivos, para aplicação sobre a mesma versão do Cali presente em `01-original`. Não é um tema completo nem um importador do painel. Nenhum envio foi realizado.
+
+O ZIP preserva os caminhos do tema e inclui explicitamente os dois novos arquivos editoriais. `cali-redesign-patch.manifest.json` registra o SHA-256 de cada arquivo. Após qualquer alteração nas fontes, o pacote e o manifesto precisam ser recriados.
+
+## Conteúdo
+
+- snipplets/header/header-modals.tpl
+- snipplets/header/header.tpl
+- snipplets/home/home-featured-grid.tpl
+- snipplets/home/home-slider.tpl
+- static/css/style-async.scss.tpl
+- static/css/style-critical.tpl
+- static/js/store.js.tpl
+- static/css/style-editorial-critical.tpl (novo)
+- static/css/style-editorial-async.tpl (novo)
+
+Não enviar `preview-local`, suas dependências, testes ou artefatos junto ao tema.
+
+## Correção
+
+O CSS editorial não remove mais as transições de todos os descendentes da vitrine. Apenas os efeitos decorativos recebem a regra de movimento reduzido. O Swiper 6.3.2 nativo recebe `speed: 0` na vitrine principal quando essa preferência está ativa no carregamento. Assim, conclui a transição de forma síncrona e libera `animating`, mantendo o loop original. No modo normal, a duração continua em 300 ms.
+
+As inclusões usam caminhos relativos à raiz do tema, via Twig, antes da compilação SCSS. Os arquivos editoriais não incluem outros arquivos. Referências oficiais: https://nuvemshop.dev/themes/classic-themes/getting-started e https://docs.nuvemshop.com.br/help/layouts . A compilação no servidor da Nuvemshop ainda requer homologação.
+
+## Verificação reproduzível
+
+Na raiz de `03-desenvolvimento`: `node preview-local/check-publication.mjs`.
+
+O teste usa Chrome headless e o Swiper distribuído com o tema. Renderiza o trecho real de configuração da vitrine com Twig.js e testa controles anterior/próxima, repetição e loop em 375, 768 e 1440 px, com três e seis itens, formatos normal e assimétrico, e movimento normal/reduzido. Os itens são fixtures; serviços LS, carrinho, checkout e busca não são executados.
+
+Twig.js exige adaptação da diretiva `snipplet`; Dart Sass valida o SCSS assíncrono completo e o CSS crítico editorial. O CSS crítico legado é inline, não é tratado como uma folha Sass completa neste teste.
+
+Ainda é necessário validar na Nuvemshop os banners e configurações reais, menus, busca, carrinho e checkout. A preferência de movimento é consultada ao carregar a página; ao alterá-la no sistema, recarregue a página.

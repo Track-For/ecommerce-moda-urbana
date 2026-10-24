@@ -1,0 +1,38 @@
+﻿[
+    {
+        "path":  "snipplets/header/header-modals.tpl",
+        "sha256":  "7F87050F60C41EABABF77E91B6DD80AB425203A79ABADC041D7ED84BCF5E7E12"
+    },
+    {
+        "path":  "snipplets/header/header.tpl",
+        "sha256":  "C73A15449BA1A98FEFEFDE854C38300C581550D8207E97363E80B12A2E49C0C9"
+    },
+    {
+        "path":  "snipplets/home/home-featured-grid.tpl",
+        "sha256":  "F9EC2D1FF0A53AE2A9194E38187AD1C65698CF7FA1BD67F817550007B472E881"
+    },
+    {
+        "path":  "snipplets/home/home-slider.tpl",
+        "sha256":  "4D2B7C26218029E437731A976BFC24EA6698B8C367B654A9D647DE57BE50C8EF"
+    },
+    {
+        "path":  "static/css/style-async.scss.tpl",
+        "sha256":  "24AE97602AF00D2CCFB9A73A76DD02E875BC956B2F18D94D8F809000010E689A"
+    },
+    {
+        "path":  "static/css/style-critical.tpl",
+        "sha256":  "4C30955BF0EEE36ABEC34E3C5C392C6B945C7124915F7975844A89B27E9C49AF"
+    },
+    {
+        "path":  "static/js/store.js.tpl",
+        "sha256":  "70AA29B70082ED05A7EBD4D60611EAB03F1124CE62D954E2ABBCC5DD995C5B95"
+    },
+    {
+        "path":  "static/css/style-editorial-critical.tpl",
+        "sha256":  "536318E197CE57922627AA6122A1D749FE0EB642AF7F9EE77997316C39302B01"
+    },
+    {
+        "path":  "static/css/style-editorial-async.tpl",
+        "sha256":  "C39F35FC1697CC2678430466650EB9DEC61F2D0087B2EA4D33A2C305298C126E"
+    }
+]

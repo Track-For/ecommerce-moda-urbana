@@ -1,0 +1,8 @@
+node_modules/
+.npm-cache/
+.templates/
+public/generated/
+dist/
+source-hashes.json
+*.log
+test-results/
