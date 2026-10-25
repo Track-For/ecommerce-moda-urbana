@@ -31,14 +31,7 @@
 	{% endif %}
 
 {% elseif section_select == 'welcome' %}
-
-	{#  **** Welcome message ****  #}
-
-	{% if show_help or (show_component_help and not has_welcome_message) %}
-		{% include 'snipplets/defaults/home/institutional_message_help.tpl' with { section_name: 'welcome-message', title: 'Mensaje de bienvenida'| translate, welcome_message: true}  %}
-	{% else %}
-		{% include 'snipplets/home/home-welcome-message.tpl' %}
-	{% endif %}
+	{# Redundant welcome section intentionally omitted. Panel content is retained. #}
 
 {% elseif section_select == 'institutional' %}
 
@@ -106,9 +99,7 @@
 	{% endif %}
 
 {% elseif section_select == 'newsletter' %}
-
-	{#  **** Newsletter ****  #}
-	{% include 'snipplets/home/home-newsletter.tpl' %}
+	{# Standalone newsletter removed; the footer newsletter remains available. #}
 
 {% elseif section_select == 'sale' %}
 

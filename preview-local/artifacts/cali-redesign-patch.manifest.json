@@ -29,7 +29,7 @@
     },
     {
         "path":  "static/css/style-editorial-critical.tpl",
-        "sha256":  "1F1B78E7671C65F4DF30A9A39A9890F49C3165756EDDC51E9B5E8D0BCB7D7B93"
+        "sha256":  "BCD15ED464C38AE8F1861F63E3CABC6680256DA40B0389AD15D8FDF7270C6538"
     },
     {
         "path":  "static/css/style-editorial-async.tpl",
@@ -53,10 +53,22 @@
     },
     {
         "path":  "snipplets/footer/footer.tpl",
-        "sha256":  "000D26FD50A1B6E97DB75381478419BE9A80BEA20144057C56B5F5A03E47E579"
+        "sha256":  "D09422A8B5224FDA14A7C5EF2E6E262C871C65601AE36898B37A8DB5E4EDE25B"
     },
     {
         "path":  "snipplets/home/home-editorial-tiles.tpl",
         "sha256":  "F39AB81225E10B13947CCC8776EB5202D65230D2AF9AAE67C8E11D0380423EDA"
+    },
+    {
+        "path":  "snipplets/newsletter.tpl",
+        "sha256":  "F87DDFB4DF16AF31F54414CE67F80E2EA5459B97EA1324BB1A989347E2A530D7"
+    },
+    {
+        "path":  "snipplets/home/home-testimonials.tpl",
+        "sha256":  "3E52B3CD84D9D3FA5D14E973795961B67589D5E07E3F550BEEE638247F420B4F"
+    },
+    {
+        "path":  "snipplets/home/home-section-switch.tpl",
+        "sha256":  "0C2F1D4F87C441B9E78BD2844EE6A2535B10B38A52D6157841A2A410072F4161"
     }
 ]

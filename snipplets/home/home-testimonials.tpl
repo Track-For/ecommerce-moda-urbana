@@ -10,7 +10,7 @@
 {% endfor %}
 
 {% if has_home_testimonials %}
-	<section class="section-testimonials-home mr-3" data-store="home-testimonials">
+	<section class="tf-testimonials section-testimonials-home" data-store="home-testimonials">
 
 		{{ component('nubesdk-slot', { type: 'before_section_testimonials' }) }}
 
@@ -34,7 +34,7 @@
 										<div class="row">
 											{% if testimonial_description %}
 												<div class="{% if settings.testimonials_align == 'asymmetric' %}col-9{% else %}col-12{% endif %}">
-													<div class="h1 mb-4">{{ testimonial_description }}</div>
+													<blockquote class="tf-testimonial-quote mb-4">{{ testimonial_description }}</blockquote>
 												</div>
 											{% endif %}
 											{% if testimonial_image or testimonial_name %}
@@ -42,10 +42,11 @@
 													<div class="row align-items-center{% if settings.testimonials_align == 'center' %} justify-content-center{% endif %}">
 														{% if testimonial_image %}
 															<div class="{% if settings.testimonials_align == 'asymmetric' %}col-9{% elseif settings.testimonials_align == 'center' %}col-12 mb-2{% else %}col-auto pr-0{% endif %}">
-																<div class="testimonials-image">
-																	<img class="testimonial-image-background lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{testimonial}.jpg" | static_url | settings_image_url("small") }}' {% if testimonial_name %}alt="{{ testimonial_name }}"{% else %}alt="{{ 'Testimonio de' | translate }} {{ store.name }}"{% endif %} />
+																<a class="testimonials-image" href="{{ "#{testimonial}.jpg" | static_url }}" target="_blank" rel="noopener" aria-label="{{ 'Ampliar depoimento' | translate }}">
+																	<img class="testimonial-image-background lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{testimonial}.jpg" | static_url | settings_image_url("large") }}' {% if testimonial_name %}alt="{{ testimonial_name }}"{% else %}alt="{{ 'Testimonio de' | translate }} {{ store.name }}"{% endif %} />
 																	<div class="placeholder-fade"></div>
-																</div>
+																	<span class="tf-testimonial-enlarge">{{ 'Ver depoimento original' | translate }} ↗</span>
+																</a>
 															</div>
 														{% endif %}
 														{% if testimonial_name %}

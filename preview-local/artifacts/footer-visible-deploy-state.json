@@ -1,0 +1,20 @@
+{
+  "backup": "preview-local/artifacts/pre-publicacao-footer-visible-1792903485366",
+  "files": [
+    "snipplets/newsletter.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "uploaded": [
+    "snipplets/newsletter.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "verified": true,
+  "time": "2026-10-25T04:45:28.850Z",
+  "publicVerification": {
+    "visible": false,
+    "observation": "Public HTML still contains old display-when-content-ready footer class after upload.",
+    "checkedAt": "2026-10-25T04:47:00.114Z"
+  }
+}

@@ -59,8 +59,15 @@ const reveal = new IntersectionObserver(entries=>entries.forEach(entry=>{
 document.querySelectorAll('#home-root [data-transition]').forEach(el=>reveal.observe(el));
 document.querySelectorAll('.tf-home-hero').forEach(el=>el.dataset.previewHero='true');
 document.querySelectorAll('.tf-featured').forEach(el=>el.dataset.previewFeatured='true');
-document.querySelector('.tf-footer')?.classList.remove('display-when-content-ready');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+new window.Swiper('.js-swiper-testimonials', {
+  speed: reducedMotion ? 0 : 300,
+  slidesPerView: 1,
+  spaceBetween: 24,
+  breakpoints: { 768: { slidesPerView: 3 } },
+  navigation: { nextEl: '.js-swiper-testimonials-next', prevEl: '.js-swiper-testimonials-prev' },
+  pagination: { el: '.js-swiper-testimonials-pagination', type: 'fraction' },
+});
 // Design-only adapter: product purchase actions remain unavailable locally.
 new window.Swiper('.js-swiper-featured', {
   speed: reducedMotion ? 0 : 300,

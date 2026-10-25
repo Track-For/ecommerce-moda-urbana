@@ -43,6 +43,9 @@ function copyTemplates(dir) {
     let source = read(rel).replace(/\bwith\{/g, 'with {').replace(/\{%\s*snipplet\s+["']([^"']+)["']\s*%\}/g, '{% include "snipplets/$1" %}');
     // The JS renderer resolves includes relative to each template, unlike the platform.
     source = source.replace(/(['"])((?:snipplets|static)\/[^'"\n]+)\1/g, (_, q, p) => q + path.relative(path.dirname(target), path.join(cache, p)).replaceAll('\\', '/') + q);
+    if (rel === 'snipplets/home/home-testimonials.tpl') {
+      source = source.replace(/"#\{testimonial\}([^"\n]+)"/g, (_, suffix) => `(testimonial ~ '${suffix}')`);
+    }
     // Platform-owned components are unavailable offline; do not imitate checkout or apps.
     source = source.replace(/\{\{\s*component\([\s\S]*?\}\}/g, expression => expression.includes("'product-item-image'") ? '<div class="item-image"><a href="#vitrine" class="position-relative d-block"><img src="{{ product.preview_image | default(\'/generated/product-placeholder.svg\') }}" style="position:relative;width:100%;height:auto" alt="Foto do produto não disponível na prévia"></a></div>' : '');
     if (rel === 'snipplets/header/header-logo.tpl') source = '<div id="logo" class="logo-img-container"><a class="logo-text-container" href="#inicio" aria-label="Moda Urbana Outlet — logo textual simulado"><span class="logo-text h3 mb-0">MODA URBANA<br>OUTLET</span></a></div>';
@@ -101,6 +104,16 @@ const moduleMarkup = render('snipplets/home/home-modules.tpl', {
 });
 const previewHomePath = path.join(out, 'home.html');
 fs.writeFileSync(previewHomePath, fs.readFileSync(previewHomePath, 'utf8').replace('<section id="vitrine"', moduleMarkup + '<section id="vitrine"'));
+const testimonialFixture = JSON.parse(fs.readFileSync(path.join(local, 'testimonial-fixture.json'), 'utf8'));
+const testimonialSettings = { ...settings, testimonials_title: testimonialFixture.title, testimonials_align: 'left' };
+testimonialFixture.items.forEach((item, index) => {
+  const key = `testimonial_0${index + 1}`;
+  testimonialSettings[`${key}_description`] = item.description;
+  testimonialSettings[`${key}_name`] = item.name;
+  if (item.image) fs.copyFileSync(path.join(local, 'public/testimonial-assets', item.image), path.join(out, item.image));
+});
+Twig.extendFilter('has_custom_image', value => /^testimonial_0[123]\.jpg$/.test(value) && fs.existsSync(path.join(out, value)));
+fs.appendFileSync(previewHomePath, render('snipplets/home/home-testimonials.tpl', { ...context, settings: testimonialSettings }));
 const footerMarkup = render('snipplets/footer/footer.tpl', {
   ...homeContext,
   settings: { ...homeContext.settings, payments: false, shipping: false },

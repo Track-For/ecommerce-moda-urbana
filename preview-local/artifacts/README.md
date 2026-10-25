@@ -1,6 +1,6 @@
 # Pacote local de alterações do Cali
 
-`cali-redesign-patch.zip` é um pacote incremental com quinze arquivos, para aplicação sobre a mesma versão do Cali presente em `01-original`. Não é um tema completo nem um importador do painel. Nenhum envio foi realizado.
+`cali-redesign-patch.zip` é um pacote incremental com dezoito arquivos, para aplicação sobre a mesma versão do Cali presente em `01-original`. Não é um tema completo nem um importador do painel. A revisão atual do footer e dos depoimentos ainda não foi enviada.
 
 O ZIP preserva os caminhos do tema e inclui explicitamente os dois novos arquivos editoriais. `cali-redesign-patch.manifest.json` registra o SHA-256 de cada arquivo. Após qualquer alteração nas fontes, o pacote e o manifesto precisam ser recriados.
 
@@ -16,6 +16,9 @@ O ZIP preserva os caminhos do tema e inclui explicitamente os dois novos arquivo
 - config/settings.txt
 - snipplets/home/home-editorial-tiles.tpl (novo)
 - snipplets/footer/footer.tpl
+- snipplets/newsletter.tpl
+- snipplets/home/home-testimonials.tpl
+- snipplets/home/home-section-switch.tpl
 - static/css/style-async.scss.tpl
 - static/css/style-critical.tpl
 - static/js/store.js.tpl

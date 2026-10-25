@@ -19,20 +19,24 @@
 
 {{ component('nubesdk-slot', { type: "before_footer" }) }}
 
-<footer class="tf-footer js-footer js-hide-footer-while-scrolling display-when-content-ready{% if template == 'home' %} mt-4{% endif %}" data-store="footer">
+{# Footer content stays visible even when the asynchronous stylesheet is delayed. #}
+<footer class="tf-footer js-footer js-hide-footer-while-scrolling{% if template == 'home' %} mt-4{% endif %}" data-store="footer">
+    {% if template != 'password' and settings.news_show %}
+        <div class="tf-footer-newsbar"><div class="container-fluid">{% include 'snipplets/newsletter.tpl' %}</div></div>
+    {% endif %}
 	<div class="container-fluid">
-		<div class="tf-footer-brand"><a href="{{ store.url | default('/') }}">{{ store.name }}</a></div>
-		<div class="row mb-5 {% if template == 'password' %}justify-content-md-center{% endif %}">
+		<div class="tf-footer-columns row mb-5 {% if template == 'password' %}justify-content-md-center{% endif %}">
 
 			{% if has_social_network %}
-				<div class="col-12 col-md{% if template == 'password' %}-3{% endif %} mb-4">
+				<div class="tf-footer-socials col-12 col-md{% if template == 'password' %}-3{% endif %} mb-4">
+					<h3 class="tf-footer-heading">{{ "Siga nossas redes" | translate }}</h3>
 					{% include "snipplets/social/social-links.tpl" %}
 				</div>
 			{% endif %}
 			
 			{% if template != 'password' %}
 
-				<div class="col-12 col-md{% if not has_footer_menu_secondary or not has_footer_contact_info %}-6{% else %}-7{% endif %} mb-3">
+				<div class="tf-footer-links col-12 col-md{% if not has_footer_menu_secondary or not has_footer_contact_info %}-6{% else %}-7{% endif %} mb-3">
 					<div class="row">
 						{# Foot Nav #}
 						{% if has_footer_menu %}
@@ -41,7 +45,7 @@
 									<a href="#" class="js-accordion-toggle-mobile d-block">
 								{% endif %}
 									{% if settings.footer_menu_title %}
-										<div class="font-small opacity{% if settings.footer_menus_toggle %}-md{% endif %}-50 d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_menu_title }}</div>
+										<div class="tf-footer-heading d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_menu_title }}</div>
 									{% endif %}
 								{% if settings.footer_menus_toggle %}
 										<span class="d-md-none">
@@ -69,7 +73,7 @@
 									<a href="#" class="js-accordion-toggle-mobile d-block">
 								{% endif %}
 									{% if settings.footer_menu_secondary_title %}
-										<div class="font-small opacity{% if settings.footer_menus_toggle %}-md{% endif %}-50 d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_menu_secondary_title }}</div>
+										<div class="tf-footer-heading d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_menu_secondary_title }}</div>
 									{% endif %}
 								{% if settings.footer_menus_toggle %}
 										<span class="d-md-none">
@@ -97,7 +101,7 @@
 									<a href="#" class="js-accordion-toggle-mobile d-block">
 								{% endif %}
 									{% if settings.footer_contact_title %}
-										<div class="font-small opacity{% if settings.footer_menus_toggle %}-md{% endif %}-50 d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_contact_title }}</div>
+										<div class="tf-footer-heading d-inline-block py-3 p-md-0 mb-md-4">{{ settings.footer_contact_title }}</div>
 									{% endif %}
 								{% if settings.footer_menus_toggle %}
 										<span class="d-md-none">
@@ -120,11 +124,7 @@
 					</div>
 				</div>
 
-				{% if settings.news_show %}
-					<div class="col-12 col-md{% if template == 'password' %}-3{% endif %}">
-						{% include 'snipplets/newsletter.tpl' %}
-					</div>
-				{% endif %}
+
 
 			{% endif %}
 

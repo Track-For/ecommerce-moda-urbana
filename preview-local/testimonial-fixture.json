@@ -1,0 +1,20 @@
+{
+  "title": "Depoimentos dos nossos clientes",
+  "items": [
+    {
+      "description": "É gratificante encontrar empresas que valorizam seus clientes e constroem sua reputação por meio de um trabalho responsável e transparente. Minha experiência foi muito positiva, e certamente voltarei a comprar. Parabéns pelo excelente trabalho e muito sucesso!",
+      "name": "C. Willian  (Instagram)",
+      "image": "testimonial_01.jpg"
+    },
+    {
+      "description": "Roupas lindas e de excelente qualidade! Atendimento maravilhoso!",
+      "name": "Mara L. ( Instagram Moda Urbana)",
+      "image": "testimonial_02.jpg"
+    },
+    {
+      "description": "Top!!! Qualidade, preço e atendimento personalizado!!!",
+      "name": "Ana Fr. ( Instagram Moda Urbana)",
+      "image": "testimonial_03.jpg"
+    }
+  ]
+}

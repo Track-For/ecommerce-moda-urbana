@@ -221,10 +221,25 @@
 .tf-closing-tile-dark { color: #171717; }
 .tf-closing-tile-dark .tf-closing-tile-title { background: linear-gradient(transparent, rgba(255,255,255,.6)); }
 .tf-closing-tile-link:focus-visible { outline: 3px solid currentColor; outline-offset: -6px; }
-.tf-footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 48px !important; padding-top: 40px; }
+.tf-footer { border-top: 1px solid rgba(127,127,127,.2); margin-top: 48px !important; padding-top: 0; background: #f7f7f6; color: #202020; }
+/* Compatibility with cached footer markup: never wait for async CSS to reveal it. */
+.tf-footer.display-when-content-ready { display: block !important; }
+.tf-footer a, .tf-footer .footer-legal { color: inherit; }
+.tf-footer .footer-legal { background: transparent; }
 .tf-footer > .container-fluid, .tf-footer .footer-legal > .container-fluid { max-width: 1600px; padding-left: 40px; padding-right: 40px; }
-.tf-footer-brand { padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid rgba(127,127,127,.2); }
-.tf-footer-brand a { display: inline-block; font-family: var(--heading-font); font-size: clamp(24px, 3vw, 40px); line-height: 1.2; letter-spacing: -.025em; }
+.tf-footer-newsbar { padding: 28px 0; background: rgba(127,127,127,.09); }
+.tf-footer-newsbar > .container-fluid { max-width: 1600px; padding: 0 40px; }
+.tf-footer-newsletter { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(0, 2.4fr); align-items: center; gap: 32px; }
+.tf-newsletter-intro h2 { font-family: var(--body-font); font-size: 20px; font-weight: 400; line-height: 1.3; margin: 0; }
+.tf-newsletter-form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 16px; align-items: center; }
+.tf-footer .tf-newsletter-form .form-control { width: 100%; min-width: 0; margin: 0; padding: 12px 0; border: 0; border-bottom: 1px solid currentColor; background: transparent; font-size: 14px; }
+.tf-footer .tf-newsletter-submit { position: static; width: auto; padding: 12px 24px; opacity: 1; font-size: 14px; border-radius: 0; }
+.tf-footer-columns { padding-top: 40px; padding-bottom: 24px; row-gap: 24px; }
+.tf-footer-links { flex: 1 1 0%; max-width: none; }
+.tf-footer-socials { order: 2; flex: 0 0 20%; max-width: 20%; }
+.tf-footer-heading { font-family: var(--body-font); font-size: 15px; font-weight: 600; line-height: 1.4; margin: 0 0 24px; }
+.tf-footer .social-icon { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.tf-footer .contact-info { font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
 .tf-footer .footer-menu-link { display: inline-flex; align-items: center; min-height: 32px; font-size: 13px; line-height: 1.5; }
 .tf-footer .newsletter .form-control { min-height: 48px; border-radius: 0; }
 .tf-footer .newsletter input[type="submit"] { min-height: 48px; }
@@ -236,7 +251,36 @@
   .tf-closing-tile-title { padding-bottom: 40px; }
   .tf-footer > .container-fluid, .tf-footer .footer-legal > .container-fluid { padding-left: 24px; padding-right: 24px; }
   .tf-footer .footer-menu-link, .tf-footer .js-accordion-toggle-mobile { min-height: 44px; }
-  .tf-footer-brand { margin-bottom: 24px; padding-bottom: 24px; }
+  .tf-footer-newsbar > .container-fluid { padding: 0 24px; }
+  .tf-footer-newsletter { grid-template-columns: 1fr; gap: 20px; }
+  .tf-newsletter-form { grid-template-columns: 1fr; gap: 12px; }
+  .tf-footer-links, .tf-footer-socials { flex: 0 0 100%; max-width: 100%; }
+  .tf-footer-heading { margin-bottom: 12px; }
+}
+@media (min-width: 768px) and (max-width: 1100px) {
+  .tf-footer-newsletter { grid-template-columns: 1fr; gap: 20px; }
+}
+.tf-testimonials.section-testimonials-home { padding: 56px 0; margin: 0; background: #f7f7f6; color: #202020; border-radius: 0; }
+.tf-testimonials > .container { max-width: 1440px; padding: 0 40px; }
+.tf-testimonials h2 { font-family: var(--heading-font); font-size: clamp(26px, 3vw, 40px); line-height: 1.2; letter-spacing: -.02em; text-transform: none; text-align: left; }
+.tf-testimonials > .container > .row > [class*="col-"] { flex: 0 0 100%; max-width: 100%; }
+.tf-testimonials .slide-container { height: auto; margin-top: 0 !important; padding: 24px !important; border: 1px solid #e5e3df; background: #fff; text-align: left; }
+.tf-testimonials .slide-container > .row { height: 100%; align-content: space-between; row-gap: 24px; }
+.tf-testimonials .slide-container .row.align-items-center { display: block; }
+.tf-testimonials .slide-container .row.align-items-center > div { width: 100%; max-width: 100%; padding: 0 15px !important; }
+.tf-testimonial-quote { margin: 0; font-family: var(--body-font); font-size: 17px; font-weight: 400; line-height: 1.7; overflow-wrap: anywhere; }
+.tf-testimonials .slide-container .col-9 { flex: 0 0 100%; max-width: 100%; }
+.tf-testimonials .slide-container .col-3 { flex: 0 0 100%; max-width: 100%; padding: 0 15px !important; }
+.tf-testimonials .testimonials-image { display: block; width: 100%; height: auto; margin: 0 0 16px; padding: 12px; color: inherit; background: #f7f7f6; border-radius: 0; text-align: left; }
+.tf-testimonials .testimonial-image-background { position: static; display: block; width: 100%; height: 190px; object-fit: contain; object-position: center; transform: none; border-radius: 0; }
+.tf-testimonial-enlarge { display: block; margin-top: 12px; font-size: 12px; line-height: 1.5; text-decoration: underline; text-underline-offset: 3px; }
+.tf-testimonials .testimonials-image:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.tf-testimonials h3 { font-family: var(--body-font); font-size: 12px; font-weight: 600; line-height: 1.5; letter-spacing: .03em; text-transform: none; }
+@media (max-width: 767px) {
+  .tf-testimonials.section-testimonials-home { padding: 32px 0; }
+  .tf-testimonials > .container { padding: 0 24px; }
+  .tf-testimonials .slide-container { padding: 20px !important; }
+  .tf-testimonial-quote { font-size: 16px; }
 }
 @media (max-width: 767px) {
   .tf-wide-campaign { aspect-ratio: 4 / 5; min-height: 360px; margin-bottom: 32px; }

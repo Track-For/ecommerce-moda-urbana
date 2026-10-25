@@ -1,0 +1,16 @@
+{
+  "backup": "preview-local/artifacts/pre-publicacao-footer-css-1792903839220",
+  "files": [
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-async.scss.tpl",
+    "static/css/style-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "uploaded": [
+    "static/css/style-editorial-critical.tpl",
+    "static/css/style-async.scss.tpl",
+    "static/css/style-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "verified": true
+}
