@@ -30,35 +30,25 @@
 								{% set testimonial_description = attribute(settings,"#{testimonial}_description") %}
 								{% set has_testimonial = testimonial_name or testimonial_description or testimonial_image %}
 								{% if has_testimonial %}
-									<div class="swiper-slide slide-container{% if settings.testimonials_align == 'center' %} px-2{% elseif settings.testimonials_align == 'left' %} pr-4{% elseif settings.testimonials_align == 'asymmetric' and loop.index is even %} pt-md-5 mt-md-5{% endif %}">
-										<div class="row">
-											{% if testimonial_description %}
-												<div class="{% if settings.testimonials_align == 'asymmetric' %}col-9{% else %}col-12{% endif %}">
-													<blockquote class="tf-testimonial-quote mb-4">{{ testimonial_description }}</blockquote>
-												</div>
-											{% endif %}
-											{% if testimonial_image or testimonial_name %}
-												<div class="col-12">
-													<div class="row align-items-center{% if settings.testimonials_align == 'center' %} justify-content-center{% endif %}">
-														{% if testimonial_image %}
-															<div class="{% if settings.testimonials_align == 'asymmetric' %}col-9{% elseif settings.testimonials_align == 'center' %}col-12 mb-2{% else %}col-auto pr-0{% endif %}">
-																<a class="testimonials-image" href="{{ "#{testimonial}.jpg" | static_url }}" target="_blank" rel="noopener" aria-label="{{ 'Ampliar depoimento' | translate }}">
-																	<img class="testimonial-image-background lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src='{{ "#{testimonial}.jpg" | static_url | settings_image_url("large") }}' {% if testimonial_name %}alt="{{ testimonial_name }}"{% else %}alt="{{ 'Testimonio de' | translate }} {{ store.name }}"{% endif %} />
-																	<div class="placeholder-fade"></div>
-																	<span class="tf-testimonial-enlarge">{{ 'Ver depoimento original' | translate }} ↗</span>
-																</a>
-															</div>
-														{% endif %}
-														{% if testimonial_name %}
-															<div class="{% if settings.testimonials_align == 'asymmetric' %}{% if testimonial_image %}col-3 pl-0 text-left{% else %}col-9{% endif %}{% elseif settings.testimonials_align == 'center' %}col-12{% else %}col-auto{% endif %}">
-																<h3 class="subtitle font-weight-normal mb-0 px-1">{{ testimonial_name }}</h3>
-															</div>
-														{% endif %}
-													</div>
-												</div>
-											{% endif %}
-										</div>
-									</div>
+                                    <div class="swiper-slide slide-container">
+                                        <article class="tf-testimonial-card">
+                                            <span class="tf-testimonial-mark" aria-hidden="true">&ldquo;</span>
+                                            {% if testimonial_description %}
+                                                <blockquote class="tf-testimonial-quote">{{ testimonial_description }}</blockquote>
+                                            {% endif %}
+                                            {% if testimonial_name %}
+                                                <h3 class="tf-testimonial-author">{{ testimonial_name }}</h3>
+                                            {% endif %}
+                                            {% if testimonial_image %}
+                                                <a class="tf-testimonial-original" href="{{ "#{testimonial}.jpg" | static_url }}" target="_blank" rel="noopener">
+                                                    {{ 'Ver depoimento original' | translate }} <span aria-hidden="true">&nearr;</span>
+                                                </a>
+                                                {% if not testimonial_description %}
+                                                    <img class="tf-testimonial-proof lazyload" src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ "#{testimonial}.jpg" | static_url | settings_image_url('large') }}" alt="{{ testimonial_name | default(store.name) }}" />
+                                                {% endif %}
+                                            {% endif %}
+                                        </article>
+                                    </div>
 								{% endif %}
 							{% endfor %}
 						</div>

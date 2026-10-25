@@ -1,0 +1,74 @@
+[
+  {
+    "width": 375,
+    "before": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 843,
+      ".tf-featured": 827,
+      ".tf-editorial-pair": 847,
+      ".tf-wide-campaign": 469,
+      ".tf-closing-tiles": 874,
+      ".tf-testimonials": 812,
+      ".tf-footer": 792
+    },
+    "after": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 698,
+      ".tf-featured": 716,
+      ".tf-editorial-pair": 712,
+      ".tf-wide-campaign": 300,
+      ".tf-closing-tiles": 702,
+      ".tf-testimonials": 772,
+      ".tf-footer": 749
+    },
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "before": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 634,
+      ".tf-featured": 784,
+      ".tf-editorial-pair": 374,
+      ".tf-wide-campaign": 320,
+      ".tf-closing-tiles": 338,
+      ".tf-testimonials": 1009,
+      ".tf-footer": 539
+    },
+    "after": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 527,
+      ".tf-featured": 669,
+      ".tf-editorial-pair": 340,
+      ".tf-wide-campaign": 280,
+      ".tf-closing-tiles": 254,
+      ".tf-testimonials": 921,
+      ".tf-footer": 500
+    },
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "before": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 952,
+      ".tf-featured": 896,
+      ".tf-editorial-pair": 605,
+      ".tf-wide-campaign": 540,
+      ".tf-closing-tiles": 674,
+      ".tf-testimonials": 765,
+      ".tf-footer": 493
+    },
+    "after": {
+      ".tf-home-hero": 704,
+      ".tf-editorial-module": 837,
+      ".tf-featured": 754,
+      ".tf-editorial-pair": 520,
+      ".tf-wide-campaign": 432,
+      ".tf-closing-tiles": 506,
+      ".tf-testimonials": 677,
+      ".tf-footer": 453
+    },
+    "overflow": false
+  }
+]

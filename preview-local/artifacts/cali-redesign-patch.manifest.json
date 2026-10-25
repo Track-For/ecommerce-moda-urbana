@@ -17,7 +17,7 @@
     },
     {
         "path":  "static/css/style-async.scss.tpl",
-        "sha256":  "1B877B8972668D844EB4A0135DD866F8E1E127C419E42A750F6574F91E8FFC5E"
+        "sha256":  "6131597FD8978EDE2A960FD73890A737879C2403BCCAB19A0DF395FCE2B8C324"
     },
     {
         "path":  "static/css/style-critical.tpl",
@@ -29,7 +29,7 @@
     },
     {
         "path":  "static/css/style-editorial-critical.tpl",
-        "sha256":  "BCD15ED464C38AE8F1861F63E3CABC6680256DA40B0389AD15D8FDF7270C6538"
+        "sha256":  "B1A31F8C2EB47D9615B9F7B61DD8DB79A25420429EF74E47CA3299EB4BA69897"
     },
     {
         "path":  "static/css/style-editorial-async.tpl",
@@ -65,10 +65,10 @@
     },
     {
         "path":  "snipplets/home/home-testimonials.tpl",
-        "sha256":  "3E52B3CD84D9D3FA5D14E973795961B67589D5E07E3F550BEEE638247F420B4F"
+        "sha256":  "0A4322DDEC2282F3C09656C71A6111A9544B1ABAC8AA0C75E186028520EE338E"
     },
     {
         "path":  "snipplets/home/home-section-switch.tpl",
-        "sha256":  "0C2F1D4F87C441B9E78BD2844EE6A2535B10B38A52D6157841A2A410072F4161"
+        "sha256":  "D8964B73D9440EDC4658407527DCC708B16C52C00FA2508B16403C3798276F07"
     }
 ]
