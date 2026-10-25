@@ -1,5 +1,6 @@
 {# TRACK FOR — Editorial geometry: header, hero and primary showcase only.
    Colors, image proportions, content and section order remain panel-owned. #}
+.category-body.tf-hide-shipping-labels .tf-shipping-label { display: none !important; }
 .tf-header .nav-desktop-list > .nav-item > .nav-list-link,
 .tf-header .nav-desktop-list > .nav-item > .nav-item-container > .nav-list-link {
   font-size: max(12px, var(--font-small));
@@ -17,7 +18,7 @@
   transform: none;
 }
 .tf-header .logo-text-container { margin: 8px 0; }
-.tf-header .logo-img { max-height: 44px; margin: 8px 0; }
+.tf-header .logo-img { max-height: 50px; margin: 6px 0; }
 .tf-header .logo-text { font-size: clamp(17px, 1.6vw, 23px); margin: 0; }
 .tf-header .nav-desktop-list { padding-top: 0; padding-bottom: 0; }
 .tf-home-hero {
@@ -334,4 +335,73 @@
   .tf-featured { padding-top: 40px; padding-bottom: 40px; }
   .tf-hero-outside .slider-slide > .row { align-items: center; }
   .tf-header .nav-desktop-list { padding-top: 0; padding-bottom: 0; }
+}
+
+/* Compact shopping navigation and section rhythm; hero geometry stays unchanged. */
+.tf-header .nav-list-link, .tf-header .utilities-item, .tf-header .cart-summary > a { color: #25231f; }
+.tf-header .nav-list-link.selected, .tf-header .nav-list-link:hover { color: #966a2f; }
+.tf-header .search-input { border-color: rgba(37,35,31,.25); color: #25231f; font-size: 13px; }
+.tf-header .search-input::placeholder { color: #716b62; opacity: 1; }
+.tf-header .cart-summary > a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
+.tf-header .cart-summary .badge { min-width: 16px; height: 16px; font-size: 10px; line-height: 16px; background: #966a2f; color: white; }
+.tf-editorial-module { padding-top: 20px; padding-bottom: 20px; }
+.tf-featured.tf-occasion { padding-top: 20px; padding-bottom: 20px; }
+.tf-editorial-pair { margin-top: 8px; margin-bottom: 20px; }
+.tf-wide-campaign { margin-bottom: 20px; }
+.tf-closing-tiles { margin-top: 16px; }
+.tf-testimonials.section-testimonials-home { padding-top: 24px; padding-bottom: 24px; }
+.tf-footer { margin-top: 20px !important; }
+@media (min-width: 768px) {
+  .tf-header .search-container { width: clamp(160px, 16vw, 230px); }
+  .tf-header .nav-desktop-list > .nav-item > .nav-list-link,
+  .tf-header .nav-desktop-list > .nav-item > .nav-item-container > .nav-list-link { padding-left: 14px; padding-right: 14px; }
+}
+@media (max-width: 767px) {
+  .tf-header .tf-header-actions .utilities-container { margin-left: 4px; margin-right: 0; }
+  .tf-header .utilities-item { min-width: 40px; min-height: 44px; }
+}
+
+/* Brand masthead and direct catalog navigation. */
+.tf-shipping-announcement { display: block; width: 100%; padding: 8px 16px; background: #25231f; color: #fff; font: 500 11px/1.4 var(--body-font); letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+.tf-header .tf-nav-promotions > .nav-list-link { color: #966a2f; font-weight: 700; }
+.tf-header .nav-desktop { border-top: 1px solid rgba(127,127,127,.14); }
+.tf-header .nav-desktop-list { display: flex; justify-content: safe center; align-items: center; }
+.tf-header .nav-desktop-list > .nav-item { flex-shrink: 0; }
+.tf-mobile-categories { display: flex; align-items: center; gap: 20px; margin: 0; padding: 0 0 2px; list-style: none; overflow-x: auto; scrollbar-width: thin; }
+.tf-mobile-categories > .nav-item { flex: 0 0 auto; margin: 0; }
+.tf-mobile-categories .nav-list-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0; font-size: 11px; letter-spacing: .025em; white-space: nowrap; text-transform: uppercase; }
+.tf-mobile-category-nav { border-top: 1px solid rgba(127,127,127,.14); }
+@media (min-width: 768px) {
+  .tf-header .nav-desktop-list > .nav-item > .nav-list-link { min-height: 44px; padding-top: 12px; padding-bottom: 12px; }
+}
+
+/* Social invitation and compact service benefits. Native feed and slider hooks stay intact. */
+.tf-instagram.section-instafeed-home { padding: 24px 0 12px; }
+.tf-instagram > .container, .tf-benefits > .container { max-width: 1440px; padding-left: 32px; padding-right: 32px; }
+.tf-instagram-profile { display: flex; align-items: center; gap: 20px; padding: 24px 28px; border: 1px solid rgba(127,127,127,.2); color: inherit; }
+.tf-instagram-icon { display: grid; place-items: center; flex: 0 0 48px; height: 48px; border: 1px solid rgba(127,127,127,.25); border-radius: 50%; }
+.tf-instagram .instafeed-title { margin: 0; min-width: 0; }
+.tf-instagram .instafeed-title h3 { margin: 0 0 6px; font: 400 11px/1.5 var(--body-font); letter-spacing: .08em; text-transform: uppercase; }
+.tf-instagram .instafeed-title h2 { font: 500 clamp(18px, 2.2vw, 28px)/1.3 var(--body-font); overflow-wrap: anywhere; }
+.tf-instagram-cta { display: inline-flex; align-items: center; gap: 16px; margin-left: auto; min-height: 44px; flex-shrink: 0; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.tf-instagram-profile:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.tf-instagram .instafeed-grid { margin: 16px -8px 0; }
+.tf-instagram .instafeed-post { width: 25%; margin-top: 0; padding: 0 8px; }
+.tf-instagram .instafeed-post:nth-child(n+5) { display: none; }
+.tf-benefits.section-informative-banners { padding: 24px 0 32px; }
+.tf-benefits .service-item-container { height: auto; }
+.tf-benefits .service-item { height: 100%; padding: 24px; border: 1px solid rgba(127,127,127,.18); background: rgba(127,127,127,.025); }
+.tf-benefits .service-item > a { display: block; color: inherit; }
+.tf-benefits .service-item-image { display: block; width: 44px; height: 44px; object-fit: contain; max-height: none; }
+.tf-benefits .service-item h3 { font: 600 16px/1.4 var(--body-font); text-transform: none; margin-bottom: 10px !important; }
+.tf-benefits .service-item p { font: 400 13px/1.65 var(--body-font); opacity: .8; }
+.tf-benefits .service-item a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (max-width: 767px) {
+  .tf-instagram > .container, .tf-benefits > .container { padding-left: 20px; padding-right: 20px; }
+  .tf-instagram-profile { padding: 20px 16px; gap: 12px; flex-wrap: wrap; }
+  .tf-instagram .instafeed-title { flex: 1; }
+  .tf-instagram-cta { margin-left: 60px; }
+  .tf-instagram .instafeed-post { width: 50%; }
+  .tf-benefits.section-informative-banners { padding-top: 16px; padding-bottom: 24px; }
+  .tf-benefits .service-item { margin-left: 0 !important; margin-right: 0 !important; padding: 20px; }
 }

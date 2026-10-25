@@ -1,0 +1,13 @@
+{
+  "restored": [
+    "snipplets/header/header.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/whatsapp-chat.tpl",
+    "snipplets/social/social-links.tpl",
+    "snipplets/contact-links.tpl",
+    "snipplets/navigation/navigation-nav-list.tpl",
+    "snipplets/header/header-utilities.tpl",
+    "snipplets/header/header-search.tpl"
+  ],
+  "time": "2026-10-25T13:12:12.088Z"
+}

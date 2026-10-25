@@ -1,0 +1,19 @@
+{
+  "files": [
+    "snipplets/navigation/header-shopping-links.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/header/header-utilities.tpl",
+    "snipplets/navigation/navigation.tpl",
+    "snipplets/navigation/navigation-panel.tpl",
+    "snipplets/header/header.tpl"
+  ],
+  "uploaded": [
+    "snipplets/navigation/header-shopping-links.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/header/header-utilities.tpl",
+    "snipplets/navigation/navigation.tpl",
+    "snipplets/navigation/navigation-panel.tpl",
+    "snipplets/header/header.tpl"
+  ],
+  "verified": true
+}

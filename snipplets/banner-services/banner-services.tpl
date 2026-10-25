@@ -23,7 +23,7 @@
 {% endmacro %}
 {% import _self as banner_services %}
 {% if settings.banner_services and (settings.banner_services_01_title or settings.banner_services_02_title or settings.banner_services_03_title or settings.banner_services_01_description or settings.banner_services_02_description or settings.banner_services_03_description) %}
-    <section class="section-informative-banners" data-store="banner-services">
+    <section class="tf-benefits section-informative-banners" data-store="banner-services">
         <div class="container">
             <div class="row">
                 <div class="js-informative-banners swiper-container">

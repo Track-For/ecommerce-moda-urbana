@@ -1,0 +1,1 @@
+Unpublished header draft preserved after HTTP 500 recovery. Do not deploy these files without platform compatibility validation.

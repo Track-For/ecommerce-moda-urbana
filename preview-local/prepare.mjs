@@ -42,7 +42,7 @@ function copyTemplates(dir) {
     const target = path.join(cache, rel); fs.mkdirSync(path.dirname(target), { recursive: true });
     let source = read(rel).replace(/\bwith\{/g, 'with {').replace(/\{%\s*snipplet\s+["']([^"']+)["']\s*%\}/g, '{% include "snipplets/$1" %}');
     // The JS renderer resolves includes relative to each template, unlike the platform.
-    source = source.replace(/(['"])((?:snipplets|static)\/[^'"\n]+)\1/g, (_, q, p) => q + path.relative(path.dirname(target), path.join(cache, p)).replaceAll('\\', '/') + q);
+    source = source.replace(/(['"])((?:snipplets|static)\/[^'"\n]+)\1/g, (_, q, p) => q + path.relative(path.dirname(target), path.join(cache, p)).replaceAll('\\', '/') + (p.endsWith('/') ? '/' : '') + q);
     if (rel === 'snipplets/home/home-testimonials.tpl') {
       source = source.replace(/"#\{testimonial\}([^"\n]+)"/g, (_, suffix) => `(testimonial ~ '${suffix}')`);
     }

@@ -61,7 +61,8 @@
 	{% include "snipplets/grid/filters.tpl" with {mobile: true, applied_filters: true} %}
 </div>
 
-<section class="category-body mt-2 mt-md-{% if settings.filters_desktop_modal or (not settings.filters_desktop_modal and not has_filters_available) %}0{% else %}4 pt-md-1{% endif %}">
+{% set tf_hide_shipping_labels = (category.name | lower) in ['moda feminina', 'moda masculina', 'moda íntima feminina', 'moda íntima masculina'] %}
+<section class="category-body{% if tf_hide_shipping_labels %} tf-hide-shipping-labels{% endif %} mt-2 mt-md-{% if settings.filters_desktop_modal or (not settings.filters_desktop_modal and not has_filters_available) %}0{% else %}4 pt-md-1{% endif %}">
 	<div class="container-fluid">
 		<div class="row {% if settings.grid_columns_desktop == '3' %}row-md{% endif %}">
 			{% include "snipplets/grid/filters-sidebar.tpl" %}

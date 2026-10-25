@@ -2,10 +2,12 @@
 <div class="js-overlay site-overlay" style="display: none;"></div>
 
 {# Header #}
+{# Compact brand header; native utility handlers and destinations are retained. #}
+{% set tf_compact_header = true %}
 
 {# Logo mobile dynamic classes #}
 
-{% if settings.logo_position_mobile == 'center' %}
+{% if 'center' == 'center' %}
     {% set logo_mobile_classes = 'text-center' %}
 {% else %}
     {% set logo_mobile_classes = 'order-first text-left' %}
@@ -13,7 +15,7 @@
 
 {# Logo desktop dynamic classes + utilities desktop order #}
 
-{% if settings.logo_position_desktop == 'center' %}
+{% if 'center' == 'center' %}
     {% set logo_desktop_classes = 'head-logo-md-center order-md-0 text-md-center' %}
     {% set menu_desktop_utility_order_class = 'order-md-first' %}
 {% else %}
@@ -23,7 +25,7 @@
 
 {# Utilities mobile order #}
 
-{% if settings.logo_position_mobile == 'center' %}
+{% if 'center' == 'center' %}
     {% set menu_mobile_utility_order_class = 'order-first' %}
 {% else %}
     {% set menu_mobile_utility_order_class = 'order-last' %}
@@ -61,15 +63,16 @@
     {% set head_position_desktop = 'position-relative-md' %}
 {% endif %}
 
-{% set logo_centered_desktop_without_hamburger = not settings.hamburger_desktop and settings.logo_position_desktop == 'center' %}
+{% set logo_centered_desktop_without_hamburger = not false and 'center' == 'center' %}
 {% set show_desktop_hide_mobile_class = 'd-none d-md-inline-block' %}
 
 {% set has_languages = languages | length > 1 and settings.languages_header %}
-{% set head_languages_centered_with_big_logo = has_languages and settings.logo_position_mobile == 'center' and settings.logo_size != 'small' %}
+{% set head_languages_centered_with_big_logo = has_languages and 'center' == 'center' and settings.logo_size != 'small' %}
 
 {% set has_account_links = settings.account_header %}
 
 <header class="tf-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
+    <div class="tf-shipping-announcement">Frete grátis para todo o Brasil</div>
     {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
@@ -80,7 +83,7 @@
             {# Menu icon #}
             
             {% if logo_centered_desktop_without_hamburger %}
-                <div class="{% if settings.logo_position_mobile == 'left' %}col-auto{% else %}col-3{% endif %} {% if settings.logo_position_desktop == 'left' %}col-md-auto{% else %}col-md-3{% endif %} {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }}">
+                <div class="{% if 'center' == 'left' %}col-auto{% else %}col-3{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }}">
 
                     {# Search for desktop when logo centered without hamburger nav #}
 
@@ -88,7 +91,7 @@
                         {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
                     </span>
             {% endif %}
-                    <div class="{% if settings.logo_position_mobile == 'left' %}col-auto{% else %}col-3{% endif %} {% if settings.logo_position_desktop == 'left' %}col-md-auto{% else %}col-md-3{% endif %} header-utility {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }} {% if settings.hamburger_desktop %}d-md-block{% else %}d-md-none{% endif %} p-0">
+                    <div class="{% if 'center' == 'left' %}col-auto{% else %}col-3{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} header-utility {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }} {% if false %}d-md-block{% else %}d-md-none{% endif %} p-0">
                         {% include "snipplets/header/header-utilities.tpl" with {use_menu: true} %}
                     </div>
             {% if logo_centered_desktop_without_hamburger %}
@@ -97,13 +100,13 @@
 
             {# Logo #}
 
-            <div class="js-logo-col {% if settings.logo_position_mobile == 'left' or (settings.logo_position_mobile == 'center' and settings.utilities_type_mobile == 'text') %}col{% else %}{% if head_languages_centered_with_big_logo %}col-5{% else %}col-6{% endif %}{% endif %} {% if settings.logo_position_desktop == 'left' %}{% if settings.hamburger_desktop %}col-md{% else %}col-md-auto{% endif %}{% else %}col-md-6{% endif %} {{ logo_mobile_classes }} {{ logo_desktop_classes }}">
+            <div class="js-logo-col {% if 'center' == 'left' or ('center' == 'center' and 'icon' == 'text') %}col{% else %}{% if head_languages_centered_with_big_logo %}col-5{% else %}col-6{% endif %}{% endif %} {% if 'center' == 'left' %}{% if false %}col-md{% else %}col-md-auto{% endif %}{% else %}col-md-6{% endif %} {{ logo_mobile_classes }} {{ logo_desktop_classes }}">
                 {% include "snipplets/header/header-logo.tpl" %}
             </div>
 
             {# Desktop navigation next to logo #}
 
-            {% if not settings.hamburger_desktop and settings.logo_position_desktop == 'left' %}
+            {% if not false and 'center' == 'left' %}
                 {# Desktop nav next logo #}
                 <div class="js-desktop-nav-col desktop-nav-col col {{ show_desktop_hide_mobile_class }} pr-5 pl-3">
                     {% snipplet "navigation/navigation.tpl" %}
@@ -112,7 +115,7 @@
 
             {# Search: Icon or box #}
 
-            <div class="tf-header-actions {% if not settings.hamburger_desktop and settings.logo_position_desktop == 'left' %}js-desktop-search-cart-col desktop-search-cart-col{% endif %} {% if settings.logo_position_mobile == 'left' %}col-auto{% else %}{% if settings.utilities_type_mobile == 'text' %}{% if has_languages %}col-5{% else %}col-4{% endif %}{% else %}{% if head_languages_centered_with_big_logo %}col-4{% else %}col-3{% endif %}{% endif %}{% endif %} {% if settings.logo_position_desktop == 'left' %}col-md-auto{% else %}col-md-3{% endif %} d-flex align-items-center justify-content-end">
+            <div class="tf-header-actions {% if not false and 'center' == 'left' %}js-desktop-search-cart-col desktop-search-cart-col{% endif %} {% if 'center' == 'left' %}col-auto{% else %}{% if 'icon' == 'text' %}{% if has_languages %}col-5{% else %}col-4{% endif %}{% else %}{% if head_languages_centered_with_big_logo %}col-4{% else %}col-3{% endif %}{% endif %}{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} d-flex align-items-center justify-content-end">
                 
                 {# Languages #}
 
@@ -132,13 +135,13 @@
 
                 {# Search #}
 
-                <span class="js-search-utility header-utility {% if logo_centered_desktop_without_hamburger %}d-md-none{% elseif settings.search_type_mobile != 'search_icon' or settings.utilities_type_mobile == 'text' %}{{ show_desktop_hide_mobile_class }}{% endif %} {% if has_languages or has_account_links %}{% if settings.search_big_desktop %}order-md-first{% else %}order-md-0{% endif %}{% endif %}">
+                <span class="js-search-utility header-utility {% if logo_centered_desktop_without_hamburger %}d-md-none{% elseif 'search_icon' != 'search_icon' or 'icon' == 'text' %}{{ show_desktop_hide_mobile_class }}{% endif %} {% if has_languages or has_account_links %}{% if settings.search_big_desktop %}order-md-first{% else %}order-md-0{% endif %}{% endif %}">
                     {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
                 </span>
 
                 {# Cart/Bag #}
 
-                <span class="js-cart-utility header-utility {% if settings.logo_position_mobile == 'center' and settings.utilities_type_mobile == 'text' %}text-right{% endif %}">
+                <span class="js-cart-utility header-utility {% if 'center' == 'center' and 'icon' == 'text' %}text-right{% endif %}">
                     {% include "snipplets/header/header-utilities.tpl" %}
                 </span>
             </div>
@@ -157,12 +160,17 @@
         {% endif %}
         {# Desktop navigation below logo #}
 
-        {% if not settings.hamburger_desktop and settings.logo_position_desktop != 'left' %}
+        {% if not false and 'center' != 'left' %}
             {# Desktop nav below logo #}
             <div class="row d-none d-md-block text-center">
                 {% snipplet "navigation/navigation.tpl" %}
             </div>
         {% endif %}
+        <nav class="tf-mobile-category-nav d-md-none" aria-label="{{ 'Categorias de roupas' | translate }}">
+            <ul class="tf-mobile-categories">
+                {% include 'snipplets/navigation/header-shopping-links.tpl' with {megamenu: false, hamburger: false} %}
+            </ul>
+        </nav>
     </div>    
     {% include "snipplets/notification.tpl" with {order_notification: true} %}
 </header>

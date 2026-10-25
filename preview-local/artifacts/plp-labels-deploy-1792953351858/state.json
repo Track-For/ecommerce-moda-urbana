@@ -1,0 +1,13 @@
+{
+  "files": [
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/labels.tpl",
+    "templates/category.tpl"
+  ],
+  "uploaded": [
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/labels.tpl",
+    "templates/category.tpl"
+  ],
+  "verified": true
+}

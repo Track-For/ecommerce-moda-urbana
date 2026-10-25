@@ -1,74 +1,126 @@
-﻿[
-    {
-        "path":  "snipplets/header/header-modals.tpl",
-        "sha256":  "7F87050F60C41EABABF77E91B6DD80AB425203A79ABADC041D7ED84BCF5E7E12"
-    },
-    {
-        "path":  "snipplets/header/header.tpl",
-        "sha256":  "C73A15449BA1A98FEFEFDE854C38300C581550D8207E97363E80B12A2E49C0C9"
-    },
-    {
-        "path":  "snipplets/home/home-featured-grid.tpl",
-        "sha256":  "F70C778C67F7C2EE1EF2D6788B54591A64D926AE93B24C613810620FB917EB33"
-    },
-    {
-        "path":  "snipplets/home/home-slider.tpl",
-        "sha256":  "4D2B7C26218029E437731A976BFC24EA6698B8C367B654A9D647DE57BE50C8EF"
-    },
-    {
-        "path":  "static/css/style-async.scss.tpl",
-        "sha256":  "6131597FD8978EDE2A960FD73890A737879C2403BCCAB19A0DF395FCE2B8C324"
-    },
-    {
-        "path":  "static/css/style-critical.tpl",
-        "sha256":  "E2CF02C6F77F278B5F05E86857FA60406C38D231B20A42EDA4A69AF1C551588C"
-    },
-    {
-        "path":  "static/js/store.js.tpl",
-        "sha256":  "D5AE2252D69C52ACAB37852FCCBEF1E97DC4FE883A685514CBA8975B593BA7A2"
-    },
-    {
-        "path":  "static/css/style-editorial-critical.tpl",
-        "sha256":  "B1A31F8C2EB47D9615B9F7B61DD8DB79A25420429EF74E47CA3299EB4BA69897"
-    },
-    {
-        "path":  "static/css/style-editorial-async.tpl",
-        "sha256":  "58A2E75ED35A5CB20DB94D214C518CD94A0F2956D3D10091E7283B57DFA13DFF"
-    },
-    {
-        "path":  "snipplets/home/home-modules.tpl",
-        "sha256":  "D433C027E0B91387BD67D476F95F28B7D38794D1CBEB82261C1D1589A0543EB4"
-    },
-    {
-        "path":  "snipplets/home/home-editorial-pair.tpl",
-        "sha256":  "9EEDAB607BF65531DE3A8F67736F1397450C0B22A3203B759C0974FCECFE2B07"
-    },
-    {
-        "path":  "config/settings.txt",
-        "sha256":  "C959B189A90E0745995AE042120412176E9BABF00390DFB767EA3DC3F569BB14"
-    },
-    {
-        "path":  "snipplets/home/home-editorial-campaign.tpl",
-        "sha256":  "D150F6E6451E70B31B88A433E84573ABF8244299CE58631B8A45881948F5E049"
-    },
-    {
-        "path":  "snipplets/footer/footer.tpl",
-        "sha256":  "D09422A8B5224FDA14A7C5EF2E6E262C871C65601AE36898B37A8DB5E4EDE25B"
-    },
-    {
-        "path":  "snipplets/home/home-editorial-tiles.tpl",
-        "sha256":  "F39AB81225E10B13947CCC8776EB5202D65230D2AF9AAE67C8E11D0380423EDA"
-    },
-    {
-        "path":  "snipplets/newsletter.tpl",
-        "sha256":  "F87DDFB4DF16AF31F54414CE67F80E2EA5459B97EA1324BB1A989347E2A530D7"
-    },
-    {
-        "path":  "snipplets/home/home-testimonials.tpl",
-        "sha256":  "0A4322DDEC2282F3C09656C71A6111A9544B1ABAC8AA0C75E186028520EE338E"
-    },
-    {
-        "path":  "snipplets/home/home-section-switch.tpl",
-        "sha256":  "D8964B73D9440EDC4658407527DCC708B16C52C00FA2508B16403C3798276F07"
-    }
+[
+  {
+    "path": "snipplets/header/header-modals.tpl",
+    "sha256": "7F87050F60C41EABABF77E91B6DD80AB425203A79ABADC041D7ED84BCF5E7E12"
+  },
+  {
+    "path": "snipplets/header/header.tpl",
+    "sha256": "A58F1AB5E429134E7A25FEFE800325B05E1D82E16F59CDD211BA9E36A1EC39A6"
+  },
+  {
+    "path": "snipplets/home/home-featured-grid.tpl",
+    "sha256": "F70C778C67F7C2EE1EF2D6788B54591A64D926AE93B24C613810620FB917EB33"
+  },
+  {
+    "path": "snipplets/home/home-slider.tpl",
+    "sha256": "4D2B7C26218029E437731A976BFC24EA6698B8C367B654A9D647DE57BE50C8EF"
+  },
+  {
+    "path": "static/css/style-async.scss.tpl",
+    "sha256": "6131597FD8978EDE2A960FD73890A737879C2403BCCAB19A0DF395FCE2B8C324"
+  },
+  {
+    "path": "static/css/style-critical.tpl",
+    "sha256": "E2CF02C6F77F278B5F05E86857FA60406C38D231B20A42EDA4A69AF1C551588C"
+  },
+  {
+    "path": "static/js/store.js.tpl",
+    "sha256": "D5AE2252D69C52ACAB37852FCCBEF1E97DC4FE883A685514CBA8975B593BA7A2"
+  },
+  {
+    "path": "static/css/style-editorial-critical.tpl",
+    "sha256": "A582CC46E18808EAEF35CCA09F7006831505522E851DD1DB2FE760C817774608"
+  },
+  {
+    "path": "static/css/style-editorial-async.tpl",
+    "sha256": "58A2E75ED35A5CB20DB94D214C518CD94A0F2956D3D10091E7283B57DFA13DFF"
+  },
+  {
+    "path": "snipplets/home/home-modules.tpl",
+    "sha256": "D433C027E0B91387BD67D476F95F28B7D38794D1CBEB82261C1D1589A0543EB4"
+  },
+  {
+    "path": "snipplets/home/home-editorial-pair.tpl",
+    "sha256": "9EEDAB607BF65531DE3A8F67736F1397450C0B22A3203B759C0974FCECFE2B07"
+  },
+  {
+    "path": "config/settings.txt",
+    "sha256": "C959B189A90E0745995AE042120412176E9BABF00390DFB767EA3DC3F569BB14"
+  },
+  {
+    "path": "snipplets/home/home-editorial-campaign.tpl",
+    "sha256": "D150F6E6451E70B31B88A433E84573ABF8244299CE58631B8A45881948F5E049"
+  },
+  {
+    "path": "snipplets/footer/footer.tpl",
+    "sha256": "D09422A8B5224FDA14A7C5EF2E6E262C871C65601AE36898B37A8DB5E4EDE25B"
+  },
+  {
+    "path": "snipplets/home/home-editorial-tiles.tpl",
+    "sha256": "F39AB81225E10B13947CCC8776EB5202D65230D2AF9AAE67C8E11D0380423EDA"
+  },
+  {
+    "path": "snipplets/newsletter.tpl",
+    "sha256": "F87DDFB4DF16AF31F54414CE67F80E2EA5459B97EA1324BB1A989347E2A530D7"
+  },
+  {
+    "path": "snipplets/home/home-testimonials.tpl",
+    "sha256": "0A4322DDEC2282F3C09656C71A6111A9544B1ABAC8AA0C75E186028520EE338E"
+  },
+  {
+    "path": "snipplets/home/home-section-switch.tpl",
+    "sha256": "D8964B73D9440EDC4658407527DCC708B16C52C00FA2508B16403C3798276F07"
+  },
+  {
+    "path": "snipplets/header/header-search.tpl",
+    "sha256": "883EEDC1EEFE397D4C309D3B730F5E8B9045A06FF4DCEDCE1EB6AE99B71ECD5B"
+  },
+  {
+    "path": "snipplets/header/header-utilities.tpl",
+    "sha256": "127BBDA301A060E37BB709706E5D9A65AE71B514FA2ADFABAE8E344F69BE51F1"
+  },
+  {
+    "path": "snipplets/navigation/navigation-nav-list.tpl",
+    "sha256": "8829E09CD265D3320044E245E80034EAA3ACA06100BA1EB8D3C99CC66FDB7653"
+  },
+  {
+    "path": "snipplets/contact-links.tpl",
+    "sha256": "F4E526686DCAC00F92B01AE10AE99F4F3F12D3F5C552D189F79BAB71A243F6E1"
+  },
+  {
+    "path": "snipplets/social/social-links.tpl",
+    "sha256": "22DC1593E0CB4DE9C4279F782191550535DEDCB061307ABCCAED207B39D84063"
+  },
+  {
+    "path": "snipplets/whatsapp-chat.tpl",
+    "sha256": "532553CBCF0270E5D1C046E41931BB63B79AA236597A0661A9CCD14704937F12"
+  },
+  {
+    "path": "snipplets/navigation/navigation.tpl",
+    "sha256": "3673ED3EF88EC013DC2FCF104C4EEB3F6188B4E57F9D2970738D38009914685B"
+  },
+  {
+    "path": "snipplets/navigation/navigation-panel.tpl",
+    "sha256": "2982250BE394DAF7AD499C1423CD966F5B8AAE8D501FA1F3CD1E1330F42168AB"
+  },
+  {
+    "path": "snipplets/navigation/header-shopping-links.tpl",
+    "sha256": "87E1EA0F3BD4C1539BC32ADD166287951F738867B2DB84CB889A054218C64708"
+  },
+  {
+    "path": "snipplets/home/home-instafeed.tpl",
+    "sha256": "C66171B6973F2C37B39CA1FAC59DCC739D8F0FB79997B5768AECA7FDF443B792"
+  },
+  {
+    "path": "snipplets/banner-services/banner-services.tpl",
+    "sha256": "38413AFDA7FD82085E8653067A3A74378C3EE9D3EA11CDE1067C78250E4F6706"
+  },
+  {
+    "path": "templates/category.tpl",
+    "sha256": "0FB62F8C59193E5C9FEA7C7B6292307BBBA7BC9E3BE5C9ED8FD22C89136513A5"
+  },
+  {
+    "path": "snipplets/labels.tpl",
+    "sha256": "D55C886A6B3354002A1406EB7F2CB7D515EE6A903041BE4B3DB4009D74B76E1F"
+  }
 ]

@@ -1,0 +1,10 @@
+{
+  "restored": [
+    "snipplets/header/header.tpl",
+    "snipplets/navigation/navigation-panel.tpl",
+    "snipplets/navigation/navigation.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "config/settings.txt"
+  ],
+  "time": "2026-10-25T13:11:27.460Z"
+}

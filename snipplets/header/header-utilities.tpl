@@ -1,12 +1,15 @@
-{% set text_utilities = settings.utilities_type_mobile == 'text' or settings.utilities_type_desktop == 'text' %}
-{% set icon_utilities = settings.utilities_type_mobile == 'icon' or settings.utilities_type_desktop == 'icon' %}
-{% set icon_utilities_desktop = settings.utilities_type_desktop == 'icon' %}
-{% set text_utilities_only_mobile = settings.utilities_type_mobile == 'text' and settings.utilities_type_desktop == 'icon' %}
-{% set text_utilities_only_desktop = settings.utilities_type_mobile == 'icon' and settings.utilities_type_desktop == 'text' %}
-{% set text_utilities_desktop = settings.utilities_type_desktop == 'text' %}
-{% set merged_search_menu_icon = settings.utilities_type_mobile == 'icon' and settings.search_type_mobile == 'menu_and_search_icon' %}
-{% set search_icon_only_desktop = not settings.search_big_desktop and settings.utilities_type_desktop == 'icon' and settings.utilities_type_mobile != 'icon' %}
-{% set search_icon_only_mobile = (settings.search_big_desktop or (not settings.search_big_desktop and settings.utilities_type_desktop != 'icon')) and settings.utilities_type_mobile == 'icon' and settings.search_type_mobile == 'search_icon' %}
+{% set tf_utilities_type_mobile = tf_compact_header ? 'icon' : settings.utilities_type_mobile %}
+{% set tf_utilities_type_desktop = tf_compact_header ? 'icon' : settings.utilities_type_desktop %}
+{% set tf_search_type_mobile = tf_compact_header ? 'search_icon' : settings.search_type_mobile %}
+{% set text_utilities = tf_utilities_type_mobile == 'text' or tf_utilities_type_desktop == 'text' %}
+{% set icon_utilities = tf_utilities_type_mobile == 'icon' or tf_utilities_type_desktop == 'icon' %}
+{% set icon_utilities_desktop = tf_utilities_type_desktop == 'icon' %}
+{% set text_utilities_only_mobile = tf_utilities_type_mobile == 'text' and tf_utilities_type_desktop == 'icon' %}
+{% set text_utilities_only_desktop = tf_utilities_type_mobile == 'icon' and tf_utilities_type_desktop == 'text' %}
+{% set text_utilities_desktop = tf_utilities_type_desktop == 'text' %}
+{% set merged_search_menu_icon = tf_utilities_type_mobile == 'icon' and tf_search_type_mobile == 'menu_and_search_icon' %}
+{% set search_icon_only_desktop = not settings.search_big_desktop and tf_utilities_type_desktop == 'icon' and tf_utilities_type_mobile != 'icon' %}
+{% set search_icon_only_mobile = (settings.search_big_desktop or (not settings.search_big_desktop and tf_utilities_type_desktop != 'icon')) and tf_utilities_type_mobile == 'icon' and tf_search_type_mobile == 'search_icon' %}
 
 {% set show_mobile_hide_desktop_class = 'd-inline-block d-md-none' %}
 {% set show_desktop_hide_mobile_class = 'd-none d-md-inline' %}
@@ -90,13 +93,13 @@
 		</div>
 	</span>
 {% elseif use_search %}
-	{% if not settings.search_big_desktop or settings.search_type_mobile == 'search_icon' %}
-		<span class="utilities-container {% if settings.search_type_mobile == 'search_icon' and settings.search_big_desktop %}{{ show_mobile_hide_desktop_class }}{% endif %} {% if settings.search_type_mobile != 'search_icon' and not settings.search_big_desktop %}{{ show_desktop_hide_mobile_class }}{% endif %}">
+	{% if not settings.search_big_desktop or tf_search_type_mobile == 'search_icon' %}
+		<span class="utilities-container {% if tf_search_type_mobile == 'search_icon' and settings.search_big_desktop %}{{ show_mobile_hide_desktop_class }}{% endif %} {% if tf_search_type_mobile != 'search_icon' and not settings.search_big_desktop %}{{ show_desktop_hide_mobile_class }}{% endif %}">
 			<a href="#" class="js-search-button js-modal-open utilities-item" data-toggle="#nav-search" aria-label="{{ 'Buscador' | translate }}">
-				{% if settings.utilities_type_desktop == 'text' %}
+				{% if tf_utilities_type_desktop == 'text' %}
 					<span class="utilities-text {{ show_desktop_hide_mobile_class }}">{{ 'Buscar' | translate }}</span>
 				{% endif %}
-				{% if (not settings.search_big_desktop and settings.utilities_type_desktop == 'icon') or (settings.utilities_type_mobile == 'icon' and settings.search_type_mobile == 'search_icon') %} 
+				{% if (not settings.search_big_desktop and tf_utilities_type_desktop == 'icon') or (tf_utilities_type_mobile == 'icon' and tf_search_type_mobile == 'search_icon') %} 
 					<span class="{% if search_icon_only_mobile %}{{ show_mobile_hide_desktop_class }}{% endif %} {% if search_icon_only_desktop %}{{ show_desktop_hide_mobile_class }}{% endif %}">
 						{% include "snipplets/svg/search.tpl" with {svg_custom_class: "icon-inline align-bottom utilities-icon"} %}
 					</span>

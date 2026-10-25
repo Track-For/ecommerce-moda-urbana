@@ -1,0 +1,13 @@
+{
+  "files": [
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/home/home-instafeed.tpl",
+    "snipplets/banner-services/banner-services.tpl"
+  ],
+  "uploaded": [
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/home/home-instafeed.tpl",
+    "snipplets/banner-services/banner-services.tpl"
+  ],
+  "verified": true
+}

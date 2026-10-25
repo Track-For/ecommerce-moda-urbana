@@ -1,0 +1,23 @@
+{
+  "files": [
+    "snipplets/header/header-search.tpl",
+    "snipplets/header/header-utilities.tpl",
+    "snipplets/navigation/navigation-nav-list.tpl",
+    "snipplets/contact-links.tpl",
+    "snipplets/social/social-links.tpl",
+    "snipplets/whatsapp-chat.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/header/header.tpl"
+  ],
+  "uploaded": [
+    "snipplets/header/header-search.tpl",
+    "snipplets/header/header-utilities.tpl",
+    "snipplets/navigation/navigation-nav-list.tpl",
+    "snipplets/contact-links.tpl",
+    "snipplets/social/social-links.tpl",
+    "snipplets/whatsapp-chat.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/header/header.tpl"
+  ],
+  "verified": true
+}

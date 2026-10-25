@@ -1,6 +1,6 @@
 # Pacote local de alterações do Cali
 
-`cali-redesign-patch.zip` é um pacote incremental com dezoito arquivos, para aplicação sobre a mesma versão do Cali presente em `01-original`. Não é um tema completo nem um importador do painel. A revisão atual do footer e dos depoimentos ainda não foi enviada.
+`cali-redesign-patch.zip` é um pacote incremental com 24 arquivos, para aplicação sobre a mesma versão do Cali presente em `01-original`. Não é um tema completo nem um importador do painel. A revisão atual do footer e dos depoimentos ainda não foi enviada.
 
 O ZIP preserva os caminhos do tema e inclui explicitamente os dois novos arquivos editoriais. `cali-redesign-patch.manifest.json` registra o SHA-256 de cada arquivo. Após qualquer alteração nas fontes, o pacote e o manifesto precisam ser recriados.
 
@@ -56,3 +56,13 @@ Os cinco arquivos desta atualizacao foram enviados e conferidos por hash. Consul
 ## Banners finais e rodape
 
 Nova galeria tf_editorial_tiles no painel, com fallback para o segundo e terceiro modulos. A secao aparece no final da home, antes do rodape nativo, preservando as demais secoes configuradas. O rodape mantem seus formularios, menus, selos e integracoes. Backup e verificacao do envio em footer-deploy-state.json.
+
+## Header e contatos
+
+Arquivos adicionais deste ajuste:
+- snipplets/header/header-search.tpl
+- snipplets/header/header-utilities.tpl
+- snipplets/navigation/navigation-nav-list.tpl
+- snipplets/contact-links.tpl
+- snipplets/social/social-links.tpl
+- snipplets/whatsapp-chat.tpl
