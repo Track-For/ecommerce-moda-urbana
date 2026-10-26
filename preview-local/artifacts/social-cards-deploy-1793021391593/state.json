@@ -1,0 +1,18 @@
+{
+  "files": [
+    "snipplets/footer/social-highlight-cards.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "uploaded": [
+    "snipplets/footer/social-highlight-cards.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/footer/footer.tpl"
+  ],
+  "absent": [
+    "snipplets/footer/social-highlight-cards.tpl"
+  ],
+  "status": 200,
+  "visibleMarkup": true,
+  "verified": true
+}

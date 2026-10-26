@@ -19,6 +19,7 @@
 					{% endif %}
 
 					<form class="mt-4" method="post" action="/winnie-pooh" onsubmit="this.setAttribute('action', '');" data-store="home-newsletter-form">
+                        {% include 'snipplets/forms/privacy-check.tpl' with {privacy_marketing: true} %}
 						<div class="input-append">
 
 							{% embed "snipplets/forms/form-input.tpl" with{input_for: 'email', type_email: true, input_name: 'email', input_id: 'email', input_placeholder: 'Email' | translate, input_group_custom_class: "mb-2", input_custom_class: "form-control-transparent",  input_aria_label: 'Email' | translate } %}

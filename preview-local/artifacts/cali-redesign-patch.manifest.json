@@ -29,7 +29,7 @@
   },
   {
     "path": "static/css/style-editorial-critical.tpl",
-    "sha256": "A582CC46E18808EAEF35CCA09F7006831505522E851DD1DB2FE760C817774608"
+    "sha256": "17437E5B2AA205F7DC8C94B169B2A430C5746ED23141A6E5BFD280BACEBE8C97"
   },
   {
     "path": "static/css/style-editorial-async.tpl",
@@ -53,7 +53,7 @@
   },
   {
     "path": "snipplets/footer/footer.tpl",
-    "sha256": "D09422A8B5224FDA14A7C5EF2E6E262C871C65601AE36898B37A8DB5E4EDE25B"
+    "sha256": "99979800047A9271418DAA44361AC420E5B4040B352F57AA0746C8D480E545BA"
   },
   {
     "path": "snipplets/home/home-editorial-tiles.tpl",
@@ -61,7 +61,7 @@
   },
   {
     "path": "snipplets/newsletter.tpl",
-    "sha256": "F87DDFB4DF16AF31F54414CE67F80E2EA5459B97EA1324BB1A989347E2A530D7"
+    "sha256": "90C9B8576B9075B115E783746D6E451CAF610BAF310EC5FB8A97FDF4DC71F4C6"
   },
   {
     "path": "snipplets/home/home-testimonials.tpl",
@@ -85,7 +85,7 @@
   },
   {
     "path": "snipplets/contact-links.tpl",
-    "sha256": "F4E526686DCAC00F92B01AE10AE99F4F3F12D3F5C552D189F79BAB71A243F6E1"
+    "sha256": "CB9E578F97E1DD130A1AC8F85A32D226A46C2069ABDC45972B438864BADC7824"
   },
   {
     "path": "snipplets/social/social-links.tpl",
@@ -122,5 +122,45 @@
   {
     "path": "snipplets/labels.tpl",
     "sha256": "D55C886A6B3354002A1406EB7F2CB7D515EE6A903041BE4B3DB4009D74B76E1F"
+  },
+  {
+    "path": "snipplets/forms/privacy-check.tpl",
+    "sha256": "BDB6F2C09282EA3EB23AC08042B66C97351C29C40F71E89119D8FE1349DFE0F7"
+  },
+  {
+    "path": "static/js/privacy-forms.js.tpl",
+    "sha256": "BB47F5F31E76D7A14891A78E7172B15227726B0D0BA1B6D72B876B6DA60762D3"
+  },
+  {
+    "path": "snipplets/forms/form.tpl",
+    "sha256": "4DFFB6FD5B8FF600B0B8BECF962BAFFC9F4AF42E8FF43DB634C5CB046A076A8F"
+  },
+  {
+    "path": "snipplets/home/home-newsletter.tpl",
+    "sha256": "C904B404B6496D861A5B0130BF3FD069360DB2147B94C1C797ACD7D8D8740506"
+  },
+  {
+    "path": "snipplets/home/home-popup.tpl",
+    "sha256": "778D45525C4C6693BBFB20E6552711CE21801A79178F52E54AA1FB0113E3A30D"
+  },
+  {
+    "path": "templates/page.tpl",
+    "sha256": "2024F2E4A2A72E1625628DC9A038B1EAB7193BE2E1BF1B94D8094363B91D65D2"
+  },
+  {
+    "path": "layouts/layout.tpl",
+    "sha256": "EDAAA7B014585F3D0070F112E1F477C53F8002EE62029E094583DBDE111550AC"
+  },
+  {
+    "path": "snipplets/footer/social-highlight-cards.tpl",
+    "sha256": "8BFA31AC6E80FE888675F4D4BE705979498CB32954610B9349E1A6E49055B2CF"
+  },
+  {
+    "path": "snipplets/support-navigation.tpl",
+    "sha256": "5F8C39FA5C501D39F290F1F237ACE839CDA77DA9F94414CB09CE60247595A187"
+  },
+  {
+    "path": "templates/contact.tpl",
+    "sha256": "4C38154786B465ACBB15164C620F5643F404B5175E308639053071A136A6C9A3"
   }
 ]

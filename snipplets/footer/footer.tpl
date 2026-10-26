@@ -27,10 +27,10 @@
 	<div class="container-fluid">
 		<div class="tf-footer-columns row mb-5 {% if template == 'password' %}justify-content-md-center{% endif %}">
 
-			{% if has_social_network %}
+			{% if template != 'password' or has_social_network %}
 				<div class="tf-footer-socials col-12 col-md{% if template == 'password' %}-3{% endif %} mb-4">
 					<h3 class="tf-footer-heading">{{ "Siga nossas redes" | translate }}</h3>
-					{% include "snipplets/social/social-links.tpl" %}
+					{% include "snipplets/footer/social-highlight-cards.tpl" %}
 				</div>
 			{% endif %}
 			

@@ -1,0 +1,44 @@
+{
+  "files": [
+    "snipplets/support-navigation.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "templates/page.tpl",
+    "templates/contact.tpl"
+  ],
+  "uploaded": [
+    "snipplets/support-navigation.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "templates/page.tpl",
+    "templates/contact.tpl"
+  ],
+  "absent": [
+    "snipplets/support-navigation.tpl"
+  ],
+  "checks": [
+    {
+      "url": "/produtos/",
+      "status": 200,
+      "navigation": false,
+      "shippingCSS": false
+    },
+    {
+      "url": "/contato/",
+      "status": 200,
+      "navigation": true,
+      "shippingCSS": true
+    },
+    {
+      "url": "/trocas-e-devolucoes/",
+      "status": 200,
+      "navigation": true,
+      "shippingCSS": true
+    },
+    {
+      "url": "/politica-de-privacidade/",
+      "status": 200,
+      "navigation": true,
+      "shippingCSS": true
+    }
+  ],
+  "success": true
+}

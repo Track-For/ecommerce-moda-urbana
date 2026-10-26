@@ -1,0 +1,84 @@
+{
+  "files": [
+    "snipplets/forms/privacy-check.tpl",
+    "static/js/privacy-forms.js.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/forms/form.tpl",
+    "snipplets/newsletter.tpl",
+    "snipplets/home/home-newsletter.tpl",
+    "snipplets/home/home-popup.tpl",
+    "templates/page.tpl",
+    "layouts/layout.tpl"
+  ],
+  "uploaded": [
+    "snipplets/forms/privacy-check.tpl",
+    "static/js/privacy-forms.js.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/forms/form.tpl",
+    "snipplets/newsletter.tpl",
+    "snipplets/home/home-newsletter.tpl",
+    "snipplets/home/home-popup.tpl",
+    "templates/page.tpl",
+    "layouts/layout.tpl"
+  ],
+  "absent": [
+    "snipplets/forms/privacy-check.tpl",
+    "static/js/privacy-forms.js.tpl"
+  ],
+  "verified": [
+    "snipplets/forms/privacy-check.tpl",
+    "static/js/privacy-forms.js.tpl",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/forms/form.tpl",
+    "snipplets/newsletter.tpl",
+    "snipplets/home/home-newsletter.tpl",
+    "snipplets/home/home-popup.tpl",
+    "templates/page.tpl",
+    "layouts/layout.tpl"
+  ],
+  "checks": [
+    {
+      "url": "/",
+      "status": 200,
+      "privacy": false,
+      "policyLayout": false,
+      "cache": "HIT"
+    },
+    {
+      "url": "/produtos/",
+      "status": 200,
+      "privacy": false,
+      "policyLayout": false,
+      "cache": "HIT"
+    },
+    {
+      "url": "/contato/",
+      "status": 200,
+      "privacy": true,
+      "policyLayout": true,
+      "cache": "DYNAMIC"
+    },
+    {
+      "url": "/account/login/",
+      "status": 200,
+      "privacy": true,
+      "policyLayout": true,
+      "cache": "DYNAMIC"
+    },
+    {
+      "url": "/account/register/",
+      "status": 200,
+      "privacy": true,
+      "policyLayout": true,
+      "cache": "DYNAMIC"
+    },
+    {
+      "url": "/politica-de-privacidade/",
+      "status": 200,
+      "privacy": true,
+      "policyLayout": true,
+      "cache": "BYPASS"
+    }
+  ],
+  "success": true
+}

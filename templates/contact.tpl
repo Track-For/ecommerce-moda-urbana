@@ -1,3 +1,5 @@
+<div class="tf-contact-layout">
+{% if not is_order_cancellation %}{% include 'snipplets/support-navigation.tpl' %}{% endif %}
 {% embed "snipplets/page-header.tpl" with {container: true} %}
 	{% if is_order_cancellation %}
 		{% set form_title = "Pedí la cancelación de tu última compra" | translate %}
@@ -13,7 +15,8 @@
 	<div class="container-fluid">
 		<div class="row">
 			{% if has_contact_info and not is_order_cancellation %}
-				<div class="col-md-3">
+				<div class="col-md-3 tf-contact-details">
+					<h2 class="tf-contact-subtitle">Fale com a Moda Urbana</h2>
 					{% if store.contact_intro %}
 						<p class="mb-4">{{ store.contact_intro }}</p>
 					{% endif %}
@@ -36,7 +39,8 @@
 					{% endif %}
 				</div>	
 			{% endif %}
-			<div class="col-md-5">
+			<div class="col-md-5 tf-contact-form-panel">
+				{% if not is_order_cancellation %}<h2 class="tf-contact-subtitle">Envie sua mensagem</h2>{% endif %}
 				{% if product %}  
 					<div class="mb-4">
 						<div class="row align-items-center justify-content-md-left">
@@ -115,3 +119,4 @@
 		</div>
 	</div>
 </section>
+</div>

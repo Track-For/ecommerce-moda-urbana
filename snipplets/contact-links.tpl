@@ -5,11 +5,11 @@
 				{% if with_icons %}
 					{% include "snipplets/svg/whatsapp.tpl" with {svg_custom_class: "icon-inline mr-1 font-body"} %}
 				{% endif %}
-				{{ store.whatsapp |trim('https://wa.me/') }}
+				(19) 98979-4848 &mdash; WhatsApp
 			</a>
 		</li>
 	{% endif %}
-	{% if store.phone %}
+	{% if store.phone and not store.whatsapp %}
 		<li class="footer-menu-item">
 			<a href="tel:{{ store.phone }}" class="{% if btn_link %}btn{% else %}contact{% endif %}-link">
 				{% if with_icons %}

@@ -21,6 +21,7 @@
         {{ component('nubesdk-slot', { type: "before_register_form_submit" }) }}
     {% endif %}
 
+    {% if template != 'password' %}{% include 'snipplets/forms/privacy-check.tpl' %}{% endif %}
     <button class="btn btn-primary {{ submit_custom_class }}" type="submit" value="{{ submit_text }}" name="{{ submit_name }}" {{ submit_prop }}>
         {{ submit_text }}
         <span class="js-form-spinner" style="display:none;">{% include "snipplets/svg/spinner-third.tpl" with {svg_custom_class: "icon-inline icon-spin ml-3"} %}</span>

@@ -147,6 +147,7 @@
         {# Javascript used in the store #}
 
         <script type="text/javascript">
+            {% include "static/js/privacy-forms.js.tpl" %}
 
             {# Libraries that do NOT depend on other libraries, e.g: Jquery #}
 

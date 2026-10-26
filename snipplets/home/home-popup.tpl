@@ -21,6 +21,7 @@
         {% if settings.home_news_box %}
             <div id="news-popup-form-container" class="newsletter">
                 <form id="news-popup-form" method="post" action="/winnie-pooh" class="js-news-form" data-store="newsletter-form-popup">
+                    {% include 'snipplets/forms/privacy-check.tpl' with {privacy_marketing: true} %}
                     <div class="newsletter-form input-append position-relative">
                         {% embed "snipplets/forms/form-input.tpl" with{input_for: 'email', type_email: true, input_name: 'email', input_id: 'email', input_placeholder: 'Email', input_custom_class: "js-mandatory-field", input_aria_label: 'Email' | translate } %}
                         {% endembed %}

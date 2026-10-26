@@ -5,6 +5,7 @@
         </div>
         <div class="tf-newsletter-fields">
             <form method="post" action="/winnie-pooh" onsubmit="this.setAttribute('action', '');" data-store="newsletter-form">
+                {% include 'snipplets/forms/privacy-check.tpl' with {privacy_marketing: true} %}
                 <div class="tf-newsletter-form">
                     <input class="form-control" id="footer-news-name" type="text" name="name" autocomplete="name" placeholder="{{ 'Seu nome (opcional)' | translate }}" aria-label="{{ 'Seu nome (opcional)' | translate }}">
                     <input class="form-control" id="footer-news-email" type="email" name="email" autocomplete="email" required placeholder="{{ 'Seu e-mail' | translate }}" aria-label="{{ 'Seu e-mail' | translate }}">
