@@ -20,7 +20,7 @@
       promotion_primary_text: 'd-block',
       promotion_secondary_text: 'font-smallest',
       offer: 'js-offer-label ' ~ label_accent_classes,
-      shipping: 'label label-top tf-shipping-label ',
+      shipping: 'label label-top tf-shipping-label ' ~ (template == 'product' ? 'd-none'),
       no_stock: 'js-stock-label ' ~ label_default_classes ~ label_position_classes,
     },
   })

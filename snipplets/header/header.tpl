@@ -72,7 +72,7 @@
 {% set has_account_links = settings.account_header %}
 
 <header class="tf-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
-    <div class="tf-shipping-announcement">Frete grátis para todo o Brasil</div>
+    <div class="tf-shipping-announcement">Frete Grátis para o estado de São Paulo</div>
     {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
