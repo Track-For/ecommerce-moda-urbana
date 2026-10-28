@@ -21,8 +21,15 @@ try {
     const before=path.join(backup,'before',file);fs.mkdirSync(path.dirname(before),{recursive:true});
     try {await client.downloadTo(before,file);} catch(e) {if(e.code===550&&newFiles.includes(file)){absent.push(file);continue;}throw e;}
     const local=fs.readFileSync(file), remote=fs.readFileSync(before);
-    const prior=path.join(root,'preview-local/artifacts/shopping-deploy-1793150307765/after',file);
-    const base=newFiles.includes(file)?(fs.existsSync(prior)?fs.readFileSync(prior):local):execFileSync('git',['show','HEAD:'+file],{cwd:root});
+    const artifacts=path.join(root,'preview-local/artifacts');
+    const previous=fs.readdirSync(artifacts).filter(name=>name.startsWith('shopping-deploy-')).sort().reverse().find(name=>{
+      const result=path.join(artifacts,name,'result.json');
+      if(!fs.existsSync(result))return false;
+      const record=JSON.parse(fs.readFileSync(result,'utf8'));
+      return record.verified && record.uploaded?.includes(file) && fs.existsSync(path.join(artifacts,name,'after',file));
+    });
+    const prior=path.join(artifacts,previous || 'shopping-deploy-1793150307765','after',file);
+    const base=fs.existsSync(prior)?fs.readFileSync(prior):newFiles.includes(file)?local:execFileSync('git',['show','HEAD:'+file],{cwd:root});
     if(normalize(remote)!==normalize(base)&&normalize(remote)!==normalize(local)) throw Error('Remote differs: '+file);
   }
   console.log('Preflight passed: '+files.length+' files. Backup: '+backup);

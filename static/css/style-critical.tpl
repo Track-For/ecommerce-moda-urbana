@@ -3001,4 +3001,5 @@ header.head-main.compress .logo-img-small {
 
 /* TRACK FOR: compact hero and liquid glass header revision 2. */
 {% include "static/css/style-editorial-critical.tpl" %}
+/* Logo palette refreshed 2026-10-28. */
 {% include "static/css/style-shopping.tpl" %}

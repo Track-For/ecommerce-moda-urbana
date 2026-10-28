@@ -19,6 +19,44 @@
     var form = product.querySelector('#product_form');
     if (!form) return;
     var main = form.querySelector('[data-store="product-buy-button"]');
+    // The merchant owns measurements in each product's native description.
+    // Caption text survives rich-text editors that strip classes/data attributes.
+    var description = document.querySelector('#product-description .user-content');
+    if (description && !form.querySelector('.tf-size-chart')) {
+      var normalize = function (text) { return text.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+      var chart = Array.from(description.querySelectorAll('table')).find(function (table) {
+        var caption = table.querySelector('caption');
+        var previous = table.previousElementSibling;
+        return (caption && /^tabela de medidas\b/.test(normalize(caption.textContent))) ||
+          (previous && /^(H[2-6]|P)$/.test(previous.tagName) && /^tabela de medidas(?:\s*\(cm\))?$/.test(normalize(previous.textContent)));
+      });
+      if (chart) {
+        var heading = chart.previousElementSibling;
+        var hasMeasurements = Array.from(chart.rows).some(function (row) {
+          var cells = Array.from(row.cells);
+          return cells.length > 1 && cells[0].textContent.trim() && cells.slice(1).some(function (cell) { return /\d/.test(cell.textContent); });
+        });
+        if (hasMeasurements) {
+          var guide = document.createElement('details'); guide.className = 'tf-size-chart';
+          var title = document.createElement('summary'); title.textContent = 'Tabela de medidas';
+          var scroll = document.createElement('div'); scroll.className = 'tf-size-chart-scroll';
+          scroll.tabIndex = 0; scroll.setAttribute('role', 'region'); scroll.setAttribute('aria-label', 'Tabela de medidas do produto, em centímetros');
+          var caption = chart.querySelector('caption');
+          if (!caption) { caption = chart.createCaption(); caption.textContent = 'Tabela de medidas (cm)'; }
+          guide.append(title, scroll); scroll.append(chart);
+          var variantsBlock = form.querySelector('.js-product-variants');
+          if (variantsBlock) variantsBlock.after(guide);
+          else if (main) main.before(guide);
+          else form.append(guide);
+          var help = form.querySelector('.tf-size-help');
+          if (help) help.hidden = true;
+        } else {
+          // An unfilled merchant template must never look like real sizing data.
+          chart.hidden = true;
+        }
+        if (heading && /^(H[2-6]|P)$/.test(heading.tagName) && /^tabela de medidas(?:\s*\(cm\))?$/.test(normalize(heading.textContent))) heading.hidden = true;
+      }
+    }
     var price = product.querySelector('#price_display');
     var groups = Array.from(form.querySelectorAll('.js-product-variants-group'));
     var variants = [];
