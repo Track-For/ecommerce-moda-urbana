@@ -3,17 +3,19 @@
 {% set narrow_wrapper = settings.product_image_format == 'slider' or (settings.product_image_format != 'slider' and (settings.product_image_grid == '1' or (settings.product_image_grid == '2' and not has_multiple_slides ))) %}
 {% set narrow_empty_description = narrow_wrapper and product.description is empty %}
 
-<div id="product-description" style="display: none;" class="{% if settings.full_width_description %}container-fluid product-description-container {% if narrow_empty_description %}px-md-0{% endif %}{% endif %} {% if has_color_description %}product-page-description {% if settings.full_width_description %}py-md-5{% endif %} py-4{% else %}{% endif %} mt-4 pt-3 {% if narrow_empty_description %}{% if settings.full_width_description %}mt-md-2{% else %}mt-md-4{% endif %}{% endif %}" data-store="product-description-{{ product.id }}">
+<div id="product-description" class="{% if settings.full_width_description %}container-fluid product-description-container {% if narrow_empty_description %}px-md-0{% endif %}{% endif %} {% if has_color_description %}product-page-description {% if settings.full_width_description %}py-md-5{% endif %} py-4{% else %}{% endif %} mt-4 pt-3 {% if narrow_empty_description %}{% if settings.full_width_description %}mt-md-2{% else %}mt-md-4{% endif %}{% endif %}" data-store="product-description-{{ product.id }}">
 
     {{ component('nubesdk-slot', { type: "before_product_description" }) }}
 
     {# Product description #}
 
     {% if product.description is not empty %}
-        <div class="user-content mb-4">
-            <h5 class="font-big mb-4 {% if settings.full_width_description %}h2-md{% endif %}">{{ "Descripción" | translate }}</h5>
+        <details class="tf-product-details" open>
+            <summary>Sobre a peça</summary>
+            <div class="user-content mb-4">
             {{ product.description }}
-        </div>
+            </div>
+        </details>
     {% endif %}
 
     {{ component('nubesdk-slot', { type: "after_product_description" }) }}

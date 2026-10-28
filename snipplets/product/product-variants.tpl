@@ -45,6 +45,7 @@
 			{% set has_size_variations = true %}
 		{% endif %}
 	{% endfor %}
+	{% set has_size_guide_page_finded = false %}
 	{% if show_size_guide and settings.size_guide_url and has_size_variations %}
 		{% set has_size_guide_page_finded = false %}
 		{% set size_guide_url_handle = settings.size_guide_url | trim('/') | split('/') | last %}
@@ -54,7 +55,7 @@
 			{% if has_size_guide_page_finded %}
 				<a data-toggle="#size-guide-modal" data-modal-url="modal-fullscreen-size-guide" class="js-modal-open js-fullscreen-modal-open font-small col-12 mb-3">
 					{% include "snipplets/svg/ruller.tpl" with {svg_custom_class: "icon-inline icon-lg svg-icon-text mr-1"} %}
-					<span class="btn-link font-small">{{ 'Guía de talles' | translate }}</span>
+					<span class="btn-link font-small">Qual é meu tamanho?</span>
 				</a>
 				{% embed "snipplets/modal.tpl" with{modal_id: 'size-guide-modal',modal_class: 'bottom-md', modal_position: 'right modal-centered-md', modal_transition: 'slide', modal_header_title: true, modal_footer: true, modal_width: 'centered', modal_mobile_full_screen: 'true'} %}
 					{% block modal_head %}
@@ -68,5 +69,13 @@
 				{% endembed %}
 			{% endif %}
 		{% endfor %}
+	{% endif %}
+	{% if show_size_guide and has_size_variations and not has_size_guide_page_finded %}
+		<details class="tf-size-help col-12">
+			<summary>Qual é meu tamanho?</summary>
+			<p>Use uma fita métrica sem apertar: meça o busto na parte mais larga, a cintura na parte mais estreita e o quadril na parte mais larga.</p>
+			<p>Compare com as medidas informadas na descrição da peça. O tamanho pode variar conforme o modelo.</p>
+			{% if store.whatsapp %}<a href="{{ store.whatsapp }}" target="_blank" rel="noopener">Pedir ajuda com as medidas no WhatsApp</a>{% endif %}
+		</details>
 	{% endif %}
 </div>

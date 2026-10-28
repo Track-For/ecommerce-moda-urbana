@@ -2,11 +2,11 @@
 
 {% if home_main_product %}
 
-    <h2 class="mb-3">{{ product.name }}</h2>
+    <h2 class="mb-3">{% include 'snipplets/product/product-display-name.tpl' %}</h2>
 
 {% else %}
     {% embed "snipplets/page-header.tpl" %}
-        {% block page_header_text %}{{ product.name }}{% endblock page_header_text %}
+        {% block page_header_text %}{% include 'snipplets/product/product-display-name.tpl' %}{% endblock page_header_text %}
     {% endembed %}
 {% endif %}
 
@@ -133,7 +133,7 @@
     {% if not product.is_non_shippable and show_product_quantity and (has_free_shipping or has_product_free_shipping) %}
         <div class="js-free-shipping-minimum-message free-shipping-message pb-1 mb-4 font-small">
             {% if has_product_free_shipping or is_full_free_shipping %}
-                {% set shipping_discount_label = "Envío gratis" | translate %}
+                {% set shipping_discount_label = 'Frete grátis para o estado de São Paulo' %}
             {% else %}
                 {% set shipping_discount = shipping_best_discount.discount_type == 'percentage'
                     ? (shipping_best_discount.discount_value | round) ~ '%'
@@ -294,7 +294,7 @@
 
     {% if template == 'product' %}
 
-        {% set show_product_fulfillment = settings.shipping_calculator_product_page and (store.has_shipping or store.branches) and not product.free_shipping and not product.is_non_shippable %}
+        {% set show_product_fulfillment = (store.has_shipping or store.branches) and not product.is_non_shippable %}
 
         {{ component('nubesdk-slot', { type: "before_product_detail_shipping_options" }) }}
 
@@ -303,6 +303,8 @@
             {# Shipping calculator and branch link #}
 
             <div id="product-shipping-container" class="product-shipping-calculator list mt-4 mt-md-3" {% if not product.display_price or not product.has_stock %}style="display:none;"{% endif %} data-shipping-url="{{ store.shipping_calculator_url }}">
+                <h3 class="tf-delivery-title">Entrega e prazo</h3>
+                <p class="tf-delivery-note">Frete grátis para o estado de São Paulo. Informe seu CEP para consultar as opções e o prazo de entrega.</p>
                 {% if store.has_shipping %}
                     {% include "snipplets/shipping/shipping-calculator.tpl" with {'shipping_calculator_variant' : product.selected_or_first_available_variant, 'product_detail': true} %}
                 {% endif %}

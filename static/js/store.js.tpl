@@ -3212,6 +3212,11 @@ DOMContentLoaded.addEventOrExecute(() => {
             jQueryNuvem('#cart-shipping-container').find(".js-shipping-input").val(),
             '{{store.shipping_calculator_url | escape('js')}}',
             jQueryNuvem("#cart-shipping-container").closest(".js-shipping-calculator-container") );
+        } else if (shippingForm.closest("#product-shipping-container").length) {
+            LS.calculateShippingAjax(
+                shipping_input_val,
+                '{{store.shipping_calculator_url | escape('js')}}',
+                jQueryNuvem("#product-shipping-container").closest(".js-shipping-calculator-container") );
         }
 
         jQueryNuvem(".js-shipping-calculator-current-zip").html(shipping_input_val);

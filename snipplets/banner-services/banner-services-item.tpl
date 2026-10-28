@@ -1,3 +1,7 @@
+{% if 'frete' in (banner_services_title | lower) or banner_services_icon == 'shipping' %}
+    {% set banner_services_title = 'Frete grátis para São Paulo' %}
+    {% set banner_services_description = 'Frete grátis para o estado de São Paulo. Consulte as opções e os prazos de entrega para seu CEP na página do produto.' %}
+{% endif %}
 <div class="service-item-container col-md swiper-slide p-0 px-md-3" data-transition="scale-in">
     <div class="service-item mx-4 mx-md-0">
         {% if banner_services_url %}

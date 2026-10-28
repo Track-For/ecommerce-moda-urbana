@@ -213,7 +213,7 @@
 
                     {{ component('nubesdk-slot', { type: "before_product_grid_item_name" }) }}
 
-                    <div class="js-item-name item-name mb-2" data-store="product-item-name-{{ product.id }}">{{ product.name }}</div>
+                    <div class="js-item-name item-name mb-2" data-store="product-item-name-{{ product.id }}">{% include 'snipplets/product/product-display-name.tpl' %}</div>
 
                     {{ component('nubesdk-slot', { type: "after_product_grid_item_name" }) }}
 

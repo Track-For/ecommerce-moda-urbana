@@ -148,6 +148,7 @@
 
         <script type="text/javascript">
             {% include "static/js/privacy-forms.js.tpl" %}
+            {% include "static/js/shopping-improvements.js.tpl" %}
 
             {# Libraries that do NOT depend on other libraries, e.g: Jquery #}
 

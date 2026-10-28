@@ -22,6 +22,7 @@ const translations = { 'Menú': 'Menu', 'Buscar': 'Buscar', 'Buscador': 'Busca',
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 Twig.extendFilter('translate', (v, args = []) => { let t = String(translations[v] || v); (Array.isArray(args) ? args : []).forEach((a, i) => t = t.replace(`{${i + 1}}`, a)); return t; });
 Twig.extendFilter('t', v => translations[v] || v);
+Twig.extendFilter('replace', (value, args) => String(value).split(args[0]).join(args[1]));
 Twig.extendFilter('has_custom_image', () => false);
 Twig.extendFilter('static_url', v => `/generated/${path.basename(v)}`);
 Twig.extendFilter('settings_image_url', v => v);
