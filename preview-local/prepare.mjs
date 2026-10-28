@@ -66,6 +66,9 @@ if (!htmlOnly) for (const [source, name] of [['style-tokens.tpl','tokens.css'],[
   fs.writeFileSync(path.join(out, name), css);
 }
 fs.copyFileSync(path.join(root,'static/images/empty-placeholder.png'), path.join(out,'empty-placeholder.png'));
+for (const file of fs.readdirSync(path.join(root, 'static/images/hero'))) {
+  fs.copyFileSync(path.join(root, 'static/images/hero', file), path.join(out, file));
+}
 for (const [name, changes] of Object.entries({ default: {}, desktop: { hamburger_desktop: false }, left: { hamburger_desktop: false, logo_position_desktop: 'left', search_big_desktop: true }, text: { utilities_type_mobile: 'text', utilities_type_desktop: 'text' } })) {
   const variant = { ...context, settings: { ...settings, ...changes } };
   fs.writeFileSync(path.join(out, `header-${name}.html`), render('snipplets/header/header.tpl', variant));

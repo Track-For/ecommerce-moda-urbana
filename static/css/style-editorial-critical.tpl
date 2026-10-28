@@ -110,6 +110,17 @@
 .tf-header .logo-img { max-height: 50px; margin: 6px 0; }
 .tf-header .logo-text { font-size: clamp(17px, 1.6vw, 23px); margin: 0; }
 .tf-header .nav-desktop-list { padding-top: 0; padding-bottom: 0; }
+.tf-campaign-hero { padding-top: 12px; }
+.tf-campaign-link { display: block; width: min(90%, 1420px, calc((100svh - 240px) * 1580 / 600)); margin-inline: auto; }
+.tf-campaign-picture { display: block; width: 100%; }
+.tf-campaign-hero .tf-campaign-image { display: block; position: static; width: 100%; height: auto; aspect-ratio: 1580 / 600; object-fit: contain; }
+.tf-campaign-controls { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; gap: 12px; min-height: 68px; padding: 12px 0; }
+.tf-campaign-controls .swiper-button-prev, .tf-campaign-controls .swiper-button-next, .tf-campaign-controls .swiper-pagination-fraction { position: static; margin: 0; transform: none; flex-shrink: 0; }
+.tf-campaign-link:focus-visible { outline: 3px solid currentColor; outline-offset: -3px; }
+@media (max-width: 767px) {
+  .tf-campaign-link { width: min(92%, calc((100svh - 230px) * 820 / 1000)); }
+  .tf-campaign-hero .tf-campaign-image { aspect-ratio: 820 / 1000; }
+}
 .tf-home-hero {
   position: relative;
   --tf-hero-height: 80vh;

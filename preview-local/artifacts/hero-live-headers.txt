@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+Date: Wed, 28 Oct 2026 17:17:18 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Server: cloudflare
+vary: Accept-Encoding
+x-trace-id: 5474968600543447583
+x-content-type-options: nosniff
+content-security-policy: frame-ancestors 'self' mitiendanube.com *.mitiendanube.com lojavirtualnuvem.com.br *.lojavirtualnuvem.com.br mitiendanube.com.ar *.mitiendanube.com.ar mitiendanube.com.mx *.mitiendanube.com.mx mitiendanube.com.co *.mitiendanube.com.co mitiendanube.cl *.mitiendanube.cl; upgrade-insecure-requests
+strict-transport-security: max-age=31536000; includeSubDomains; preload
+x-permitted-cross-domain-policies: none
+x-xss-protection: 1; mode=block
+x-download-options: noopen
+x-cache: dynamic
+x-version: 231-d6e4bbae3c9-p4-208
+set-cookie: __cf_bm=fyGlYies9Jq8.XNtRRqXFYrmi.QotZjkyZdFkNcS7nM-1793207837.0420358-1.0.1.1-TW91FyJeTFX3FcNdG9_anvfmwETj2pNa1toICUMJEp9OvYyVHo6lnKdnFgmeOFlDwDrfo5GaAqoN2NkYpyN7tWgqrSI.q2R9ypVuCjsZ44q2zMH_o6aF6UM4FXzcTl1.; HttpOnly; SameSite=None; Secure; Path=/; Domain=www.modaurbanaoutlet.com.br; Expires=Wed, 28 Oct 2026 17:47:18 GMT
+set-cookie: _cfuvid=yxQSjywMOA1XmOQQzK_xiesb1WZFPTnaRxeeT1f9w04-1793207837.0420358-1.0.1.1-FZtivsRSq6m8aO6xdCt6ZnrKB20VicWB_RjfAaCQs28; HttpOnly; SameSite=None; Secure; Path=/; Domain=www.modaurbanaoutlet.com.br
+cf-cache-status: DYNAMIC
+CF-RAY: a51b97d58920f1b5-GRU
+

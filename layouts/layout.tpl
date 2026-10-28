@@ -39,7 +39,7 @@
 
             {% include "static/css/style-tokens.tpl" %}
 
-            {# Critical CSS — logo palette revision 2026-10-28 #}
+            {# Critical CSS — compact campaign hero revision 2026-10-28 #}
 
             {% include "static/css/style-critical.tpl" %}
         </style>

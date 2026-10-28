@@ -1,0 +1,20 @@
+{
+  "files": [
+    "static/images/hero/hero_01_estilo_sem_limites_desktop_1580x600.jpg",
+    "static/images/hero/hero_01_estilo_sem_limites_mobile_820x1000.jpg",
+    "static/images/hero/hero_02_vermelho_atitude_desktop_1580x600.jpg",
+    "static/images/hero/hero_02_vermelho_atitude_mobile_820x1000.jpg",
+    "static/images/hero/hero_03_leveza_e_estilo_desktop_1580x600.jpg",
+    "static/images/hero/hero_03_leveza_e_estilo_mobile_820x1000.jpg",
+    "static/images/hero/hero_04_essenciais_urbanos_desktop_1580x600.jpg",
+    "static/images/hero/hero_04_essenciais_urbanos_mobile_820x1000.jpg",
+    "static/images/hero/hero_05_colecao_em_movimento_desktop_1580x600.jpg",
+    "static/images/hero/hero_05_colecao_em_movimento_mobile_820x1000.jpg",
+    "static/css/style-editorial-critical.tpl",
+    "snipplets/home/home-slider.tpl"
+  ],
+  "uploaded": [],
+  "absent": [],
+  "verified": true,
+  "store": "https://www.modaurbanaoutlet.com.br"
+}
