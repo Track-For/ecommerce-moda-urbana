@@ -117,3 +117,15 @@ body .tf-privacy-check .tf-privacy-input { accent-color: var(--mu-bronze); }
 body .btn:focus-visible,
 body .tf-header a:focus-visible,
 body .tf-footer a:focus-visible { outline: 2px solid var(--mu-bronze); outline-offset: 3px; }
+
+/* PLP purchase controls: keep native quickshop and cart interactions. */
+.tf-plp-actions { display: flex; gap: 8px; margin: 14px 0 20px; align-items: stretch; text-align: center; }
+.tf-plp-buy, .tf-plp-cart { display: flex; align-items: center; justify-content: center; min-height: 44px; border: 2px solid currentColor; border-radius: 10px; font: inherit; font-weight: 700; text-decoration: none; }
+.tf-plp-buy { flex: 1; background: #171717; color: #fff; border-color: #171717; padding: 10px 8px; }
+.tf-plp-cart { gap: 6px; width: 52px; height: 100%; padding: 10px; background: transparent; color: #171717; cursor: pointer; }
+.tf-plp-cart .icon-inline { width: 19px; height: 19px; fill: currentColor; }
+.tf-plp-cart-form { flex: 0 0 52px; margin: 0; }
+.tf-plp-cart:disabled { opacity: .4; cursor: default; }
+.tf-plp-buy:hover { background: #383838; color: #fff; }
+.tf-plp-buy:focus-visible, .tf-plp-cart:focus-visible { outline: 2px solid #966a2f; outline-offset: 3px; }
+@media (max-width: 360px) { .tf-plp-actions { gap: 5px; } .tf-plp-cart, .tf-plp-cart-form { width: 44px; flex-basis: 44px; } }

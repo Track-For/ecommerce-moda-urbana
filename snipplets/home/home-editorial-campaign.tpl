@@ -5,12 +5,17 @@
 {% endif %}
 {% if editorial_campaign and editorial_campaign.image %}
     <section class="tf-wide-campaign{% if editorial_campaign.color == 'dark' %} tf-wide-campaign-dark{% endif %}" data-store="home-editorial-campaign">
-        {% if editorial_campaign.link %}<a href="{{ editorial_campaign.link | setting_url }}" class="tf-wide-campaign-link"{% if not editorial_campaign.title %} aria-label="{{ store.name }}"{% endif %}>{% endif %}
+        {% if editorial_campaign.link %}<a href="{{ editorial_campaign.link | setting_url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" class="tf-wide-campaign-link"{% if not editorial_campaign.title %} aria-label="{{ store.name }}"{% endif %}>{% endif %}
             <img class="tf-wide-campaign-image lazyautosizes lazyload"
+                {% if 'halter' in editorial_campaign.title | lower %}
+                data-src="{{ 'images/camisa-no-halter-banner.png' | static_url }}"
+                width="1446" height="460"
+                {% else %}
                 data-src="{{ editorial_campaign.image | static_url | settings_image_url('large') }}"
                 data-srcset="{{ editorial_campaign.image | static_url | settings_image_url('large') }} 480w, {{ editorial_campaign.image | static_url | settings_image_url('huge') }} 640w, {{ editorial_campaign.image | static_url | settings_image_url('1080p') }} 1920w"
                 data-sizes="auto"
                 {% if editorial_campaign.width and editorial_campaign.height %}width="{{ editorial_campaign.width }}" height="{{ editorial_campaign.height }}"{% endif %}
+                {% endif %}
                 alt="{{ editorial_campaign.title | default(store.name) }}">
             <div class="tf-wide-campaign-copy">
                 {% if editorial_campaign.title %}<h2>{{ editorial_campaign.title }}</h2>{% endif %}

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" lang="{% for language in languages %}{% if language.active %}{{ language.lang }}{% endif %}{% endfor %}">
     <head>
+        {% if template == 'home' %}
+            {% set page_title = 'Moda Urbana Oficial | Moda feminina e moda íntima' %}
+            {% set page_description = 'Na Moda Urbana Oficial você encontra moda feminina, conjuntos, blusas, vestidos e moda íntima. Veja as novidades e compre online.' %}
+        {% endif %}
         <link rel="preconnect" href="{{ store_resource_hints }}" />
         <link rel="dns-prefetch" href="{{ store_resource_hints }}" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +43,7 @@
 
             {% include "static/css/style-tokens.tpl" %}
 
-            {# Critical CSS — compact campaign hero revision 2026-10-28 #}
+            {# Critical CSS — full portrait editorial revision 2026-11-05 #}
 
             {% include "static/css/style-critical.tpl" %}
         </style>
@@ -86,6 +90,19 @@
 
         {{ component('structured-data-organization') }}
         {{ component('structured-data') }}
+
+        {% if template == 'home' %}
+            <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    "name": "Moda Urbana Oficial",
+                    "url": "https://www.modaurbanaoficial.com.br/",
+                    "inLanguage": "pt-BR",
+                    "description": "Na Moda Urbana Oficial você encontra moda feminina, conjuntos, blusas, vestidos e moda íntima. Veja as novidades e compre online."
+                }
+            </script>
+        {% endif %}
 
     </head>
     <body class="{% if customer %}customer-logged-in{% endif %} template-{{ template | replace('.', '-') }}">

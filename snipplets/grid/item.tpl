@@ -8,6 +8,11 @@
 
 #}
 
+{% set tf_male_ids = ['378308143', '376914420', '375962283', '375937409', '358885578', '358878284', '358871238', '373439462'] %}
+{% set tf_male_product = (product.id ~ '') in tf_male_ids or 'masculin' in (product.name | lower) or 'cueca' in (product.name | lower) or 'sunga' in (product.name | lower) %}
+{% if not tf_male_product %}
+{% set tf_plp_actions = (template == 'home' or template == 'category' or template == 'search') and not reduced_item %}
+{% set tf_quick_shop = settings.quick_shop or tf_plp_actions %}
 {% set slide_item = slide_item | default(false) %}
 
 {% if template == 'home'%}
@@ -53,7 +58,7 @@
 {% endif %}
     <div class="js-item-product{% if slide_item %} js-item-slide p-0{% endif %}{% if not slide_item %} col-{% if columns_mobile == 1 %}12{% else %}6{% if template == 'home' and loop.first and section_asymmetric %} offset-6 offset-md-0{% endif %}{% endif %} col-md-{% if columns_desktop == 2 %}6{% elseif columns_desktop == 3 %}4{% else %}3{% endif %}{% endif %} item-product {% if reduced_item %}item-product-reduced{% endif %} {% if template != 'home' %}{% if settings.product_grid_asymmetric %}item-offset{% endif %} {% if settings.grid_columns_desktop == '3' %}col-grid-wide-md{% endif %}{% endif %} col-grid" data-product-type="list" data-product-id="{{ product.id }}" data-store="product-item-{{ product.id }}" data-component="product-list-item" data-component-value="{{ product.id }}" {% if appear_transition %}data-transition="scale-in"{% endif %}>
         <div class="item{% if slide_item %} mb-0{% endif %}{% if template == 'home'%}{% if section_asymmetric %} item-asymmetric{% if (columns_desktop == 2 or columns_desktop == 4 or columns_mobile == 1) and loop.index is even %} item-even{% if columns_mobile == 1 and section_asymmetric_slider %} float-none{% endif %}{% endif %}{% if columns_mobile == 2 and loop.index is even %} {% if section_asymmetric or section_asymmetric_slider %}float-none{% else %}mt-5 mt-md-0{% endif %}{% elseif columns_mobile == 2 and loop.index is odd and section_asymmetric_slider %} item-asymmetric-slide pt-md-0{% endif %}{% if columns_desktop == 2 %}{% if loop.index % 4 == 3 %} m-md-auto{% endif %}{% endif %}{% if columns_desktop == 3 %} {% if loop.index % 3 == 0 %}mt-md-4{% elseif loop.index % 3 == 1 %}mt-md-5 pt-md-3{% else %}mt-md-0{% endif %}{% if (loop.index % 6 == 1) or (loop.index % 6 == 2) or (loop.index % 6 == 3) %} mx-md-auto{% endif %}{% endif %}{% if columns_desktop == 4 %}{% if loop.index is even %} mt-md-5 pt-md-3{% endif %} {% if (loop.index % 8 == 1) or (loop.index % 8 == 2) or (loop.index % 8 == 3) or (loop.index % 8 == 4) %} mx-md-auto{% endif %}{% endif %}{% endif %}{% else %} {% if columns_desktop == 2 %}item-big {% if settings.product_grid_asymmetric %}mb-md-0{% endif %}{% endif %} {% if asymmetric_item_even_md %}mt-md-5 {% if columns_desktop == 2 %}pt-md-3{% endif %}{% endif %} {% if asymmetric_item_even %}{% if columns_mobile == 2 %}{% if template == 'product' %}mt-4{% else %}mt-5{% endif %} mb-0 mb-md-3 {% if columns_desktop == 3 %}mt-md-0{% endif %}{% else %}pl-5 pl-md-0{% endif %}{% endif %} {% if asymmetric_item_odd %}pr-5 pr-md-0{% endif %}{% endif %}">
-            {% if settings.quick_shop and not reduced_item and not product.isSubscribable() %}
+            {% if tf_quick_shop and not reduced_item and not product.isSubscribable() %}
                 <div class="js-product-container js-quickshop-container{% if product.variations %} js-quickshop-has-variants{% endif %} position-relative" data-variants="{{ product.variants_object | json_encode }}" data-quickshop-id="quick{{ product.id }}">
             {% endif %}
             {% set product_url_with_selected_variant = has_filters ?  ( product.url | add_param('variant', product.selected_or_first_available_variant.id)) : product.url  %}
@@ -81,7 +86,7 @@
                 {% if not reduced_item %}
                     {% include 'snipplets/labels.tpl' %}
                 {% endif %}
-                {% if settings.quick_shop and not reduced_item %}
+                {% if tf_quick_shop and not reduced_item and not tf_plp_actions %}
                     <div class="item-actions mt-3">
 
                         {% set quickshop_button_classes = 'btn btn-primary item-btn-quickshop' %}
@@ -93,7 +98,7 @@
                             
                             {# Product with subscription will link to the product page #}
 
-                            <a  href="{{ product_url_with_selected_variant }}" class="{{ quickshop_button_classes }} d-block" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}">
+                            <a  href="{{ product_url_with_selected_variant | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" class="{{ quickshop_button_classes }} d-block" title="{{ 'Compra rápida de' | translate }} {{ product.name }}" aria-label="{{ 'Compra rápida de' | translate }} {{ product.name }}">
                                 {% include "snipplets/svg/bag.tpl" with {svg_custom_class: 'js-quickshop-bag icon-inline item-quickshop-icon'} %}
                             </a>
                             
@@ -163,7 +168,7 @@
             }}
             
             {% if 
-                settings.quick_shop 
+                tf_quick_shop 
                 and product.available 
                 and product.display_price 
                 and product.variations 
@@ -209,7 +214,7 @@
             {% endif %}
             {% set show_labels = not product.has_stock or product.compare_at_price or product.hasVisiblePromotionLabel %}
             <div class="item-description {% if columns_mobile == 2 and settings.product_grid_asymmetric %}pb-0 pb-md-3{% endif %}" data-store="product-item-info-{{ product.id }}">
-                <a href="{{ product_url_with_selected_variant }}" title="{{ product.name }}" aria-label="{{ product.name }}" class="item-link">
+                <a href="{{ product_url_with_selected_variant | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" title="{{ product.name }}" aria-label="{{ product.name }}" class="item-link">
 
                     {{ component('nubesdk-slot', { type: "before_product_grid_item_name" }) }}
 
@@ -267,7 +272,27 @@
                     {% endif %}
                 </a>
             </div>
-            {% if settings.quick_shop and not reduced_item and not product.isSubscribable() %}
+            {% if tf_plp_actions %}
+                <div class="tf-plp-actions">
+                    <a class="tf-plp-buy" href="{{ product_url_with_selected_variant | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}">{% if not product.available %}Ver produto{% elseif not product.display_price or store.is_catalog %}Consultar{% else %}Comprar{% endif %}</a>
+                    {% if product.available and product.display_price and not store.is_catalog %}
+                        {% if product.variations and not product.isSubscribable() %}
+                            <a href="#" data-toggle="#quickshop-modal" data-modal-url="modal-fullscreen-quickshop" class="tf-plp-cart {% if slide_item %}js-quickshop-slide {% endif %}js-quickshop-modal-open js-fullscreen-modal-open js-modal-open" aria-label="Adicionar {{ product.name }} ao carrinho" data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"><span aria-hidden="true">+</span>{% include 'snipplets/svg/cart.tpl' with {svg_custom_class: 'icon-inline'} %}</a>
+                        {% elseif not product.isSubscribable() %}
+                            <form class="js-product-form tf-plp-cart-form" method="post" action="{{ store.cart_url }}">
+                                <input type="hidden" name="add_to_cart" value="{{ product.id }}" />
+                                <div class="js-item-submit-container"><button type="submit" class="tf-plp-cart js-addtocart js-prod-submit-form" aria-label="Adicionar {{ product.name }} ao carrinho" data-component="product-list-item.add-to-cart" data-component-value="{{ product.id }}"><span aria-hidden="true">+</span>{% include 'snipplets/svg/cart.tpl' with {svg_custom_class: 'icon-inline'} %}</button></div>
+                                {% include 'snipplets/placeholders/button-placeholder.tpl' with {direct_add: true} %}
+                            </form>
+                        {% else %}
+                            <a class="tf-plp-cart" href="{{ product_url_with_selected_variant | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" aria-label="Escolher assinatura de {{ product.name }}">{% include 'snipplets/svg/cart.tpl' with {svg_custom_class: 'icon-inline'} %}</a>
+                        {% endif %}
+                    {% else %}
+                        <button class="tf-plp-cart" type="button" disabled aria-label="Compra indisponível">{% include 'snipplets/svg/cart.tpl' with {svg_custom_class: 'icon-inline'} %}</button>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if tf_quick_shop and not reduced_item and not product.isSubscribable() %}
                 </div>{# This closes the quickshop tag #}
             {% endif %}
 
@@ -278,3 +303,5 @@
 {% if slide_item %}
     </div>
 {% endif %}
+
+{% endif %}{# Exclude menswear from all product grids #}

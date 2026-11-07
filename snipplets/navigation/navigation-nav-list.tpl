@@ -13,12 +13,13 @@
 {% endif %}
 
 {% for item in navigation %}
+{% if 'masculin' not in (item.name | lower) and 'masculin' not in (item.url | lower) and 'cueca' not in (item.name | lower) and 'cueca' not in (item.url | lower) %}
 	{% if item.subitems %}
 		<li class="{% if megamenu %}js-desktop-nav-item js-item-subitems-desktop nav-item-desktop {% if not subitem %}js-nav-main-item nav-dropdown nav-main-item {% endif %}{% endif %}nav-item item-with-subitems" data-component="menu.item">
 			{% if megamenu %}
 			<div class="nav-item-container">
 			{% endif %}
-				<a class="{% if hamburger %}js-toggle-menu-panel align-items-center{% endif %} nav-list-link position-relative {{ item.current ? 'selected' : '' }}" href="{% if megamenu and item.url %}{{ item.url }}{% else %}#{% endif %}">{{ item.name }}
+				<a class="{% if hamburger %}js-toggle-menu-panel align-items-center{% endif %} nav-list-link position-relative {{ item.current ? 'selected' : '' }}" href="{% if megamenu and item.url %}{{ item.url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}{% else %}#{% endif %}">{{ item.name }}
 					{% if hamburger %}
 						<span class="nav-list-arrow ml-1">
 							{% include "snipplets/svg/chevron-right.tpl" with {svg_custom_class: "icon-inline icon-lg svg-icon-text"} %}
@@ -52,7 +53,7 @@
 							</div>
 							{% if item.isCategory %}
 								<li class="nav-item">
-									<a class="nav-list-link position-relative font-body font-weight-bold {{ item.current ? 'selected' : '' }}" href="{{ item.url }}">
+									<a class="nav-list-link position-relative font-body font-weight-bold {{ item.current ? 'selected' : '' }}" href="{{ item.url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}">
 										{% if item.isRootCategory %}
 											{{ 'Ver todos los productos' | translate }}
 										{% else %}
@@ -75,7 +76,8 @@
 		</li>
 	{% else %}
 		<li class="js-desktop-nav-item {% if megamenu %}{% if not subitem %}js-nav-main-item nav-main-item{% endif %} nav-item-desktop{% endif %} nav-item" data-component="menu.item">
-			<a class="nav-list-link {{ item.current ? 'selected' : '' }}" href="{% if item.url %}{{ item.url | setting_url }}{% else %}#{% endif %}">{{ item.name }}</a>
+			<a class="nav-list-link {{ item.current ? 'selected' : '' }}" href="{% if item.url %}{{ item.url | setting_url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}{% else %}#{% endif %}">{{ item.name }}</a>
 		</li>
 	{% endif %}
+{% endif %}
 {% endfor %}

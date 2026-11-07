@@ -1,4 +1,4 @@
-{% if settings.quick_shop %}
+{% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
     {% embed "snipplets/modal.tpl" with{modal_id: 'quickshop-modal', modal_class: 'quickshop bottom modal-overflow-none', modal_position: 'bottom', modal_transition: 'slide', modal_footer: false, modal_mobile_full_screen: true, modal_width: 'centered-md modal-centered-medium', modal_header_class: 'modal-floating-close modal-header-no-title', modal_body_class: 'modal-scrollable'} %}
         {% block modal_body %}
             <div class="js-item-product modal-scrollable modal-scrollable-area" data-product-id="">

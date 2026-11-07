@@ -209,7 +209,7 @@ DOMContentLoaded.addEventOrExecute(() => {
       #Modals
     ==============================================================================*/ #}
 
-    {% if settings.quick_shop %}
+    {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
 
         restoreQuickshopForm = function(){
 
@@ -297,7 +297,7 @@ DOMContentLoaded.addEventOrExecute(() => {
                     setTimeout(() => $opened_modal.hide(), 500);
                     $opened_modal_overlay.fadeOut(500);
 
-                    {% if settings.quick_shop %}
+                    {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
                         restoreQuickshopForm();
                     {% endif %}
 
@@ -370,7 +370,7 @@ DOMContentLoaded.addEventOrExecute(() => {
             goBackBrowser();
         }
 
-        {% if settings.quick_shop %}
+        {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
             restoreQuickshopForm();
         {% endif %}
 
@@ -390,7 +390,7 @@ DOMContentLoaded.addEventOrExecute(() => {
         setTimeout(() => modal.hide(), 500);
         jQueryNuvem(this).fadeOut(500);
 
-        {% if settings.quick_shop %}
+        {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
             restoreQuickshopForm();
         {% endif %}
 
@@ -1977,7 +1977,7 @@ DOMContentLoaded.addEventOrExecute(() => {
 
     {% endif %}
 
-    {% if settings.quick_shop %}
+    {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
 
         {# /* // Quickshop */ #}
 
@@ -2033,7 +2033,7 @@ DOMContentLoaded.addEventOrExecute(() => {
 
     {% endif %}
 
-    {% if settings.quick_shop %}
+    {% if settings.quick_shop or template == 'home' or template == 'category' or template == 'search' %}
 
         LS.registerOnChangeVariant(function(variant){
             {# Show product image on color change #}
@@ -2733,7 +2733,7 @@ DOMContentLoaded.addEventOrExecute(() => {
 
         var $productContainer = jQueryNuvem(this).closest('.js-product-container');
         var $productVariants = $productContainer.find(".js-variation-option");
-        var $productButton = $productContainer.find("input[type='submit'].js-addtocart");
+        var $productButton = $productContainer.find("input[type='submit'].js-addtocart, button[type='submit'].js-addtocart");
 
         {# Define if event comes from quickshop, product page or cross selling #}
 
