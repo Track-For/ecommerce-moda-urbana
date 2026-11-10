@@ -57,10 +57,18 @@
                 {% include "snipplets/header/header-search.tpl" with {header_search: true} %}
             </div>
             <div class="tf-header-actions d-flex align-items-center justify-content-end">
-                <a class="mu-service-link mu-orders-link" href="{{ store.customer_home_url | default(store.customer_login_url) }}">
-                    {% include "snipplets/svg/truck.tpl" with {svg_custom_class: 'icon-inline'} %}
-                    <span>Meus pedidos</span>
-                </a>
+                <details class="mu-order-help">
+                    <summary class="mu-service-link mu-orders-link" aria-label="Acompanhar pedido">
+                        {% include "snipplets/svg/truck.tpl" with {svg_custom_class: 'icon-inline'} %}
+                        <span>Acompanhar pedido</span>
+                    </summary>
+                    <div class="mu-order-help-content">
+                        <h2>Acompanhe sua compra sem senha</h2>
+                        <p>Abra o e-mail de confirmação da sua compra e acesse o link do pedido para consultar o andamento.</p>
+                        <p>Não encontrou? Confira também as pastas de spam e lixo eletrônico do e-mail usado na compra.</p>
+                        <a class="mu-order-support" href="https://wa.me/5519989794848?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20para%20acompanhar%20meu%20pedido." target="_blank" rel="noopener noreferrer" aria-label="Preciso de ajuda pelo WhatsApp (abre em nova aba)">Preciso de ajuda pelo WhatsApp</a>
+                    </div>
+                </details>
                 <a class="mu-service-link mu-returns-link" href="/trocas-e-devolucoes/">
                     <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h13a3 3 0 0 1 3 3M17 4l4 4-4 4M20 16H7a3 3 0 0 1-3-3M7 12l-4 4 4 4"/></svg>
                     <span>Trocas e devoluções</span>

@@ -199,6 +199,23 @@ body .mu-reference-header .tf-nav-promotions > .nav-list-link:hover { background
   body .mu-reference-header .tf-mobile-categories .nav-list-link { font-size: 12px; text-transform: none; letter-spacing: 0; }
 }
 
+/* Guest buyers follow the private order link received by email. */
+.mu-order-help { position: relative; flex-shrink: 0; }
+body .mu-reference-header .mu-order-help > summary { cursor: pointer; list-style: none; }
+.mu-order-help > summary::-webkit-details-marker { display: none; }
+.mu-order-help > summary::marker { content: ''; }
+.mu-order-help > summary:focus-visible { outline: 2px solid var(--mu-bronze); outline-offset: 4px; border-radius: 4px; }
+.mu-order-help[open] > summary { color: var(--mu-bronze); }
+.mu-order-help-content { position: absolute; top: calc(100% + 12px); right: 0; z-index: 1100; width: min(360px, calc(100vw - 32px)); padding: 24px; border: 1px solid var(--mu-line); border-radius: 14px; background: var(--mu-ivory); color: var(--mu-ink); box-shadow: 0 12px 36px rgba(73,53,46,.16); text-align: left; white-space: normal; }
+.mu-order-help-content h2 { margin: 0 0 12px; font: 600 18px/1.4 var(--body-font); color: var(--mu-bronze); }
+.mu-order-help-content p { margin: 0 0 14px; font-size: 14px; line-height: 1.6; }
+.mu-order-support { display: inline-block; padding-block: 8px; font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 767px) {
+  body .mu-reference-header .mu-order-help > summary { display: inline-flex; justify-content: center; min-width: 36px; }
+  body .mu-reference-header .mu-order-help > summary span { display: none; }
+  .mu-order-help-content { position: fixed; top: auto; right: 16px; left: 16px; width: auto; margin-top: 12px; max-height: 65vh; overflow-y: auto; padding: 20px; }
+}
+
 /* The supplied wide photograph is exclusive to the Moda Feminina category. */
 body .mu-womens-banner { width: 100%; max-width: 100%; height: auto; aspect-ratio: 1142 / 364; margin-right: 0 !important; background: #454441; }
 body .mu-womens-banner .category-banner-image { display: block; height: 100%; object-fit: cover; object-position: center; }
