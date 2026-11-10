@@ -22,6 +22,8 @@
         {% snipplet 'preload-images.tpl' %}
 
         {{ component('social-meta') }}
+        <link rel="icon" type="image/png" sizes="64x64" href="{{ 'images/moda-urbana-favicon.png' | static_url }}" />
+        <link rel="apple-touch-icon" href="{{ 'images/moda-urbana-oficial.png' | static_url }}" />
 
         {#/*============================================================================
             #CSS and fonts

@@ -38,28 +38,28 @@
   #product_form { scroll-margin-top: 155px; }
 }
 
-/* Logo palette: light ivory surfaces, antique gold accents and bronze text. */
-.tf-size-chart { margin: 12px 0 24px; border-top: 1px solid #dfc9a7; border-bottom: 1px solid #dfc9a7; }
-.tf-size-chart summary { padding: 16px 0; color: #805522; cursor: pointer; font-size: 14px; font-weight: 600; }
+/* Moda Urbana Oficial: pastel coral, peach and soft gold, with readable terracotta. */
+.tf-size-chart { margin: 12px 0 24px; border-top: 1px solid #ebc9b7; border-bottom: 1px solid #ebc9b7; }
+.tf-size-chart summary { padding: 16px 0; color: #8e4939; cursor: pointer; font-size: 14px; font-weight: 600; }
 .tf-size-chart-scroll { max-width: 100%; overflow-x: auto; margin-bottom: 16px; }
-.tf-size-chart table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; color: #27221c; font-variant-numeric: tabular-nums; }
-.tf-size-chart caption { text-align: left; padding: 0 0 12px; color: #805522; }
-.tf-size-chart th, .tf-size-chart td { padding: 12px; border: 1px solid #dfc9a7; text-align: center; white-space: nowrap; }
-.tf-size-chart th { background: #f5ecdd; color: #805522; font-weight: 600; }
-.tf-size-chart tbody tr:nth-child(even) { background: #fff8ed; }
-.tf-size-chart summary:focus-visible, .tf-size-chart-scroll:focus-visible { outline: 2px solid #805522; outline-offset: 3px; }
+.tf-size-chart table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5; color: #49352e; font-variant-numeric: tabular-nums; }
+.tf-size-chart caption { text-align: left; padding: 0 0 12px; color: #8e4939; }
+.tf-size-chart th, .tf-size-chart td { padding: 12px; border: 1px solid #ebc9b7; text-align: center; white-space: nowrap; }
+.tf-size-chart th { background: #fbe2d7; color: #8e4939; font-weight: 600; }
+.tf-size-chart tbody tr:nth-child(even) { background: #fff3e7; }
+.tf-size-chart summary:focus-visible, .tf-size-chart-scroll:focus-visible { outline: 2px solid #8e4939; outline-offset: 3px; }
 :root {
-  --mu-ivory: #fffdf9;
-  --mu-sand: #f5ecdd;
-  --mu-gold: #c99b57;
-  --mu-bronze: #805522;
-  --mu-bronze-hover: #654019;
-  --mu-ink: #27221c;
-  --mu-line: #dfc9a7;
+  --mu-ivory: #fffaf6;
+  --mu-sand: #fbe2d7;
+  --mu-gold: #e7c78f;
+  --mu-bronze: #8e4939;
+  --mu-bronze-hover: #71392d;
+  --mu-ink: #49352e;
+  --mu-line: #ebc9b7;
 }
 body[class] { background-color: var(--mu-ivory); color: var(--mu-ink); }
 body .tf-header.head-main {
-  background: rgba(255,253,249,.96);
+  background: rgba(255,250,246,.96);
   border-bottom-color: var(--mu-line);
   box-shadow: 0 4px 20px rgba(128,85,34,.07);
 }
@@ -129,3 +129,35 @@ body .tf-footer a:focus-visible { outline: 2px solid var(--mu-bronze); outline-o
 .tf-plp-buy:hover { background: #383838; color: #fff; }
 .tf-plp-buy:focus-visible, .tf-plp-cart:focus-visible { outline: 2px solid #966a2f; outline-offset: 3px; }
 @media (max-width: 360px) { .tf-plp-actions { gap: 5px; } .tf-plp-cart, .tf-plp-cart-form { width: 44px; flex-basis: 44px; } }
+
+/* Brand surfaces retain contrast while echoing the supplied coral and gold logo. */
+body .tf-header .mu-brand-logo { display: block; width: 106px; height: 106px; max-height: none; object-fit: contain; }
+body .tf-header #logo { line-height: 0; }
+body .tf-footer { background: #fff0e7; }
+body .tf-testimonial-card { background: #fffaf6; }
+body .tf-testimonial-mark { background: #f6e6c7; }
+body .tf-benefits .service-item { background: #fff3e7; }
+body .tf-plp-buy { background: var(--mu-bronze); border-color: var(--mu-bronze); }
+body .tf-plp-buy:hover { background: var(--mu-bronze-hover); }
+body .tf-plp-cart { color: var(--mu-bronze); }
+body .tf-plp-buy:focus-visible, body .tf-plp-cart:focus-visible { outline-color: var(--mu-bronze); }
+@media (max-width: 767px) {
+  body .tf-header .mu-brand-logo { width: 76px; height: 76px; }
+}
+
+/* Equal side tracks keep the brand on the viewport center despite unequal utilities. */
+body .tf-header .mu-brand-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+body .tf-header .mu-brand-row > :first-child { grid-column: 1; grid-row: 1; order: 0; width: auto; max-width: none; }
+body .tf-header .mu-brand-row > .js-logo-col { grid-column: 2; grid-row: 1; order: 0; width: auto; max-width: none; padding-inline: 0; }
+body .tf-header .mu-brand-row > .tf-header-actions { grid-column: 3; grid-row: 1; order: 0; width: auto; max-width: none; }
+body .tf-header .mu-brand-row .mu-brand-logo { margin: 6px auto; padding: 0; }
+
+/* The supplied wide photograph is exclusive to the Moda Feminina category. */
+body .mu-womens-banner { width: 100%; max-width: 100%; height: auto; aspect-ratio: 1142 / 364; margin-right: 0 !important; background: #454441; }
+body .mu-womens-banner .category-banner-image { display: block; height: 100%; object-fit: cover; object-position: center; }
+body .mu-womens-banner .category-banner-info { color: #fff; text-shadow: 0 1px 5px rgba(0,0,0,.8); }
+body .mu-womens-banner .category-banner-info h1,
+body .mu-womens-banner .category-banner-info a { color: inherit; }
+@media (max-width: 767px) {
+  body .mu-womens-banner { min-height: 185px; }
+}

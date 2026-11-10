@@ -78,7 +78,7 @@
         {% snipplet "header/header-advertising.tpl" %}
     {% endif %}
     <div class="container-fluid">
-        <div class="{% if not settings.head_fix_desktop %}js-nav-logo-bar{% endif %} row no-gutters align-items-center">
+        <div class="{% if not settings.head_fix_desktop %}js-nav-logo-bar{% endif %} row no-gutters align-items-center mu-brand-row">
 
             {# Menu icon #}
             

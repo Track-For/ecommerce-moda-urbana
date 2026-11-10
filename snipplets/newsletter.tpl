@@ -1,7 +1,7 @@
 {% if settings.news_show %}
     <div class="js-newsletter newsletter tf-footer-newsletter">
         <div class="tf-newsletter-intro">
-            {% if settings.news_title %}<h2>{{ settings.news_title }}</h2>{% endif %}
+            <h2>Receba dicas e novidades exclusivas!</h2>
         </div>
         <div class="tf-newsletter-fields">
             <form method="post" action="/winnie-pooh" onsubmit="this.setAttribute('action', '');" data-store="newsletter-form">

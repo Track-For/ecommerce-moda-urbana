@@ -14,7 +14,7 @@
                 {% endif %}
                 <ul class="js-accordion-container list-unstyled mb-3 pb-2"> 
                     {% for category in filter_categories %}
-                        {% if 'masculin' not in (category.name | lower) and 'cueca' not in (category.name | lower) %}
+                        {% if 'moda-intima-feminina' not in (category.url | lower) and (category.name | lower) != 'moda íntima feminina' and 'masculin' not in (category.name | lower) and 'cueca' not in (category.name | lower) %}
                         <li data-item="{{ loop.index }}" class="mb-2 pb-md-1"><a href="{{ category.url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" title="{{ category.name }}" class="btn-link font-small no-underline">{{ category.name }}</a></li>
 
                         {% endif %}

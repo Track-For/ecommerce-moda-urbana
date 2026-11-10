@@ -14,8 +14,12 @@
 
 {% set category_image_url = 'banner-products.jpg' | static_url %}
 
-<section class="category-banner mr-4" data-store="category-banner">
+<section class="category-banner mr-4{% if mu_womens_banner %} mu-womens-banner{% endif %}" data-store="category-banner">
+    {% if mu_womens_banner %}
+    <img class="category-banner-image" fetchpriority="high" src="{{ 'images/banner-moda-feminina.png' | static_url }}" width="1142" height="364" alt="Moda feminina — modelo com blusa branca em fotografia preto e branco" />
+    {% else %}
     <img class="category-banner-image" fetchpriority="high" src="{{ category_images['large'] }}" srcset="{{ category_images['large'] }} 480w, {{ category_images['huge'] }} 640w, {{ category_images['original'] }} 1024w, {{ category_images['1080p'] }} 1920w" alt="{{ 'Banner de la categoría' | translate }} {{ category.name }}" />
+    {% endif %}
     <div class="textbanner-text category-banner-info over-image px-0">
        {% embed "snipplets/page-header.tpl" %}
             {% block page_header_text %}{{ category.name }}{% endblock page_header_text %}

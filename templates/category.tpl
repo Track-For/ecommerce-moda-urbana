@@ -11,7 +11,8 @@
 
 {% if not show_help %}
 
-{% set category_banner = (category.images is not empty) or ("banner-products.jpg" | has_custom_image) %}
+{% set mu_womens_banner = (category.name | lower) == 'moda feminina' %}
+{% set category_banner = mu_womens_banner or (category.images is not empty) or ("banner-products.jpg" | has_custom_image) %}
 {% set has_category_description_without_banner = not category_banner and category.description %}
 
 {% if category_banner %}

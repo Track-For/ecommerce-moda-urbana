@@ -13,7 +13,7 @@
 {% endif %}
 
 {% for item in navigation %}
-{% if 'masculin' not in (item.name | lower) and 'masculin' not in (item.url | lower) and 'cueca' not in (item.name | lower) and 'cueca' not in (item.url | lower) %}
+{% if 'moda-intima-feminina' not in (item.url | lower) and (item.name | lower) != 'moda íntima feminina' and 'masculin' not in (item.name | lower) and 'masculin' not in (item.url | lower) and 'cueca' not in (item.name | lower) and 'cueca' not in (item.url | lower) %}
 	{% if item.subitems %}
 		<li class="{% if megamenu %}js-desktop-nav-item js-item-subitems-desktop nav-item-desktop {% if not subitem %}js-nav-main-item nav-dropdown nav-main-item {% endif %}{% endif %}nav-item item-with-subitems" data-component="menu.item">
 			{% if megamenu %}

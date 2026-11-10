@@ -1,17 +1,5 @@
-{% set logo_size_class = settings.logo_size == 'small' ? 'logo-img-small' : settings.logo_size == 'big' ? 'logo-img-big' %}
-{{ component('logos/logo', {
-        logo_img_classes: 'transition-soft ' ~ logo_size_class,
-        logo_text_classes: 'h3 mb-0',
-        logo_size: 'large'
-    })
-}}
-
-{% if template == 'home' and settings.head_transparent_contrast_options and "logo-transparent.jpg" | has_custom_image %}
-    {{ component('logos/logo-transparent-header', {
-            container_classes: { logo_img_container: "logo-header-transparent-container"},
-            logo_img_name: 'logo-transparent.jpg',
-            logo_img_classes: 'transition-soft ' ~ logo_size_class,
-            logo_size: 'large'
-        })
-    }}
-{% endif %}
+<div id="logo" class="logo-img-container">
+    <a class="logo-img-container d-inline-block" href="{{ store.url }}" aria-label="{{ store.name }} — início">
+        <img class="logo-img mu-brand-logo transition-soft" src="{{ 'images/moda-urbana-oficial.png' | static_url }}" alt="Moda Urbana Oficial" width="1254" height="1254" fetchpriority="high">
+    </a>
+</div>

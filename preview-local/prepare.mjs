@@ -32,7 +32,7 @@ Twig.extendFilter('add_param', v => v);
 Twig.extendFilter('money', () => 'Preço indisponível na prévia');
 Twig.extendFilter('a_tag', (v, a = []) => `<a href="${esc(a[0] || '#')}" class="${esc(a[2] || '')}">${esc(v)}</a>`);
 Twig.extendFunction('component', (name) => {
-  if (name === 'logos/logo') return '<div id="logo" class="logo-img-container"><a class="logo-text-container" href="#inicio" aria-label="Moda Urbana Outlet — logo textual simulado"><span class="logo-text h3 mb-0">MODA URBANA<br>OUTLET</span></a></div>';
+  if (name === 'logos/logo') return '<div id="logo" class="logo-img-container"><a class="logo-img-container d-inline-block" href="/" aria-label="Moda Urbana — início"><img class="logo-img mu-brand-logo transition-soft" src="/generated/moda-urbana-oficial.png" alt="Moda Urbana Oficial" width="1254" height="1254" fetchpriority="high"></a></div>';
   return '';
 });
 function copyTemplates(dir) {
@@ -49,7 +49,7 @@ function copyTemplates(dir) {
     }
     // Platform-owned components are unavailable offline; do not imitate checkout or apps.
     source = source.replace(/\{\{\s*component\([\s\S]*?\}\}/g, expression => expression.includes("'product-item-image'") ? '<div class="item-image"><a href="#vitrine" class="position-relative d-block"><img src="{{ product.preview_image | default(\'/generated/product-placeholder.svg\') }}" style="position:relative;width:100%;height:auto" alt="Foto do produto não disponível na prévia"></a></div>' : '');
-    if (rel === 'snipplets/header/header-logo.tpl') source = '<div id="logo" class="logo-img-container"><a class="logo-text-container" href="#inicio" aria-label="Moda Urbana Outlet — logo textual simulado"><span class="logo-text h3 mb-0">MODA URBANA<br>OUTLET</span></a></div>';
+    if (rel === 'snipplets/header/header-logo.tpl') source = '<div id="logo" class="logo-img-container"><a class="logo-img-container d-inline-block" href="/" aria-label="Moda Urbana — início"><img class="logo-img mu-brand-logo transition-soft" src="/generated/moda-urbana-oficial.png" alt="Moda Urbana Oficial" width="1254" height="1254" fetchpriority="high"></a></div>';
     if (rel === 'snipplets/cart-panel.tpl') source = '<p class="alert alert-info">Carrinho simulado vazio.</p><p>Compras, frete e checkout não estão conectados nesta prévia.</p>';
     fs.writeFileSync(target, source);
   }
@@ -65,6 +65,8 @@ if (!htmlOnly) for (const [source, name] of [['style-tokens.tpl','tokens.css'],[
   const css = source.includes('scss') ? sass.compileString(rendered, { style: 'expanded', logger: sass.Logger.silent }).css : rendered;
   fs.writeFileSync(path.join(out, name), css);
 }
+fs.copyFileSync(path.join(root,'static/images/moda-urbana-favicon.png'), path.join(out,'moda-urbana-favicon.png'));
+fs.copyFileSync(path.join(root,'static/images/moda-urbana-oficial.png'), path.join(out,'moda-urbana-oficial.png'));
 fs.copyFileSync(path.join(root,'static/images/empty-placeholder.png'), path.join(out,'empty-placeholder.png'));
 for (const file of fs.readdirSync(path.join(root, 'static/images/hero'))) {
   fs.copyFileSync(path.join(root, 'static/images/hero', file), path.join(out, file));
