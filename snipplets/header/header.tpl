@@ -5,32 +5,6 @@
 {# Compact brand header; native utility handlers and destinations are retained. #}
 {% set tf_compact_header = true %}
 
-{# Logo mobile dynamic classes #}
-
-{% if 'center' == 'center' %}
-    {% set logo_mobile_classes = 'text-center' %}
-{% else %}
-    {% set logo_mobile_classes = 'order-first text-left' %}
-{% endif %}
-
-{# Logo desktop dynamic classes + utilities desktop order #}
-
-{% if 'center' == 'center' %}
-    {% set logo_desktop_classes = 'head-logo-md-center order-md-0 text-md-center' %}
-    {% set menu_desktop_utility_order_class = 'order-md-first' %}
-{% else %}
-    {% set logo_desktop_classes = 'head-logo-md-left order-md-first text-md-left' %}
-    {% set menu_desktop_utility_order_class = 'order-md-last' %}
-{% endif %}
-
-{# Utilities mobile order #}
-
-{% if 'center' == 'center' %}
-    {% set menu_mobile_utility_order_class = 'order-first' %}
-{% else %}
-    {% set menu_mobile_utility_order_class = 'order-last' %}
-{% endif %}
-
 {# Conditions for transparent head on page load #}
 
 {# Slider and video presence #}
@@ -63,90 +37,45 @@
     {% set head_position_desktop = 'position-relative-md' %}
 {% endif %}
 
-{% set logo_centered_desktop_without_hamburger = not false and 'center' == 'center' %}
-{% set show_desktop_hide_mobile_class = 'd-none d-md-inline-block' %}
-
-{% set has_languages = languages | length > 1 and settings.languages_header %}
-{% set head_languages_centered_with_big_logo = has_languages and 'center' == 'center' and settings.logo_size != 'small' %}
-
 {% set has_account_links = settings.account_header %}
 
-<header class="tf-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
+<header class="tf-header mu-reference-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
     <div class="tf-shipping-announcement">Frete Grátis para o estado de São Paulo</div>
     {# Adversiting bar #}
     {% if settings.ad_bar %}
         {% snipplet "header/header-advertising.tpl" %}
     {% endif %}
     <div class="container-fluid">
-        <div class="{% if not settings.head_fix_desktop %}js-nav-logo-bar{% endif %} row no-gutters align-items-center mu-brand-row">
-
-            {# Menu icon #}
-            
-            {% if logo_centered_desktop_without_hamburger %}
-                <div class="{% if 'center' == 'left' %}col-auto{% else %}col-3{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }}">
-
-                    {# Search for desktop when logo centered without hamburger nav #}
-
-                    <span class="js-search-utility header-utility d-none d-md-block">
-                        {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
-                    </span>
-            {% endif %}
-                    <div class="{% if 'center' == 'left' %}col-auto{% else %}col-3{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} header-utility {{ menu_mobile_utility_order_class }} {{ menu_desktop_utility_order_class }} {% if false %}d-md-block{% else %}d-md-none{% endif %} p-0">
-                        {% include "snipplets/header/header-utilities.tpl" with {use_menu: true} %}
-                    </div>
-            {% if logo_centered_desktop_without_hamburger %}
-                </div>
-            {% endif %}
-
-            {# Logo #}
-
-            <div class="js-logo-col {% if 'center' == 'left' or ('center' == 'center' and 'icon' == 'text') %}col{% else %}{% if head_languages_centered_with_big_logo %}col-5{% else %}col-6{% endif %}{% endif %} {% if 'center' == 'left' %}{% if false %}col-md{% else %}col-md-auto{% endif %}{% else %}col-md-6{% endif %} {{ logo_mobile_classes }} {{ logo_desktop_classes }}">
+        <div class="js-nav-logo-bar mu-brand-row">
+            <div class="mu-mobile-menu d-md-none header-utility">
+                {% include "snipplets/header/header-utilities.tpl" with {use_menu: true} %}
+            </div>
+            <div class="js-logo-col mu-header-logo">
                 {% include "snipplets/header/header-logo.tpl" %}
             </div>
-
-            {# Desktop navigation next to logo #}
-
-            {% if not false and 'center' == 'left' %}
-                {# Desktop nav next logo #}
-                <div class="js-desktop-nav-col desktop-nav-col col {{ show_desktop_hide_mobile_class }} pr-5 pl-3">
-                    {% snipplet "navigation/navigation.tpl" %}
-                </div>
-            {% endif %}
-
-            {# Search: Icon or box #}
-
-            <div class="tf-header-actions {% if not false and 'center' == 'left' %}js-desktop-search-cart-col desktop-search-cart-col{% endif %} {% if 'center' == 'left' %}col-auto{% else %}{% if 'icon' == 'text' %}{% if has_languages %}col-5{% else %}col-4{% endif %}{% else %}{% if head_languages_centered_with_big_logo %}col-4{% else %}col-3{% endif %}{% endif %}{% endif %} {% if 'center' == 'left' %}col-md-auto{% else %}col-md-3{% endif %} d-flex align-items-center justify-content-end">
-                
-                {# Languages #}
-
-                {% if has_languages %}
-                    <div class="header-utility">
-                        {% include "snipplets/header/header-utilities.tpl" with {use_languages: true} %}
-                    </div>
-                {% endif %}
-
-                {# Account #}
-
+            <div class="mu-header-search js-search-utility">
+                {% include "snipplets/header/header-search.tpl" with {header_search: true} %}
+            </div>
+            <div class="tf-header-actions d-flex align-items-center justify-content-end">
+                <a class="mu-service-link mu-orders-link" href="{{ store.customer_home_url | default(store.customer_login_url) }}">
+                    {% include "snipplets/svg/truck.tpl" with {svg_custom_class: 'icon-inline'} %}
+                    <span>Meus pedidos</span>
+                </a>
+                <a class="mu-service-link mu-returns-link" href="/trocas-e-devolucoes/">
+                    <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h13a3 3 0 0 1 3 3M17 4l4 4-4 4M20 16H7a3 3 0 0 1-3-3M7 12l-4 4 4 4"/></svg>
+                    <span>Trocas e devoluções</span>
+                </a>
                 {% if has_account_links %}
-                    <div class="header-utility d-none d-md-inline-block">
-                        {% include "snipplets/header/header-utilities.tpl" with {use_account: true, header: true} %}
-                    </div>
+                    <a class="mu-account-link utilities-item" href="{{ store.customer_home_url | default(store.customer_login_url) }}" aria-label="Minha conta">
+                        {% include "snipplets/svg/user.tpl" with {svg_custom_class: 'icon-inline utilities-icon'} %}
+                    </a>
                 {% endif %}
-
-                {# Search #}
-
-                <span class="js-search-utility header-utility {% if logo_centered_desktop_without_hamburger %}d-md-none{% elseif 'search_icon' != 'search_icon' or 'icon' == 'text' %}{{ show_desktop_hide_mobile_class }}{% endif %} {% if has_languages or has_account_links %}{% if settings.search_big_desktop %}order-md-first{% else %}order-md-0{% endif %}{% endif %}">
-                    {% include "snipplets/header/header-utilities.tpl" with {use_search: true} %}
-                </span>
-
-                {# Cart/Bag #}
-
-                <span class="js-cart-utility header-utility {% if 'center' == 'center' and 'icon' == 'text' %}text-right{% endif %}">
+                <span class="js-cart-utility header-utility">
                     {% include "snipplets/header/header-utilities.tpl" %}
                 </span>
             </div>
         </div>
-        
+
         {# Add to cart notification #}
 
         {% if settings.ajax_cart %}
@@ -160,7 +89,7 @@
         {% endif %}
         {# Desktop navigation below logo #}
 
-        {% if not false and 'center' != 'left' %}
+        {% if true %}
             {# Desktop nav below logo #}
             <div class="row d-none d-md-block text-center">
                 {% snipplet "navigation/navigation.tpl" %}

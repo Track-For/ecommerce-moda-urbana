@@ -145,12 +145,59 @@ body .tf-plp-buy:focus-visible, body .tf-plp-cart:focus-visible { outline-color:
   body .tf-header .mu-brand-logo { width: 76px; height: 76px; }
 }
 
-/* Equal side tracks keep the brand on the viewport center despite unequal utilities. */
-body .tf-header .mu-brand-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
-body .tf-header .mu-brand-row > :first-child { grid-column: 1; grid-row: 1; order: 0; width: auto; max-width: none; }
-body .tf-header .mu-brand-row > .js-logo-col { grid-column: 2; grid-row: 1; order: 0; width: auto; max-width: none; padding-inline: 0; }
-body .tf-header .mu-brand-row > .tf-header-actions { grid-column: 3; grid-row: 1; order: 0; width: auto; max-width: none; }
-body .tf-header .mu-brand-row .mu-brand-logo { margin: 6px auto; padding: 0; }
+/* Reference header: wide search between the brand and service shortcuts. */
+body .mu-reference-header.head-main { background: var(--mu-ivory); box-shadow: none; }
+body .mu-reference-header > .container-fluid { max-width: 1920px; padding-inline: 32px; }
+body .mu-reference-header .tf-shipping-announcement { padding: 11px 16px; font-size: 13px; letter-spacing: 0; text-transform: none; }
+body .mu-reference-header .mu-brand-row { display: grid; grid-template-columns: 112px minmax(180px, 1fr) auto; align-items: center; gap: 24px; padding-block: 14px; }
+body .mu-reference-header .js-logo-col { width: auto; max-width: none; padding: 0; }
+body .mu-reference-header .mu-brand-logo { width: 96px; height: 96px; margin: 0; padding: 0; }
+body .mu-reference-header .mu-header-search { min-width: 0; position: relative; }
+body .mu-reference-header .mu-header-search .js-search-form { display: block; width: 100%; margin: 0; }
+body .mu-reference-header .mu-header-search .form-group { margin: 0 !important; }
+body .mu-reference-header .mu-header-search .search-input { width: 100%; height: 54px; padding: 0 18px 0 50px; border: 1px solid transparent; border-radius: 16px; background: #fff; color: var(--mu-ink); font-size: 15px; }
+body .mu-reference-header .mu-header-search .search-input::placeholder { color: #79675f; }
+body .mu-reference-header .mu-header-search .search-input:focus { outline: 2px solid var(--mu-bronze); outline-offset: 2px; }
+body .mu-reference-header .mu-header-search .search-input-submit { left: 6px; right: auto; top: 0; width: 44px; height: 54px; color: var(--mu-bronze); }
+body .mu-reference-header .mu-header-search .search-suggest { left: 0; right: 0; width: 100%; z-index: 1100; margin: 8px 0 0; border-radius: 12px; }
+body .mu-reference-header .tf-header-actions { gap: 18px; width: auto; max-width: none; }
+body .mu-reference-header .mu-service-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--mu-ink); font-size: 14px; white-space: nowrap; }
+body .mu-reference-header .mu-service-link .icon-inline { width: 22px; height: 22px; flex-shrink: 0; }
+body .mu-reference-header .mu-returns-link svg { fill: none; }
+body .mu-reference-header .mu-account-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: var(--mu-bronze); }
+body .mu-reference-header .cart-summary > a { color: var(--mu-bronze); }
+body .mu-reference-header .utilities-container { margin: 0; }
+body .mu-reference-header .nav-desktop { border: 0; }
+body .mu-reference-header .nav-desktop-list { justify-content: space-between; gap: 10px; padding: 0 0 12px; }
+body .mu-reference-header .nav-desktop-list > .nav-item > .nav-list-link { font-size: 15px; letter-spacing: 0; text-transform: none; padding: 12px 16px; min-height: 48px; }
+body .mu-reference-header .tf-nav-promotions > .nav-list-link { border-radius: 10px; background: var(--mu-bronze); color: #fff; }
+body .mu-reference-header .tf-nav-promotions > .nav-list-link:hover { background: var(--mu-bronze-hover); color: #fff; }
+@media (min-width: 768px) and (max-width: 1199px) {
+  body .mu-reference-header > .container-fluid { padding-inline: 20px; }
+  body .mu-reference-header .mu-brand-row { gap: 16px; grid-template-columns: 90px minmax(180px, 1fr) auto; }
+  body .mu-reference-header .mu-brand-logo { width: 82px; height: 82px; }
+  body .mu-reference-header .mu-service-link span { display: none; }
+  body .mu-reference-header .mu-service-link { justify-content: center; min-width: 36px; }
+  body .mu-reference-header .tf-header-actions { gap: 8px; }
+  body .mu-reference-header .nav-desktop-list > .nav-item > .nav-list-link { padding-inline: 10px; font-size: 13px; }
+}
+@media (max-width: 767px) {
+  body .mu-reference-header > .container-fluid { padding-inline: 16px; }
+  body .mu-reference-header .tf-shipping-announcement { padding: 8px 12px; font-size: 11px; }
+  body .mu-reference-header .mu-brand-row { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 8px; padding: 6px 0 12px; }
+  body .mu-reference-header .mu-mobile-menu { grid-column: 1; grid-row: 1; }
+  body .mu-reference-header .js-logo-col { grid-column: 2; grid-row: 1; }
+  body .mu-reference-header .mu-brand-logo { width: 72px; height: 72px; }
+  body .mu-reference-header .tf-header-actions { grid-column: 3; grid-row: 1; gap: 0; }
+  body .mu-reference-header .mu-service-link { display: none; }
+  body .mu-reference-header .mu-account-link { min-width: 36px; }
+  body .mu-reference-header .mu-header-search { grid-column: 1 / -1; grid-row: 2; }
+  body .mu-reference-header .mu-header-search .search-input { height: 46px; border-radius: 12px; font-size: 14px; }
+  body .mu-reference-header .mu-header-search .search-input-submit { height: 46px; }
+  body .mu-reference-header .tf-mobile-category-nav { border: 0; }
+  body .mu-reference-header .tf-mobile-categories { gap: 24px; }
+  body .mu-reference-header .tf-mobile-categories .nav-list-link { font-size: 12px; text-transform: none; letter-spacing: 0; }
+}
 
 /* The supplied wide photograph is exclusive to the Moda Feminina category. */
 body .mu-womens-banner { width: 100%; max-width: 100%; height: auto; aspect-ratio: 1142 / 364; margin-right: 0 !important; background: #454441; }

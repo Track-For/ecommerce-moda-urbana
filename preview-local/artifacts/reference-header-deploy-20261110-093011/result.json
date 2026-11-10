@@ -1,0 +1,9 @@
+{
+  "files": [
+    "snipplets/header/header.tpl",
+    "snipplets/header/header-search.tpl",
+    "static/css/style-shopping.tpl"
+  ],
+  "uploaded": [],
+  "verified": true
+}
