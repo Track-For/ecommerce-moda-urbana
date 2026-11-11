@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" lang="{% for language in languages %}{% if language.active %}{{ language.lang }}{% endif %}{% endfor %}">
     <head>
+        <!-- Google Tag Manager -->
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WHFLD9M9"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        </script>
+        <!-- End Google Tag Manager -->
+
         {% if template == 'home' %}
             {% set page_title = 'Moda Urbana Oficial | Moda feminina e moda íntima' %}
             {% set page_description = 'Na Moda Urbana Oficial você encontra moda feminina, conjuntos, blusas, vestidos e moda íntima. Veja as novidades e compre online.' %}
