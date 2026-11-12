@@ -17,23 +17,23 @@ checkout.scss.tpl
 
 {# /* // Colors */ #}
 
-$accent-brand-color: {{ settings.accent_color | default('rgb(77, 190, 207)' | raw ) }};
-$foreground-color: {{ settings.text_color | default('rgb(102, 102, 102)' | raw ) }};
-$background-color: {{ settings.background_color | default('rgb(252, 252, 252)' | raw ) }};
+$accent-brand-color: #9B1B00;
+$foreground-color: #752416;
+$background-color: #FFFFFF;
 
 {% if settings.header_colors %}
-  $header-background: {{ settings.header_background_color }};
-  $header-foreground: {{ settings.header_foreground_color }};
+  $header-background: {{ '#FFFFFF' }};
+  $header-foreground: {{ '#752416' }};
 {% else %}
-  $header-background: {{ settings.background_color }};
-  $header-foreground: {{ settings.text_color }};
+  $header-background: {{ '#FFFFFF' }};
+  $header-foreground: {{ '#752416' }};
 {% endif %}
 
-$button-background: {{ settings.button_background_color }};
-$button-foreground: {{ settings.button_foreground_color }};
+$button-background: {{ '#9B1B00' }};
+$button-foreground: {{ '#FBE4CD' }};
 
-$label-background: {{ settings.label_background_color }};
-$label-foreground: {{ settings.label_foreground_color }};
+$label-background: {{ '#F6CBC2' }};
+$label-foreground: {{ '#752416' }};
 
 {# /* // Font */ #}
 
@@ -88,7 +88,7 @@ $box-text-shadow: null;
   $box-text-shadow: 0 2px 1px rgba(lighten($foreground-color, 80%), 0.1);
 }
 
-$base-red: #c13a3a;
+$base-red: #9B1B00;
 
 $xs: 0;
 $sm: 576px;
@@ -102,9 +102,9 @@ $xl: 1200px;
 :root {
   {#### Color tokens #}
 
-  {% set accent_color = settings.accent_color %}
-  {% set main_foreground = settings.text_color %}
-  {% set main_background = settings.background_color %}
+  {% set accent_color = '#9B1B00' %}
+  {% set main_foreground = '#752416' %}
+  {% set main_background = '#FBE4CD' %}
 
   {# Auxiliar opacity hex levels #}
   {% set opacity_05 = '0D' %}
@@ -155,14 +155,14 @@ $xl: 1200px;
   --input-border-color: var(--border-color);
 
   {# Buttons #}
-  --button-foreground: {{ settings.button_foreground_color }};
-  --button-background: {{ settings.button_background_color }};
-  --button-border-color: {{ settings.button_background_color }};
+  --button-foreground: {{ '#FBE4CD' }};
+  --button-background: {{ '#9B1B00' }};
+  --button-border-color: {{ '#9B1B00' }};
   --button-border-radius: var(--border-radius);
 
   {# Labels #}
-  --label-foreground: {{ settings.label_foreground_color }};
-  --label-background: {{ settings.label_background_color }};
+  --label-foreground: {{ '#752416' }};
+  --label-background: {{ '#F6CBC2' }};
 
   --label-primary-background: var(--label-background);
   --label-primary-border-color: var(--label-background);
@@ -170,14 +170,14 @@ $xl: 1200px;
   --label-primary-border-radius: var(--border-radius);
 
   {# Header #}
-  --header-foreground: {{ settings.header_colors ? settings.header_foreground_color : 'var(--main-foreground)' }};
-  --header-background: {{ settings.header_colors ? settings.header_background_color : 'var(--main-background)' }};
+  --header-foreground: {{ settings.header_colors ? '#752416' : 'var(--main-foreground)' }};
+  --header-background: {{ settings.header_colors ? '#FBE4CD' : 'var(--main-background)' }};
   --header-logo-max-width: 100%;
   --header-logo-max-height: 60px;
 
   {# Footer #}
-  --footer-foreground: {{ settings.footer_colors ? settings.footer_foreground_color : 'var(--main-foreground)' }};
-  --footer-background: {{ settings.footer_colors ? settings.footer_background_color : 'var(--main-background)' }};
+  --footer-foreground: {{ settings.footer_colors ? '#752416' : 'var(--main-foreground)' }};
+  --footer-background: {{ settings.footer_colors ? '#FBE4CD' : 'var(--main-background)' }};
 
   {#### Typography #}
 
@@ -274,8 +274,16 @@ a {
 }
 
 .headbar-logo-img {
+  content: url("https://d2az8otjr0j19j.cloudfront.net/templates/006/631/262/twig/static/images/moda-urbana-logo-2026.png");
+  width: 128px;
+  height: 80px;
   max-width: 100%;
-  max-height: 60px;
+  max-height: 80px;
+  padding: 6px;
+  box-sizing: border-box;
+  background: #9B1B00;
+  border-radius: 6px;
+  object-fit: contain;
 }
 
 .headbar-logo-text {
@@ -627,7 +635,7 @@ a {
   border-color: $box-border-color;
 }
 .radio input:disabled:checked + .selector:before {
-  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 50%, transparent 100%);
+  background-image: radial-gradient(circle, rgba(117, 36, 22, 0.5) 0%, rgba(117, 36, 22, 0.5) 50%, transparent 50%, transparent 100%);
 }
 .radio .selector {
   position: relative;
@@ -1041,7 +1049,7 @@ a {
   border-radius: 0;
   float: left;
   background: none;
-  color: #cc4845;
+  color: #9B1B00;
 }
 
 .general-error {
@@ -1299,7 +1307,7 @@ a {
     }
     &.text-right {
       margin: -12px 0 15px 0;
-      background: #aac67b;
+      background: #FFFFFF;
       text-align: center !important;
     }
   }
@@ -1310,7 +1318,7 @@ a {
   }
 
   .security-seal {
-    color: #000000;
+    color: #752416;
 
     .d-inline-block:first-child {
       position: absolute;
@@ -1383,6 +1391,49 @@ a {
     background: $background-color;
   }
 
+}
+
+{# Emphasize native checkout security and payment components when styling is supported. #}
+.security-seal { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border: 1px solid #CDAF99; border-radius: 6px; background: #FFFFFF; color: #752416; }
+.security-seal p { font-size: 12px; line-height: 1.5; }
+.payment-category-label { font-size: 12px; letter-spacing: 0; }
+.payment-option { border: 1px solid #CDAF99; border-radius: 6px; }
+.payment-option.active { border-color: #9B1B00; }
+@media (max-width: 576px) {
+  .security-seal { position: relative; display: inline-flex; flex-wrap: wrap; justify-content: center; margin: 8px 0; }
+  .security-seal .d-inline-block:first-child { position: static; margin-left: 0; }
+  .security-seal p.text-semi-bold { margin-right: 0 !important; }
+}
+
+/* White fields across storefront and checkout forms. */
+body input:not([type="hidden"]):not([type="submit"]):not([type="button"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="image"]),
+body textarea,
+body select,
+body .form-select-options,
+body .form-quantity {
+  background-color: #FFFFFF !important;
+  color: #752416 !important;
+}
+body input::placeholder,
+body textarea::placeholder {
+  color: #752416 !important;
+  opacity: .65;
+}
+body input:-webkit-autofill,
+body input:-webkit-autofill:hover,
+body input:-webkit-autofill:focus,
+body textarea:-webkit-autofill,
+body select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important;
+  -webkit-text-fill-color: #752416 !important;
+}
+
+/* Match the storefront page gradient while keeping form fields white. */
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #FFFFFF 0%, #FFFFFF 50%, #FBE4CD 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 {% endif %}

@@ -321,6 +321,8 @@
       {% endif %}
     </div>
 
+    {% include "snipplets/commerce-trust.tpl" %}
+
     {{ component('nubesdk-slot', { type: "after_go_to_checkout" }) }}
 
 {% if cart_page %}

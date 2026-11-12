@@ -25,6 +25,7 @@
         <div class="tf-footer-newsbar"><div class="container-fluid">{% include 'snipplets/newsletter.tpl' %}</div></div>
     {% endif %}
 	<div class="container-fluid">
+        {% if template != "password" %}{% include "snipplets/commerce-trust.tpl" %}{% endif %}
 		<div class="tf-footer-columns row mb-5 {% if template == 'password' %}justify-content-md-center{% endif %}">
 
 			{% if template != 'password' or has_social_network %}
@@ -192,7 +193,7 @@
 						{% if "seal_img.jpg" | has_custom_image %}
 							<div class="footer-logo custom-seal">
 								{% if settings.seal_url != '' %}
-									<a href="{{ settings.seal_url | setting_url }}" target="_blank">
+									<a href="{{ settings.seal_url | setting_url | replace('modaurbanaoutlet.com.br', 'modaurbanaoficial.com.br') }}" target="_blank">
 								{% endif %}
 									<img src="{{ 'images/empty-placeholder.png' | static_url }}" data-src="{{ "seal_img.jpg" | static_url }}" class="custom-seal-img lazyload" alt="{{ 'Sello de' | translate }} {{ store.name }}"/>
 								{% if settings.seal_url != '' %}

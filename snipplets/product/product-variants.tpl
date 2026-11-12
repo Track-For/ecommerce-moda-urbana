@@ -27,7 +27,7 @@
 				<label class="form-label d-block mb-2">{{ variation.name }}</label>
 				{% for option in variation.options if option.custom_data %}
 					<a data-option="{{ option.id }}" class="js-insta-variant btn btn-variant{% if product.default_options[variation.id] is same as(option.id) %} selected{% endif %}{% if variation.name in ['Color', 'Cor'] %} btn-variant-color p-0{% endif %}" title="{{ option.name }}" data-option="{{ option.id }}" data-variation-id="{{ variation.id }}">
-						<span class="btn-variant-content"{% if variation.name in ['Color', 'Cor'] %} style="background: {{ option.custom_data }}; border: 1px solid #eee"{% endif %} data-name="{{ option.name }}">
+						<span class="btn-variant-content"{% if variation.name in ['Color', 'Cor'] %} style="background: {{ option.custom_data }}; border: 1px solid #CDAF99"{% endif %} data-name="{{ option.name }}">
 						{% if not(variation.name in ['Color', 'Cor']) %}
 							{{ option.name }}
 						{% endif %}

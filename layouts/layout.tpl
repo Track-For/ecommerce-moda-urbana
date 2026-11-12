@@ -9,10 +9,16 @@
           gtag('js', new Date());
         </script>
         <!-- End Google Tag Manager -->
-
         {% if template == 'home' %}
             {% set page_title = 'Moda Urbana Oficial | Moda feminina e moda íntima' %}
             {% set page_description = 'Na Moda Urbana Oficial você encontra moda feminina, conjuntos, blusas, vestidos e moda íntima. Veja as novidades e compre online.' %}
+        {% endif %}
+        {% if template == 'category' and params.sort_by == 'best-selling' %}
+            {% set page_title = 'Mais vendidos | Moda Urbana Oficial' %}
+            {% set page_description = 'Explore os produtos mais vendidos da Moda Urbana Oficial.' %}
+        {% elseif template == 'category' and params.sort_by == 'created-descending' %}
+            {% set page_title = 'Novidades | Moda Urbana Oficial' %}
+            {% set page_description = 'Conheça os produtos mais recentes da Moda Urbana Oficial.' %}
         {% endif %}
         <link rel="preconnect" href="{{ store_resource_hints }}" />
         <link rel="dns-prefetch" href="{{ store_resource_hints }}" />
@@ -31,8 +37,6 @@
         {% snipplet 'preload-images.tpl' %}
 
         {{ component('social-meta') }}
-        <link rel="icon" type="image/png" sizes="64x64" href="{{ 'images/moda-urbana-favicon.png' | static_url }}" />
-        <link rel="apple-touch-icon" href="{{ 'images/moda-urbana-oficial.png' | static_url }}" />
 
         {#/*============================================================================
             #CSS and fonts
@@ -96,6 +100,11 @@
         {# Loads private Tiendanube JS #}
 
         {% head_content %}
+        <link rel="icon" type="image/png" sizes="64x64" href="{{ 'images/moda-urbana-icon-2026.png' | static_url }}" />
+        <meta name="theme-color" content="#9B1B00" />
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ 'images/moda-urbana-touch-2026.png' | static_url }}" />
+        <link rel="shortcut icon" type="image/png" href="{{ 'images/moda-urbana-icon-2026.png' | static_url }}" />
+
 
         {# Structured data to provide information for Google about the page content #}
 

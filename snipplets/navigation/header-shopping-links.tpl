@@ -1,3 +1,6 @@
+<li class="nav-item nav-item-desktop js-desktop-nav-item js-nav-main-item nav-main-item mu-nav-collection"><a class="nav-list-link" href="{{ store.products_url | add_param('sort_by', 'best-selling') }}">Mais vendidos</a></li>
+<li class="nav-item nav-item-desktop js-desktop-nav-item js-nav-main-item nav-main-item mu-nav-collection"><a class="nav-list-link" href="{{ store.products_url | add_param('sort_by', 'created-descending') }}">Novidades</a></li>
+<li class="nav-item nav-item-desktop js-desktop-nav-item js-nav-main-item nav-main-item mu-nav-shipping"><a class="nav-list-link" href="/frete-gratis/">{% include 'snipplets/svg/truck.tpl' with {svg_custom_class: 'mu-nav-shipping-icon'} %}<span>Frete grátis para SP</span></a></li>
 {# Render native collections without merging platform objects. #}
 {% if categories %}
     {% for category in categories %}

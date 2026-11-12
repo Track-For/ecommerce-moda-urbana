@@ -10,6 +10,7 @@
 {% endif %}
 
 {% if not show_help %}
+{% include "snipplets/collection-heading.tpl" %}
 
 {% set mu_womens_banner = (category.name | lower) == 'moda feminina' %}
 {% set category_banner = mu_womens_banner or (category.images is not empty) or ("banner-products.jpg" | has_custom_image) %}

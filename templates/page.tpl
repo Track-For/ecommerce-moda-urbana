@@ -1,3 +1,7 @@
+{% set mu_about_page = (page.name | lower) in ['quem somos', 'sobre nós', 'sobre nos'] %}
+{% if mu_about_page %}
+{% include 'snipplets/about-us.tpl' %}
+{% else %}
 {% set tf_privacy_page = (page.name | lower) == 'política de privacidade' %}
 {% set tf_returns_page = (page.name | lower) == 'trocas e devoluções' %}
 {% if tf_privacy_page or tf_returns_page %}<article class="tf-privacy-page tf-support-page{% if tf_returns_page %} tf-returns-page{% endif %}">
@@ -21,4 +25,6 @@
 {% if tf_privacy_page or tf_returns_page %}
     <aside class="tf-privacy-contact">{% if tf_privacy_page %}Dúvidas sobre seus dados?{% else %}Precisa de ajuda com sua compra?{% endif %} <a href="/contato/">Entre em contato</a> ou <a href="mailto:fervalola51@gmail.com">envie um e-mail</a>.</aside>
 </article>
+{% endif %}
+
 {% endif %}

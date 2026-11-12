@@ -1,22 +1,22 @@
 {# TRACK FOR — Interaction polish, scoped to the three approved areas. #}
-$tf-glass-background: {{ settings.header_colors ? settings.header_background_color : settings.background_color }};
+$tf-glass-background: {{ settings.header_colors ? '#FFFFFF' : '#FFFFFF' }};
 .tf-header.head-main {
   background: rgba($tf-glass-background, .96);
-  border-bottom: 1px solid rgba(127, 127, 127, .18);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .32), 0 6px 24px rgba(0, 0, 0, .06);
+  border-bottom: 1px solid rgba(117, 36, 22, .18);
+  box-shadow: inset 0 1px 0 rgba(251, 228, 205, .32), 0 6px 24px rgba(117, 36, 22, .06);
 }
 @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .tf-header.head-main {
-    background: linear-gradient(120deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, 0) 55%), rgba($tf-glass-background, .78);
+    background: linear-gradient(120deg, rgba(251, 228, 205, .12), rgba(251, 228, 205, 0) 55%), rgba($tf-glass-background, .78);
     -webkit-backdrop-filter: blur(20px) saturate(135%);
     backdrop-filter: blur(20px) saturate(135%);
   }
 }
 {% if settings.head_transparent_contrast_options %}
 /* Match the native alternate foreground while the header overlays the hero. */
-$tf-glass-contrast: #fff;
-@if lightness({{ settings.header_transparent_foreground_color }}) > 50% {
-  $tf-glass-contrast: #17191c;
+$tf-glass-contrast: #FBE4CD;
+@if lightness({{ '#752416' }}) > 50% {
+  $tf-glass-contrast: #752416;
 }
 .tf-header.head-transparent-on-section.head-transparent-contrast:not(:hover) {
   background-color: rgba($tf-glass-contrast, .84);

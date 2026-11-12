@@ -16,7 +16,6 @@
                     <div class="swiper-slide slide-container">
                         <a class="tf-campaign-link" href="{{ store.products_url }}" aria-label="{{ campaign.title }} Ver coleção">
                             <picture class="tf-campaign-picture">
-                                <source media="(max-width: 767px)" srcset="{{ ('images/hero/' ~ campaign.file ~ '_mobile_820x1000.jpg') | static_url }}" width="820" height="1000">
                                 <img class="tf-campaign-image" src="{{ ('images/hero/' ~ campaign.file ~ '_desktop_1580x600.jpg') | static_url }}" width="1580" height="600" alt="{{ campaign.title }}" {% if loop.first %}fetchpriority="high" loading="eager"{% else %}loading="lazy"{% endif %}>
                             </picture>
                         </a>
