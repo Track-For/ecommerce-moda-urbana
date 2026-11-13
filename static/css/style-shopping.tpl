@@ -165,6 +165,15 @@ body .mu-reference-header .mu-service-link { display: inline-flex; align-items: 
 body .mu-reference-header .mu-service-link .icon-inline { width: 22px; height: 22px; flex-shrink: 0; }
 body .mu-reference-header .mu-returns-link svg { fill: none; }
 body .mu-reference-header .mu-account-link { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; color: var(--mu-bronze); }
+body .mu-reference-header .mu-account-menu { position: relative; flex-shrink: 0; }
+body .mu-reference-header .mu-account-link { cursor: pointer; list-style: none; }
+body .mu-reference-header .mu-account-link::-webkit-details-marker { display: none; }
+body .mu-reference-header .mu-account-link::marker { content: ''; }
+body .mu-reference-header .mu-account-link svg { width: 26px; height: 26px; fill: none; }
+body .mu-reference-header .mu-account-link:focus-visible { outline: 2px solid var(--mu-bronze); outline-offset: 3px; border-radius: 4px; }
+body .mu-reference-header .mu-account-menu-content { position: absolute; top: calc(100% + 8px); right: 0; z-index: 1100; width: 200px; max-width: calc(100vw - 32px); padding: 8px; border: 1px solid var(--mu-line); border-radius: 12px; background: var(--mu-ivory); color: var(--mu-ink); box-shadow: 0 12px 36px rgba(117, 36, 22,.16); text-align: left; }
+body .mu-reference-header .mu-account-menu-content a { display: block; padding: 12px; font-size: 14px; line-height: 1.4; border-radius: 6px; }
+body .mu-reference-header .mu-account-menu-content a:hover { background: var(--mu-sand); color: var(--mu-bronze); }
 body .mu-reference-header .cart-summary > a { color: var(--mu-bronze); }
 body .mu-reference-header .utilities-container { margin: 0; }
 body .mu-reference-header .nav-desktop { border: 0; }

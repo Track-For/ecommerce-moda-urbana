@@ -37,8 +37,6 @@
     {% set head_position_desktop = 'position-relative-md' %}
 {% endif %}
 
-{% set has_account_links = settings.account_header %}
-
 <header class="tf-header mu-reference-header js-head-main {% if head_transparent %}js-head-mutator{% endif %} {% if head_transparent_type_always %}head-transparent{% endif %} {% if head_transparent_type_on_section_above_the_fold %}head-transparent-on-section{% endif %} {% if head_transparent and settings.head_transparent_contrast_options %}head-transparent-contrast{% endif %} head-main {{ head_position_mobile }} {{ head_position_desktop }} transition-soft" data-store="head">
     <div class="tf-shipping-announcement">Frete Grátis para o estado de São Paulo</div>
     {# Adversiting bar #}
@@ -73,11 +71,22 @@
                     <svg class="icon-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 8h13a3 3 0 0 1 3 3M17 4l4 4-4 4M20 16H7a3 3 0 0 1-3-3M7 12l-4 4 4 4"/></svg>
                     <span>Trocas e devoluções</span>
                 </a>
-                {% if has_account_links %}
-                    <a class="mu-account-link utilities-item" href="{{ store.customer_home_url | default(store.customer_login_url) }}" aria-label="Minha conta">
-                        {% include "snipplets/svg/user.tpl" with {svg_custom_class: 'icon-inline utilities-icon'} %}
-                    </a>
-                {% endif %}
+                <details class="mu-account-menu">
+                    <summary class="mu-account-link utilities-item" aria-label="Minha conta" title="Minha conta">
+                        <svg class="icon-inline utilities-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="9" r="3"/><path d="M5.5 19.5v-1a6.5 4.5 0 0 1 13 0v1"/></svg>
+                    </summary>
+                    <div class="mu-account-menu-content" data-store="account-links">
+                        {% if not customer %}
+                            <a href="{{ store.customer_login_url }}">{{ 'Iniciar sesión' | translate }}</a>
+                            {% if 'mandatory' not in store.customer_accounts %}
+                                <a href="{{ store.customer_register_url }}">{{ 'Crear cuenta' | translate }}</a>
+                            {% endif %}
+                        {% else %}
+                            <a href="{{ store.customer_home_url }}">{{ 'Mi cuenta' | translate }}</a>
+                            <a href="{{ store.customer_logout_url }}">{{ 'Cerrar sesión' | translate }}</a>
+                        {% endif %}
+                    </div>
+                </details>
                 <span class="js-cart-utility header-utility">
                     {% include "snipplets/header/header-utilities.tpl" %}
                 </span>

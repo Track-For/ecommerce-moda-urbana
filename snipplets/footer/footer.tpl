@@ -146,12 +146,6 @@
 					</div>
 				{% endif %}
 
-				{# Account links #}
-
-				<div class="col-auto text-md-right d-none d-md-flex">
-					{% include "snipplets/header/header-utilities.tpl" with {use_account: true} %}
-				</div>
-
 				{# Language selector #}
 
 				{% if has_languages %}
